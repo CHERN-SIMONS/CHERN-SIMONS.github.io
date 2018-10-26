@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Learning Notes">
 <meta property="og:description" content="Records on 25/10/2018 复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。 随机变量及其概率密度 对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有 $$ \begin{align} 	F(x) = \int_{-\infty}^x f(t)dt,, \end{align} $$ 则称$X$为连续型随机变量">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-26T06:34:49.391Z">
+<meta property="og:updated_time" content="2018-10-26T07:00:51.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Research Records">
 <meta name="twitter:description" content="Records on 25/10/2018 复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。 随机变量及其概率密度 对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有 $$ \begin{align} 	F(x) = \int_{-\infty}^x f(t)dt,, \end{align} $$ 则称$X$为连续型随机变量">
@@ -381,7 +381,7 @@ $$
 <p>设一给定置信水平为$1-\alpha$，并设$X_1,\cdots,X_n$为总体$N(\mu,\sigma^2)$的样本。$\bar X,~S^2$分别是样本均值和样本方差。</p>
 <ol>
 <li>
-<p>$\mu$未知，$\sigma^2$已知：</p>
+<p>假设$\mu$未知，$\sigma^2$已知：</p>
 <p>此时可由上一节可知，取枢轴量$\frac {\bar X -\mu }{\sigma \sqrt n}$，已得到$\mu$的一个置信水平为$1-\alpha$的置信区间为
 $$
 \begin{align}
@@ -390,8 +390,60 @@ $$
 $$</p>
 </li>
 <li>
-<p>$\mu$未知，$\sigma^2$未知：</p>
-<p>此时就不能用上述的公式。</p>
+<p>假设$\mu$未知，$\sigma^2$未知：</p>
+<p>此时就不能用上述的公式，因其含有未知参数$\sigma$。考虑到$S^2$是$\sigma^2$的无偏估计，将$\sigma$换成$S = \sqrt{S^2}$，由定理可知
+$$
+\begin{align}
+	\frac{\bar X-\mu}{S\sqrt n } \sim t(n-1),,
+\end{align}
+$$
+并且右边分布不依赖于任何未知参数，使用$\frac{\bar X-\mu}{S\sqrt n }$作为枢轴量可得
+$$
+\begin{align}
+	P\left{ -t_{\alpha/2}(n-1)&lt;\frac{\bar X-\mu}{S\sqrt n }&lt; t_{\alpha/2}(n-1) \right} = 1-\alpha
+\end{align}
+$$
+于是得$\mu$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+\left( \bar X \pm \frac{S}{\sqrt n}t_{\alpha/2}(n-1) \right),.
+\end{align}
+$$</p>
+</li>
+</ol>
+<ol start="3">
+<li>
+<p>$\mu$假设未知，$\sigma$未知：</p>
+<p>$\sigma^2$的无偏估计就是$S^2$，由定理可知
+$$
+\begin{align}
+	\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1),,
+\end{align}
+$$
+并且上式右端的分布不依于任何未知参数，取$\frac{(n-1)S^2}{\sigma^2}$作为枢轴量，即得
+$$
+\begin{align}
+	P\left{ \chi^2_{1-\alpha/2}(n-1)&lt; \frac{(n-1)S^2}{\sigma^2}&lt; \chi^2_{\alpha/2}(n-1) \right} = 1-\alpha,.
+\end{align}
+$$</p>
+<p>即
+$$
+\begin{align}
+	P\left{ \frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)}&lt;\sigma^2 &lt; \frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)} \right} = 1-\alpha,.
+\end{align}
+$$
+这就得到了方差$\sigma^2$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	\left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)}\right),.
+\end{align}
+$$
+这也告诉我们标准差$\sigma$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	\left(\frac{\sqrt{(n-1)} S}{\sqrt {\chi^2_{\alpha/2}(n-1)}},\frac{\sqrt{(n-1)}S}{\sqrt{\chi^2_{1-\alpha/2}(n-1)}}\right),.
+\end{align}
+$$</p>
 </li>
 </ol>
 

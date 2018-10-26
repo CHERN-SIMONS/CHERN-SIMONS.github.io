@@ -382,7 +382,7 @@ $$
 <p>设一给定置信水平为$1-\alpha$，并设$X_1,\cdots,X_n$为总体$N(\mu,\sigma^2)$的样本。$\bar X,~S^2$分别是样本均值和样本方差。</p>
 <ol>
 <li>
-<p>$\mu$未知，$\sigma^2$已知：</p>
+<p>假设$\mu$未知，$\sigma^2$已知：</p>
 <p>此时可由上一节可知，取枢轴量$\frac {\bar X -\mu }{\sigma \sqrt n}$，已得到$\mu$的一个置信水平为$1-\alpha$的置信区间为
 $$
 \begin{align}
@@ -391,8 +391,60 @@ $$
 $$</p>
 </li>
 <li>
-<p>$\mu$未知，$\sigma^2$未知：</p>
-<p>此时就不能用上述的公式。</p>
+<p>假设$\mu$未知，$\sigma^2$未知：</p>
+<p>此时就不能用上述的公式，因其含有未知参数$\sigma$。考虑到$S^2$是$\sigma^2$的无偏估计，将$\sigma$换成$S = \sqrt{S^2}$，由定理可知
+$$
+\begin{align}
+	\frac{\bar X-\mu}{S\sqrt n } \sim t(n-1),,
+\end{align}
+$$
+并且右边分布不依赖于任何未知参数，使用$\frac{\bar X-\mu}{S\sqrt n }$作为枢轴量可得
+$$
+\begin{align}
+	P\left{ -t_{\alpha/2}(n-1)&lt;\frac{\bar X-\mu}{S\sqrt n }&lt; t_{\alpha/2}(n-1) \right} = 1-\alpha
+\end{align}
+$$
+于是得$\mu$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+\left( \bar X \pm \frac{S}{\sqrt n}t_{\alpha/2}(n-1) \right),.
+\end{align}
+$$</p>
+</li>
+</ol>
+<ol start="3">
+<li>
+<p>$\mu$假设未知，$\sigma$未知：</p>
+<p>$\sigma^2$的无偏估计就是$S^2$，由定理可知
+$$
+\begin{align}
+	\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1),,
+\end{align}
+$$
+并且上式右端的分布不依于任何未知参数，取$\frac{(n-1)S^2}{\sigma^2}$作为枢轴量，即得
+$$
+\begin{align}
+	P\left{ \chi^2_{1-\alpha/2}(n-1)&lt; \frac{(n-1)S^2}{\sigma^2}&lt; \chi^2_{\alpha/2}(n-1) \right} = 1-\alpha,.
+\end{align}
+$$</p>
+<p>即
+$$
+\begin{align}
+	P\left{ \frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)}&lt;\sigma^2 &lt; \frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)} \right} = 1-\alpha,.
+\end{align}
+$$
+这就得到了方差$\sigma^2$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	\left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)}\right),.
+\end{align}
+$$
+这也告诉我们标准差$\sigma$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	\left(\frac{\sqrt{(n-1)} S}{\sqrt {\chi^2_{\alpha/2}(n-1)}},\frac{\sqrt{(n-1)}S}{\sqrt{\chi^2_{1-\alpha/2}(n-1)}}\right),.
+\end{align}
+$$</p>
 </li>
 </ol>
 
@@ -514,13 +566,8 @@ $$</p>
       
         
           
-            <p>我们$a = b =c$</p>
-<p>​	
-$$
-\begin{align}
-	x = y;
-\end{align}
-$$</p>
+            <p>我们</p>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> LSPoly::Initialize(<span class="keyword">int</span> npts, <span class="keyword">int</span> in_ndeg, <span class="keyword">double</span> * xpts, <span class="keyword">double</span> * funcvals)&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;</span><br><span class="line">  <span class="keyword">double</span> xi,tmpd;</span><br><span class="line"><span class="keyword">if</span>(alpha!=<span class="literal">NULL</span>)&#123;</span><br><span class="line"><span class="built_in">cerr</span> &lt;&lt; <span class="string">"Error:: LSPoly has already been initialized"</span> &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
