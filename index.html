@@ -300,67 +300,98 @@
       
         
           
-            <h1 id="Records-on-25-10-2018"><a href="#Records-on-25-10-2018" class="headerlink" title="Records on 25/10/2018"></a>Records on 25/10/2018</h1><p>复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。</p>
-<h2 id="随机变量及其概率密度"><a href="#随机变量及其概率密度" class="headerlink" title="随机变量及其概率密度"></a>随机变量及其概率密度</h2><p>对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有</p>
-<script type="math/tex; mode=display">
+            <h1>Records on 25/10/2018</h1>
+<p>复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。</p>
+<h2>随机变量及其概率密度</h2>
+<p>对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有
+$$
 \begin{align}
-    F(x) = \int_{-\infty}^x f(t)dt\,,
-\end{align}</script><p>则称$X$为<strong>连续型随机变量</strong>， $f(x)$称为$X$的概率密度函数，简称为<strong>概率密度</strong> ，所以$F(x)$的意思就是概率$P(X\leq x)$。若随机变量$X$满足的概率密度为</p>
-<p>​    </p>
-<script type="math/tex; mode=display">
+	F(x) = \int_{-\infty}^x f(t)dt,,
+\end{align}
+$$
+则称$X$为<strong>连续型随机变量</strong>， $f(x)$称为$X$的概率密度函数，简称为<strong>概率密度</strong> ，所以$F(x)$的意思就是概率$P(X\leq x)$。若随机变量$X$满足的概率密度为</p>
+<p>​	
+$$
 \begin{align}
-    f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2
-}}\,,~~~\text{for}~~~-\infty< x < \infty\,,
-\end{align}</script><p>其中$\mu,\sigma~(\sigma&gt;0)$为常数，则称$X$服从参数为$\mu,\sigma$的<strong>正态分布</strong>或<strong>高斯</strong>分布，记为$X\sim N(\mu,\sigma)$。</p>
-<h1 id="Records-on-26-10-2018"><a href="#Records-on-26-10-2018" class="headerlink" title="Records on 26/10/2018"></a>Records on 26/10/2018</h1><p>学习数理统计的三章内容，包含参数估计(点估计和区间估计)、假设检验、方差分析及回归分析。</p>
-<h2 id="1-参数估计"><a href="#1-参数估计" class="headerlink" title="1. 参数估计"></a>1. 参数估计</h2><h3 id="1-1点估计"><a href="#1-1点估计" class="headerlink" title="1.1点估计"></a>1.1点估计</h3><h3 id="1-2区间估计"><a href="#1-2区间估计" class="headerlink" title="1.2区间估计"></a>1.2区间估计</h3><p>​    <strong>置信区间</strong>    ： 设总体样本$X$的分布函数$F(x;\theta)$ 含有一个未知参数$\theta,~\theta\in\Theta$ ($\Theta$是$\theta$可能取值的范围)， 对于给定值$\alpha~(0&lt;\alpha&lt;1)$ ， 若由来自$X$的样本$X_1,X_2,\cdots, X_n$确定的两个统计量$\underline{\theta} = \underline\theta(X_1,\cdots,X_n)$和$\bar{\theta}=\bar{\theta}(X_1,\cdots,X_n) (\underline\theta&lt;\bar\theta)$，对于任意$\theta\in\Theta$满足</p>
-<script type="math/tex; mode=display">
+	f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2
+}},,~<s>\text{for}</s>~-\infty&lt; x &lt; \infty,,
+\end{align}
+$$
+其中$\mu,\sigma~(\sigma&gt;0)$为常数，则称$X$服从参数为$\mu,\sigma$的<strong>正态分布</strong>或<strong>高斯</strong>分布，记为$X\sim N(\mu,\sigma)$。</p>
+<p>#Records on 26/10/2018</p>
+<p>学习数理统计的三章内容，包含参数估计(点估计和区间估计)、假设检验、方差分析及回归分析。</p>
+<h2>1. 参数估计</h2>
+<h3>1.1点估计</h3>
+<h3>1.2区间估计</h3>
+<p>​	<strong>置信区间</strong>	： 设总体样本$X$的分布函数$F(x;\theta)$ 含有一个未知参数$\theta,~\theta\in\Theta$ ($\Theta$是$\theta$可能取值的范围)， 对于给定值$\alpha~(0&lt;\alpha&lt;1)$ ， 若由来自$X$的样本$X_1,X_2,\cdots, X_n$确定的两个统计量$\underline{\theta} = \underline\theta(X_1,\cdots,X_n)$和$\bar{\theta}=\bar{\theta}(X_1,\cdots,X_n) (\underline\theta&lt;\bar\theta)$，对于任意$\theta\in\Theta$满足
+$$
 \begin{align}
-    P\{\underline\theta(X_1,\cdots,X_n)<\theta<\bar\theta(X_1,\cdots,X_n)\} \geq 1-\alpha\,,
-\end{align}</script><p>则称随机区间$(\underline\theta,\bar\theta)$是$\theta$的置信水平为$1-\alpha$的<strong>置信区间</strong>，$\underline\theta$和$\bar\theta$分别为置信水平为$1-\alpha$的双侧置信区间的<strong>置信下限</strong>和<strong>置信上限</strong>，$1-\alpha$称为<strong>置信水平</strong>.</p>
-<p>​    对于正态分布，$X\sim N(\mu,\sigma^2)$，$\sigma^2$为已知，$\mu$未知，我们知道$\bar X$是$\mu$的无偏估计，且有</p>
-<p>​    </p>
-<script type="math/tex; mode=display">
+	P{\underline\theta(X_1,\cdots,X_n)&lt;\theta&lt;\bar\theta(X_1,\cdots,X_n)} \geq 1-\alpha,,
+\end{align}
+$$
+则称随机区间$(\underline\theta,\bar\theta)$是$\theta$的置信水平为$1-\alpha$的<strong>置信区间</strong>，$\underline\theta$和$\bar\theta$分别为置信水平为$1-\alpha$的双侧置信区间的<strong>置信下限</strong>和<strong>置信上限</strong>，$1-\alpha$称为<strong>置信水平</strong>.</p>
+<p>​	对于正态分布，$X\sim N(\mu,\sigma^2)$，$\sigma^2$为已知，$\mu$未知，我们知道$\bar X$是$\mu$的无偏估计，且有</p>
+<p>​	
+$$
 \begin{align}
-    \frac{\bar X -\mu}{\sigma /\sqrt{n}} \sim N(0,1)\,.
-\end{align}</script><p>按照标准正态分布的上$\alpha$分位点的定义，有</p>
-<script type="math/tex; mode=display">
+	\frac{\bar X -\mu}{\sigma /\sqrt{n}} \sim N(0,1),.
+\end{align}
+$$
+按照标准正态分布的上$\alpha$分位点的定义，有
+$$
 \begin{align}
-    P\left\{\left|\frac{\bar X -\mu}{\sigma\sqrt{n}} \right|< z_{\alpha/2}\right\} = 1-\alpha\,,
-\end{align}</script><p>即</p>
-<script type="math/tex; mode=display">
+	P\left{\left|\frac{\bar X -\mu}{\sigma\sqrt{n}} \right|&lt; z_{\alpha/2}\right} = 1-\alpha,,
+\end{align}
+$$
+即
+$$
 \begin{align}
-P\left\{< \bar X - \frac{\sigma}{\sqrt n} z_{\alpha/2}\mu < \bar X + \frac{\sigma}{\sqrt n} z_{\alpha/2}\right\} = 1-\alpha\,.
-\end{align}</script><p>这样，我们就得到了$\mu$的置信水平为$1-\alpha$的置信区间</p>
-<p>​    </p>
-<script type="math/tex; mode=display">
+P\left{&lt; \bar X - \frac{\sigma}{\sqrt n} z_{\alpha/2}\mu &lt; \bar X + \frac{\sigma}{\sqrt n} z_{\alpha/2}\right} = 1-\alpha,.
+\end{align}
+$$
+这样，我们就得到了$\mu$的置信水平为$1-\alpha$的置信区间</p>
+<p>​	
+$$
 \begin{align}
-    \left( \bar X -\frac{\sigma}{\sqrt n}z_{\alpha/2},\bar X +\frac{\alpha}{\sqrt n}z_{\alpha/2} \right)\,,
-\end{align}</script><p>这样的置信区间写成</p>
-<script type="math/tex; mode=display">
+	\left( \bar X -\frac{\sigma}{\sqrt n}z_{\alpha/2},\bar X +\frac{\alpha}{\sqrt n}z_{\alpha/2} \right),,
+\end{align}
+$$
+这样的置信区间写成
+$$
 \begin{align}
-\left( \bar X \pm \frac{\sigma}{\sqrt n}z_{\alpha/2} \right)\,.
-\end{align}</script><p>​    像正态分布那样，可以寻找未知参数$\theta$的置信区间的具体做法如下：</p>
+\left( \bar X \pm \frac{\sigma}{\sqrt n}z_{\alpha/2} \right),.
+\end{align}
+$$</p>
+<p>​	像正态分布那样，可以寻找未知参数$\theta$的置信区间的具体做法如下：</p>
 <ol>
-<li><p>寻找一个样本$X_1,\cdots,X_n$和$\theta$的函数$W=W(X_1,\cdots, X_n,\theta)$，使得$W$的分布不依赖于$\theta$以及其他未知参数，称具有这种性质的函数$W$为<strong>枢轴量</strong>。</p>
+<li>
+<p>寻找一个样本$X_1,\cdots,X_n$和$\theta$的函数$W=W(X_1,\cdots, X_n,\theta)$，使得$W$的分布不依赖于$\theta$以及其他未知参数，称具有这种性质的函数$W$为<strong>枢轴量</strong>。</p>
 </li>
-<li><p>对于给定的置信水平$1-\alpha$，定出两个常数$a,b$使得</p>
-<script type="math/tex; mode=display">
+<li>
+<p>对于给定的置信水平$1-\alpha$，定出两个常数$a,b$使得
+$$
 \begin{align}
-P\{\alpha < W(X_1,X_2,\cdots,X_n;\theta)<b \} = 1-\alpha\,.
-\end{align}</script><p>若能从$\alpha &lt; W(X_1,X_2,\cdots,X_n;\theta)&lt;b$得到与之等价的$\theta$不等式$\underline \theta&lt;\theta&lt;\bar\theta$，其中$\underline\theta = \underline \theta(X_1,X_2,\cdots,X_n)$，$\bar\theta = \bar\theta (X_1,\cdots,X_n)$都是统计量。那么$(\bar\theta,\underline\theta)$就是$\theta$的一个置信水平为$1-\alpha $的置信区间。</p>
+P{\alpha &lt; W(X_1,X_2,\cdots,X_n;\theta)&lt;b } = 1-\alpha,.
+\end{align}
+$$
+若能从$\alpha &lt; W(X_1,X_2,\cdots,X_n;\theta)&lt;b$得到与之等价的$\theta$不等式$\underline \theta&lt;\theta&lt;\bar\theta$，其中$\underline\theta = \underline \theta(X_1,X_2,\cdots,X_n)$，$\bar\theta = \bar\theta (X_1,\cdots,X_n)$都是统计量。那么$(\bar\theta,\underline\theta)$就是$\theta$的一个置信水平为$1-\alpha $的置信区间。</p>
 </li>
 </ol>
 <p>枢轴量$W(X_1,\cdots,X_n;\theta)$的构造，通常可以从$\theta$的点估计着手考虑。常用的正太总体的参数的置信区间可以用上述的步骤获得。</p>
-<h3 id="1-3正太总体均值与方差的区间估计"><a href="#1-3正太总体均值与方差的区间估计" class="headerlink" title="1.3正太总体均值与方差的区间估计"></a>1.3正太总体均值与方差的区间估计</h3><p>设一给定置信水平为$1-\alpha$，并设$X_1,\cdots,X_n$为总体$N(\mu,\sigma^2)$的样本。$\bar X,~S^2$分别是样本均值和样本方差。</p>
+<h3>1.3正太总体均值与方差的区间估计</h3>
+<p>设一给定置信水平为$1-\alpha$，并设$X_1,\cdots,X_n$为总体$N(\mu,\sigma^2)$的样本。$\bar X,~S^2$分别是样本均值和样本方差。</p>
 <ol>
-<li><p>$\mu$未知，$\sigma^2$已知：</p>
-<p>此时可由上一节可知，取枢轴量$\frac {\bar X -\mu }{\sigma \sqrt n}$，已得到$\mu$的一个置信水平为$1-\alpha$的置信区间为</p>
-<script type="math/tex; mode=display">
+<li>
+<p>$\mu$未知，$\sigma^2$已知：</p>
+<p>此时可由上一节可知，取枢轴量$\frac {\bar X -\mu }{\sigma \sqrt n}$，已得到$\mu$的一个置信水平为$1-\alpha$的置信区间为
+$$
 \begin{align}
-\left( \bar X \pm \frac{\sigma}{\sqrt n}z_{\alpha/2} \right)\,.
-\end{align}</script></li>
-<li><p>$\mu$未知，$\sigma^2$未知：</p>
+\left( \bar X \pm \frac{\sigma}{\sqrt n}z_{\alpha/2} \right),.
+\end{align}
+$$</p>
+</li>
+<li>
+<p>$\mu$未知，$\sigma^2$未知：</p>
 <p>此时就不能用上述的公式。</p>
 </li>
 </ol>
@@ -483,9 +514,14 @@ P\{\alpha < W(X_1,X_2,\cdots,X_n;\theta)<b \} = 1-\alpha\,.
       
         
           
-            <p>我们</p>
-<script type="math/tex; mode=display">
-a = b =c</script>
+            <p>我们$a = b =c$</p>
+<p>​	
+$$
+\begin{align}
+	x = y;
+\end{align}
+$$</p>
+
           
         
       
@@ -605,13 +641,18 @@ a = b =c</script>
         
           
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2>Quick Start</h2>
+<h3>Create a new post</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3>Run server</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3>Generate static files</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3>Deploy to remote sites</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
