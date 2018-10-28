@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/25/Research-Records/" itemprop="url">Research Records</a></h1>
+                <a class="post-title-link" href="/2018/10/25/Research-Records/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -300,7 +300,11 @@
       
         
           
-            <h1>Records on 25/10/2018</h1>
+            <p>title: Research Records
+date: 2018-10-25 12:23:18
+mathjax: true
+tags:</p>
+<h1>Records on 25/10/2018</h1>
 <p>复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。</p>
 <h2>随机变量及其概率密度</h2>
 <p>对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有
@@ -378,7 +382,7 @@ $$
 </li>
 </ol>
 <p>枢轴量$W(X_1,\cdots,X_n;\theta)$的构造，通常可以从$\theta$的点估计着手考虑。常用的正太总体的参数的置信区间可以用上述的步骤获得。</p>
-<h3>1.3正太总体均值与方差的区间估计</h3>
+<h3>1.3正态总体均值与方差的区间估计</h3>
 <p>设一给定置信水平为$1-\alpha$，并设$X_1,\cdots,X_n$为总体$N(\mu,\sigma^2)$的样本。$\bar X,~S^2$分别是样本均值和样本方差。</p>
 <ol>
 <li>
@@ -414,7 +418,7 @@ $$</p>
 </ol>
 <ol start="3">
 <li>
-<p>$\mu$假设未知，$\sigma$未知：</p>
+<p>假设$\mu$未知，$\sigma$未知：</p>
 <p>$\sigma^2$的无偏估计就是$S^2$，由定理可知
 $$
 \begin{align}
@@ -447,9 +451,128 @@ $$
 $$</p>
 </li>
 </ol>
+<h3>1.4两个总体样本$N(\mu_1,\sigma^2_1),~N(\mu_2,\sigma^2_2)$的情况</h3>
+<ol>
+<li>
+<p>两个总体均值差$\mu_1-\mu_2$的置信区间：</p>
+<p>（1）$\sigma_1,\sigma_2$均为已知。因$\bar{X}, \bar{Y}$分别是$\mu_1,\mu_2$的无偏估计，故$\bar X- \bar Y$是$\mu_1-\mu_2$的无偏估计。由$\bar X, \bar Y$的独立性以及$\bar X\sim N(\mu_1,\sigma^2/n_1),~bar Y\sim N(\mu_2,\sigma^2/n_2)$得到
+$$
+\begin{align}
+	\bar X-\bar Y \sim N\left(\mu_1-\mu_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}\right)
+\end{align}
+$$
+或者
+$$
+\begin{align}
+	\frac{(\bar X-\bar Y) - (\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim N(0,1)
+\end{align}
+$$
+取$\frac{(\bar X-\bar Y) - (\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}$为枢轴量，即得$\mu_1-\mu_2$的一个置信水平为$1-\alpha$得置信区间
+$$
+\begin{align}
+	\left( \bar X-\bar Y \pm z_{\alpha/2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right)
+\end{align}
+$$
+(2) $\sigma_1= \sigma_2 = \sigma$ ，但$\sigma^2$未知，此时由定理可知，构造枢轴量
+$$
+\begin{align}
+	\frac{(\bar X-\bar Y) - (\mu_1-\mu_2)}{S_w \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} \sim t(n_1+n_2-2)
+\end{align}
+$$
+可以得到$\mu_1-\mu_2$的一个置信水平为$1-\alpha$的置信区间为
+$$
+\begin{align}
+	\left( \bar X- \bar Y \pm t_{\alpha/2}(n_1+n_2-2)S_w\sqrt{\frac{1}{n_1}+\frac{1}{n_2}} \right)
+\end{align}
+$$
+此处	
+$$
+\begin{align}
+	S_w^2 = \frac{(n_1-1)S_1^2 +(n_2-1)S_2^2}{n_1+n_2-2},,~~~S_w = \sqrt{S_w^2}
+\end{align}
+$$</p>
+</li>
+<li></li>
+</ol>
+<p>（2）两个总体方差比$\sigma_1^2/\sigma_2^2$的置信区间：</p>
+<p>当总体均值$\mu_1,~\mu_2$均未知，则由定理可以得到</p>
+<p>​	
+$$
+\begin{align}
+	\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} \sim F(n_1-1,n_2-1),,
+\end{align}
+$$
+并且分布$F(n_1-1,n_2-1)$不依赖于任何未知的情况。取$\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} $为枢轴量得</p>
+<p>​	
+$$
+\begin{align}
+	P\left{ F_{1-\alpha/2}(n_1-1,n_2-1) &lt; \frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}  &lt; F_{\alpha/2}(n_1-1,n_2-1) \right} = 1-\alpha
+\end{align}
+$$
+即
+$$
+\begin{align}
+	P\left{ \frac{S_1^2}{S_2^2} \frac{1}{F_{\alpha/2}(n_1-1,n_2-1)} &lt;\frac{\sigma_1^2}{\sigma_2^2} &lt;\frac{S_1^2}{S_2^2} \frac{1}{F_{1-\alpha/2}(n_1-1,n_2-1)} \right} = 1-\alpha,.
+\end{align}
+$$</p>
+<h3>1.5 (0—1)分布参数的区间估计</h3>
+<p>已知$(0—1)$ 分布的均值和方差分别为</p>
+<p>​	
+$$
+\begin{align}
+	\mu = P ,, ~~\sigma^2 = p(1-p),.
+\end{align}
+$$
+设$X_1,\cdots, X_n$ 是一个样本。因样本容量$n$较大，由中心极限定理可知
+$$
+\begin{align}
+	\frac{\sum_{i=1}^n X_i -n p}{\sqrt{np(1-p)}} = \frac{n\bar{X} -np}{\sqrt{np(1-p)}}
+\end{align}
+$$
+近似服从$N(0,1)$分布，于是有
+$$
+\begin{align}
+	P\left{ -z_{\alpha/2}&lt; \frac{n\bar{X} - np}{\sqrt{np(1-p)}}&lt;z_{\alpha/2} \right} \approx 1-\alpha
+\end{align}
+$$
+而不等式$-z_{\alpha/2}&lt; \frac{n\bar{X} - np}{\sqrt{np(1-p)}}&lt;z_{\alpha/2}$等价于
+$$
+\begin{align}
+	(n+z_{\alpha/2}^2)p^2-(2n\bar{X}+z_{\alpha/2}^2)p+n\bar{X}^2 &lt;0,,
+\end{align}
+$$
+记
+$$
+\begin{align}
+	p_1 = &amp; \frac{1}{2a}(-b-\sqrt{b^2-4ac})\
+	p_2 = &amp; \frac{1}{2a}(-b+\sqrt{b^2-4ac})
+\end{align}
+$$</p>
+<p>此处$a = n+z_{\alpha/2}^2,~b=-(2n\bar{X}+z_{\alpha/2}^2),~c = n\bar{X}^2$。于是我们得到一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	(p_1,p_2),.
+\end{align}
+$$</p>
+<h3>1.6单侧置信区间</h3>
+<p>在某些时候我们需要研究未知参数的上限或者下限，这就引出了单侧置信区间的概念。</p>
+<p>对于给定值$\alpha~(0&lt;\alpha&lt;1)$，若由样本$X_1,\cdots,X_n$确定的统计量$\underline{\theta}=\underline{\theta}(X_1,\cdots,X_n)$，对于任意$\theta\in\Theta$满足
+$$
+\begin{align}
+	P(\theta&gt;\underline{\theta})\geq 1-\alpha,,
+\end{align}
+$$
+则称随机区间$(\underline{\theta},\infty)$是$\theta$的置信水平为$1-\alpha$的<strong>单侧置信区间</strong>，$\underline{\theta}$称为$\theta$的置信水平为$1-\alpha$的<strong>单侧置信下限</strong>。</p>
+<p>又若统计量$\bar{\theta}=\bar{\theta}(X_1,\cdots,X_n)$，对于任意$\theta\in\Theta$满足
+$$
+\begin{align}
+	P(\theta&lt;\bar{\theta})\geq 1-\alpha,,
+\end{align}
+$$
+则称随机区间$(-\infty,\bar{\theta})$是$\theta$的置信水平为$1-\alpha$的<strong>单侧置信区间</strong>，$\bar{\theta}$称为$\theta$的置信水平为$1-\alpha$的<strong>单侧置信下限</strong>。</p>
 <h1>Records on 27/10/2018</h1>
-<h2>Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</h2>
-<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*lapse function*)</span></span><br><span class="line">\[Alpha][x_, y_, z_] := </span><br><span class="line">  <span class="number">1</span> - (<span class="number">2</span> G)/c^<span class="number">2</span> m1/r1 - (<span class="number">2</span> G)/c^<span class="number">2</span> m2/r2 - (G m1)/(</span><br><span class="line">    c^<span class="number">4</span> r1) (<span class="number">4</span> v1^<span class="number">2</span> - vn1^<span class="number">2</span> - <span class="number">2</span> G m1/r1) - (G m2)/(</span><br><span class="line">    c^<span class="number">4</span> r2) (<span class="number">4</span> v2^<span class="number">2</span> - vn2^<span class="number">2</span> - <span class="number">2</span> G m2/r2) + (G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">    c^<span class="number">4</span> r1) (<span class="number">2</span>/r2 + <span class="number">5</span>/(<span class="number">2</span> R) + (r1^<span class="number">2</span> - r2^<span class="number">2</span>)/(<span class="number">2</span> R^<span class="number">3</span>)) + (G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">    c^<span class="number">4</span> r2) (<span class="number">2</span>/r1 + <span class="number">5</span>/(<span class="number">2</span> R) + (r2^<span class="number">2</span> - r1^<span class="number">2</span>)/(<span class="number">2</span> R^<span class="number">3</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">(*shift vector*)</span></span><br><span class="line">\[<span class="keyword">Beta</span>] = &#123;-((4 G m1 vx1)/(c^3 r1)) - (4 G m2 vx2)/(</span><br><span class="line">    c^3 r2), -((4 G m1 vy1 )/(c^3 r1)) - (4 G m2 vy2 )/(</span><br><span class="line">    c^3 r2), -((4 G m1 vz1 )/(c^3 r1)) - (4 G m2 vz2 )/(c^3 r2)&#125;;</span><br><span class="line">\[Psi][x_, y_, z_] := <span class="number">1</span> + (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) + (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line">\[Psi]<span class="number">1</span>[x_, y_, z_] := <span class="number">1</span> - (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) - (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 3-metric which is conformal to flat space in isotropic coordinates *)</span></span><br><span class="line">metric = &#123;&#123;\[Psi][x, y, z], 0, 0&#125;, &#123;0, \[Psi][x, y, z], 0&#125;, &#123;0, </span><br><span class="line">    0, \[Psi][x, y, z]&#125;&#125;;</span><br><span class="line"><span class="comment">(* inverse 3-metric *)</span></span><br><span class="line">inversemetric = &#123;&#123;\[Psi]1[x, y, z], 0, 0&#125;, &#123;0, \[Psi]1[x, y, z], </span><br><span class="line">    0&#125;, &#123;0, 0, \[Psi]1[x, y, z]&#125;&#125;;</span><br><span class="line"><span class="comment">(* extrinsic curvature according to Lie derivatives *)</span></span><br><span class="line">k[i_, j_] := </span><br><span class="line"> <span class="keyword">Sum</span>[metric[[i, k]] <span class="keyword">D</span>[n[k], coord[[j]]], &#123;k, 1, 3&#125;] + </span><br><span class="line">  <span class="keyword">Sum</span>[metric[[j, k]] <span class="keyword">D</span>[n[k], coord[[i]]], &#123;k, 1, 3&#125;]; </span><br><span class="line"> <span class="comment">(* alternatively extrinsic curvature solved in isotropic coordinates*)</span></span><br><span class="line"> k[i_, j_] := (<span class="number">3</span> m1)/(</span><br><span class="line">   <span class="number">2</span> r1^<span class="number">2</span>) ( </span><br><span class="line">    v1[i] nn1[j] + </span><br><span class="line">     v1[j] nn1[i] - (delta[i, j] - nn1[i] nn1[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v1[k] nn1[k], &#123;k, 1, 3&#125;]) + (<span class="number">3</span> m2)/(</span><br><span class="line">   <span class="number">2</span> r2^<span class="number">2</span>) ( </span><br><span class="line">    v2[i] nn2[j] + </span><br><span class="line">     v2[j] nn2[i] - (delta[i, j] - nn2[i] nn2[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v2[k] nn2[k], &#123;k, 1, 3&#125;])</span><br></pre></td></tr></table></figure></p>
+<h3>Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</h3>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*coordinates*)</span></span><br><span class="line">coord = (t,x,y,z);</span><br><span class="line"></span><br><span class="line"><span class="comment">(*lapse function*)</span></span><br><span class="line">\[Alpha][x_, y_, z_] := </span><br><span class="line">  <span class="number">1</span> - (<span class="number">2</span> G)/c^<span class="number">2</span> m1/r1 - (<span class="number">2</span> G)/c^<span class="number">2</span> m2/r2 - (G m1)/(</span><br><span class="line">    c^<span class="number">4</span> r1) (<span class="number">4</span> v1^<span class="number">2</span> - vn1^<span class="number">2</span> - <span class="number">2</span> G m1/r1) - (G m2)/(</span><br><span class="line">    c^<span class="number">4</span> r2) (<span class="number">4</span> v2^<span class="number">2</span> - vn2^<span class="number">2</span> - <span class="number">2</span> G m2/r2) + (G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">    c^<span class="number">4</span> r1) (<span class="number">2</span>/r2 + <span class="number">5</span>/(<span class="number">2</span> R) + (r1^<span class="number">2</span> - r2^<span class="number">2</span>)/(<span class="number">2</span> R^<span class="number">3</span>)) + (G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">    c^<span class="number">4</span> r2) (<span class="number">2</span>/r1 + <span class="number">5</span>/(<span class="number">2</span> R) + (r2^<span class="number">2</span> - r1^<span class="number">2</span>)/(<span class="number">2</span> R^<span class="number">3</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">(*shift vector*)</span></span><br><span class="line">\[<span class="keyword">Beta</span>] = &#123;-((4 G m1 vx1)/(c^3 r1)) - (4 G m2 vx2)/(</span><br><span class="line">    c^3 r2), -((4 G m1 vy1 )/(c^3 r1)) - (4 G m2 vy2 )/(</span><br><span class="line">    c^3 r2), -((4 G m1 vz1 )/(c^3 r1)) - (4 G m2 vz2 )/(c^3 r2)&#125;;</span><br><span class="line">\[Psi][x_, y_, z_] := <span class="number">1</span> + (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) + (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line">\[Psi]<span class="number">1</span>[x_, y_, z_] := <span class="number">1</span> - (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) - (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 3-metric which is conformal to flat space in isotropic coordinates *)</span></span><br><span class="line">metric = &#123;&#123;\[Psi][x, y, z], 0, 0&#125;, &#123;0, \[Psi][x, y, z], 0&#125;, &#123;0, </span><br><span class="line">    0, \[Psi][x, y, z]&#125;&#125;;</span><br><span class="line"><span class="comment">(* inverse 3-metric *)</span></span><br><span class="line">inversemetric = &#123;&#123;\[Psi]1[x, y, z], 0, 0&#125;, &#123;0, \[Psi]1[x, y, z], </span><br><span class="line">    0&#125;, &#123;0, 0, \[Psi]1[x, y, z]&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(*confomal 3-metric and its inverse metric*)</span>  </span><br><span class="line">confmetric = &#123;&#123;1, 0, 0&#125;, &#123;0, 1, 0&#125;, &#123;0, 0, 1&#125;&#125;;</span><br><span class="line">inverseconfmetric = &#123;&#123;1, 0, 0&#125;, &#123;0, 1, 0&#125;, &#123;0, 0, 1&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(* extrinsic curvature according to its definition *)</span></span><br><span class="line">k[i_, j_] := -<span class="keyword">D</span>[u[i], coord[j]] + </span><br><span class="line">   <span class="keyword">Sum</span>[affine[[k, i, j]] u[k], &#123;k, 0, 3&#125;] - </span><br><span class="line">   u[i] <span class="keyword">D</span>[<span class="keyword">Log</span>[\[Alpha][x, y, z]], coord[j]];</span><br><span class="line">k = <span class="keyword">Sum</span>[ inversemetric[[i, j]] k[i, j], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;];</span><br><span class="line"> <span class="comment">(* alternatively extrinsic curvature solved in isotropic coordinates*)</span></span><br><span class="line"> k[i_, j_] := (<span class="number">3</span> m1)/(</span><br><span class="line">   <span class="number">2</span> r1^<span class="number">2</span>) ( </span><br><span class="line">    v1[i] nn1[j] + </span><br><span class="line">     v1[j] nn1[i] - (confmetric[i, j] - nn1[i] nn1[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v1[k] nn1[k], &#123;k, 1, 3&#125;]) + (<span class="number">3</span> m2)/(</span><br><span class="line">   <span class="number">2</span> r2^<span class="number">2</span>) ( </span><br><span class="line">    v2[i] nn2[j] + </span><br><span class="line">     v2[j] nn2[i] - (confmetric[i, j] - nn2[i] nn2[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v2[k] nn2[k], &#123;k, 1, 3&#125;])</span><br><span class="line">k = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
 
           
         
