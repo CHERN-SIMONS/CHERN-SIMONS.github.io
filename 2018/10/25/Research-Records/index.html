@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Learning Notes">
 <meta property="og:description" content="[TOC] Records on 25/10/2018 复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。 随机变量及其概率密度 对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有 $$ \begin{align} 	F(x) = \int_{-\infty}^x f(t)dt,, \end{align} $$ 则称$X$为连">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-28T07:57:39.610Z">
+<meta property="og:updated_time" content="2018-10-28T09:16:04.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Research Records">
 <meta name="twitter:description" content="[TOC] Records on 25/10/2018 复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。 随机变量及其概率密度 对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有 $$ \begin{align} 	F(x) = \int_{-\infty}^x f(t)dt,, \end{align} $$ 则称$X$为连">
@@ -567,8 +567,8 @@ $$
 \end{align}
 $$
 则称随机区间$(-\infty,\bar{\theta})$是$\theta$的置信水平为$1-\alpha$的<strong>单侧置信区间</strong>，$\bar{\theta}$称为$\theta$的置信水平为$1-\alpha$的<strong>单侧置信下限</strong>。</p>
-<h2>假设检验</h2>
-<h3>1.假设检验</h3>
+<h2>2. 假设检验</h2>
+<h3>2.1.假设检验</h3>
 <p>统计推断的另一个重要问题就是假设检验问题。在总体样本的分布函数完全未知或者只知其形式，但不知其参数的情况下，为了推断总体样本的某些位置特性，提出某些关于总体样本的假设。例如，提出总体样本服从泊松分布的假设，又如，对于真太分布总体样本提出数学期望等于$\mu_0$的假设等等。我们要根据样本对所提出的假设作出接受还是拒绝的决策。假设检验是作出这一决策的过程。</p>
 <p>在显著性水平$\alpha$下，假设检验
 $$
@@ -658,15 +658,15 @@ $$</p>
 <li>按$P\left{ 当H_0为真拒绝H_0 \right} \leq \alpha$求出拒绝域；</li>
 <li>取样，根据样本观察值作出决策，是接受$H_0$还是拒绝$H_0$。</li>
 </ol>
-<h3>2.正态总体的假设检验</h3>
-<h4>2.1 	<strong>Z检验法</strong></h4>
-<h4>2.2	<strong>t检验法</strong></h4>
-<h4>2.3	 (逐对比较法)成对数据的t检验法</h4>
-<h4>2.4	 $\chi^2$检验法</h4>
-<h4>2.5	$F$检验法</h4>
-<h3>2.置信区间与假设检验之间的关系</h3>
+<h3>2.2.正态总体的假设检验</h3>
+<h4>2.2.1 	<strong>Z检验法</strong></h4>
+<h4>2.2.2	<strong>t检验法</strong></h4>
+<h4>2.2.3	 (逐对比较法)成对数据的t检验法</h4>
+<h4>2.2.4	 $\chi^2$检验法</h4>
+<h4>2.2.5	$F$检验法</h4>
+<h3>2.3.置信区间与假设检验之间的关系</h3>
 <p>置信区间就是置信水平为$1-\alpha$的区间，假设检验将$\alpha$说成针对$H_1$的检验$H_0$的显著性水平。因而，显然两者之间有对应的联系。实际上，置信区间就是接受$H_0$的范围，在置信区间之外就在拒绝域之中了。</p>
-<h3>3.样本容量的选取</h3>
+<h3>2.4.样本容量的选取</h3>
 <p>以上我们在进行假设检验时，总是根据问题的要求，预选给出显著性水平以控制犯第1类错误的概率，而犯第2类错误的概率则依赖于样本容量的选择，在实际问题中，我们除了希望控制犯第1类错误的概率之外，往往还希望控制犯第2类错误的概率。我们将说明如何选取样本的容量使得犯第2类错误的概率控制在预先给定的限度内。</p>
 <p>我们先引入施行特征函数：</p>
 <p><strong>定义</strong>  若$C$是参数$\theta$的某检验问题的一个检验法，
@@ -677,7 +677,7 @@ $$
 $$
 称为检验法$C$的<strong>施行特征函数</strong>或<strong>OC函数</strong>，其图形称为<strong>OC曲线</strong>。</p>
 <p>由定义可知，若此检验法的显著性水平为$\alpha$，那么当真值$\theta\in H_0$时，$\beta(\theta)$就是作出正确判断的概率，故此时$\beta(\theta)\geq 1-\alpha$；而当$\theta\in H_1$时，则$\beta(\theta)$就是犯第2类错误的概率，而$1-\beta(\theta)$是作出正确判断的概率。函数$1-\beta(\theta)$称为检验法$C$的<strong>功效函数</strong>。当$\theta^<em>\in H_1$时，值$1-\beta(\theta^</em>)$称为检验法$C$在点$\theta^<em>$的</em><em>功效</em>*。它表示当参数$\theta$的真值为$\theta^*$时，检验法$C$作出正确判断的概率。</p>
-<h4>3.1 Z检验法的OC函数</h4>
+<h4>2.4.1 Z检验法的OC函数</h4>
 <p>右边检验问题。$H_0:\mu\leq \mu_0$，$H_1:\mu &gt;\mu_0$的OC函数是
 $$
 \begin{align}
@@ -718,7 +718,7 @@ $$
 $$
 就能使当$\mu\in H_1$且$\mu\leq \mu_0-\delta~(\delta&gt;0)$时，犯第2类错误的概率不超过给定的值$\beta$.</p>
 <p>同理，双边检验。</p>
-<h4>3.2 $t$检验法的OC函数</h4>
+<h4>2.4.2 $t$检验法的OC函数</h4>
 <p>右边检验问题$H_0: ~\mu\leq \mu_0$，$H_1:~\mu &gt;\mu_0$的$t$检验法的OC函数为
 $$
 \begin{align}
@@ -736,7 +736,77 @@ $$
 <p>若给定$\alpha,\beta$以及$\delta&gt;0$，对于左边检验问题$H_0: ~\mu\geq \mu_0$，$H_1:~\mu &lt; \mu_0$的$t$检验法，也可以得到所需的容量$n$，使得当$\mu\in H_1$且$\frac{\mu-\mu_0}{\sigma}\leq -\delta$时犯第2类错误的概率不超过$\beta$。</p>
 <p>若给定$\alpha,\beta$以及$\delta&gt;0$，对于双边检验问题$H_0: ~\mu = \mu_0$，$H_1:~\mu \neq \mu_0$的$t$检验法，也可以得到所需的容量$n$，使得当$\mu\in H_1$且$\frac{\mu-\mu_0}{\sigma}\geq \delta$时犯第2类错误的概率不超过$\beta$。</p>
 <p>同理可以得到两个正态总体均值差的$t$检验。</p>
-<h3>4. 分布拟合检验</h3>
+<h3>2.5. 分布拟合检验</h3>
+<p>上面介绍的各种检验法都是在总体分布形式已知的情况下进行讨论的。但在实际问题中，有时不能知道总体服从什么类型的分布，这时就需要根据样本来检验关于分布的假设。我们主要讲$\chi^2$拟合检验法。它可以用来检验总体是否具有某一个指定的分布或属于某一个分布族，还介绍专门用于检验分布是否为正态分布的&quot;偏度、峰度检验法&quot;。</p>
+<h4>2.5.1 单个分布的$\chi^2$拟合检验法</h4>
+<p>设总体$X$的分布未知，$x_1,\cdots,x_n$是来自$X$的样本值。我们来检验假设
+$$
+\begin{align}
+	&amp;H_0:~总体X的分布函数为F(x),,\
+	&amp;H_1:~总体X的分布函数不是F(x),.
+\end{align}
+$$
+其中设$F(x)$不含未知参数。</p>
+<p>下面来定义检验统计量。讲在$H_0$下$X$可能去治的全体$\Omega$分成互不相交的子集$A_1,\cdots,A_n$，以$f_i(i=1,2,\cdots,k )$记样本观察值$x_1,\cdots,x_n$中落在$A_i$的个数，这表示时间$A_i = {X的值落在子集A_i内}$在$n$此独立试验中发生$f_i$次，于是在这$n$此试验中时间$A_i$发生的概率为$f_i/n$。另一方面，当$H_0$为真时，我们可以根据$H_0$中所假设的$X$的分布函数来计算事件$A_i$的概率，得到$p_i=P(A_i)$，$i=1,2,\cdots,k$。频率$f_i/n$和概率$p_i$会有差异，但一般来说，当$H_0$为真时，且试验的次数又甚多时，这种差异不应太大，因此$\left( \frac{f_i}{n}-p_i \right)^2$不应太大。我们采用如下形式
+$$
+\begin{align}
+	\sum_{i=1}^k C_i\left( \frac{f_i}{n}-p_i \right)^2
+\end{align}
+$$
+的统计量来度量样本与$H_0$中所假设的分布的吻合程度，其中$C_i~(i=1,2,\cdots,k)$为给定的常数。如果选取$C_i = n/p_i$，则这个呃统计量具有如下描述的定力中所述的简单性质。我们因此采用
+$$
+\begin{align}
+	\chi^2 = \sum_{i=1}^k \frac{n}{p_i}\left( \frac{f_i}{n}-p_i \right)^2 = \sum_{i=1}^k \frac{f_i^2}{np_i}-n
+\end{align}
+$$
+作为检验统计量。</p>
+<p><strong>定理</strong>  若$n$充分大$(n\geq 50)$，则当$H_0$为真时，上述的统计量近似服从$\chi^2(k-1)$分布。</p>
+<p>根据以上的讨论，当$H_0$为真时，$\chi^2$不应太大，如$\chi^2$太大就拒绝$H_0$，拒绝域的形式为	
+$$
+\begin{align}
+	\chi^2 \geq G~~~(G为正常数)
+\end{align}
+$$
+对于给定的显著性水平$\alpha$，确定$G$使
+$$
+\begin{align}
+	P\left{ 当H_0位真时拒绝H_0 \right} = P_{H_0}\left{ \chi^2\geq G \right} = \alpha
+\end{align}
+$$
+由上述定理得到$G = \chi^2_\alpha(k-1)$。即当样本观察值使$\chi^2$的值有
+$$
+\begin{align}
+	\chi^2\geq \chi^2_\alpha(k-1),,
+\end{align}
+$$
+则在显著性水平$\alpha$下拒绝$H_0$；否则就接受$H_0$。这就是单个分布的**$\chi^2$拟合检验法**。</p>
+<p>$\chi^2$拟合检验法是机遇上述定理得到的，所以使用时必须注意$n$不能小于50. 此外$np_i$不能太小，应有$np_i\geq 5$，否则应适当合并$A_i$，以满足这个要求。</p>
+<h4>2.5.2 分布族的$\chi^2$拟合检验</h4>
+<p>上面要求总体$X$的分布函数是$F(x)$，其中$F(x)$是已知的，这种情况是不多的。我们经常遇到的所需检验的原假设是
+$$
+\begin{align}
+	H_0:~总体X的分布函数是F(x;\theta_1,\cdots,\theta_r),,
+\end{align}
+$$
+其中$F$的形式已知，而$\mathbf {\theta}= (\theta_1,\cdots,\theta_n)$是未知参数。不同的$\theta_i$给出不同的分布，因而$F(x;\theta_1,\cdots,\theta_n)$代表一族分布。上面的$H_0$表示总体$X$的分布属于分布族$F(x;\theta_1,\cdots,\theta_n)$。采用类似于上一节的方法来定义检验统计量，将在$H_0$下$X$可能取值的全体$\Omega$分成$k~(k&gt;r+1)$个互不相交的子集$A_1,\cdots,A_k$，以$f_i~(i=1,2,\cdots,k)$记样本观察值$x_1,\cdots,x_n$落在$A_i$的个数，则事件$A_i = { X的值落在A_i内 }$的频率为$f_i/n$。另一方面，当$H_0$为真时，由$H_0$所假设的分布函数来计算$P(A_i)$，得到$P(A_i) = p(\theta_1,\cdots,\theta_r) = p(\theta) = p_i$。此时，需先利用样本求出未知参数的最大似然估计，以估计值作为参数值，求出$p_i$的估计值$\hat{p} = \hat{P}(A_i)$，取
+$$
+\begin{align}
+	\chi^2 = \sum_{i=1}^k \frac{f_i^2}{np_i} - n
+\end{align}
+$$
+作为假设检验$H_0$的统计量。可以证明，在某些条件下，在$H_0$为真时近似地有
+$$
+\begin{align}
+	\chi^2  = \sum_{i=1}^k \frac{f_i^2}{n p_i} - n \sim \chi^2(k-r-1)
+\end{align}
+$$
+可以得到假设检验的拒绝域为
+$$
+\begin{align}
+	\chi^2 \geq \chi^2_\alpha (k-r-1),,
+\end{align}
+$$
+$\alpha$为显著性水平。以上就是用来检验分布族的$\chi^2$拟合检验法。</p>
 <h1>Records on 27/10/2018</h1>
 <h3>Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</h3>
 <p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*coordinates*)</span></span><br><span class="line">coord = (t,x,y,z);</span><br><span class="line"></span><br><span class="line"><span class="comment">(*lapse function*)</span></span><br><span class="line">\[Alpha][x_, y_, z_] := </span><br><span class="line">  <span class="number">1</span> - (<span class="number">2</span> G)/c^<span class="number">2</span> m1/r1 - (<span class="number">2</span> G)/c^<span class="number">2</span> m2/r2 - (G m1)/(</span><br><span class="line">    c^<span class="number">4</span> r1) (<span class="number">4</span> v1^<span class="number">2</span> - vn1^<span class="number">2</span> - <span class="number">2</span> G m1/r1) - (G m2)/(</span><br><span class="line">    c^<span class="number">4</span> r2) (<span class="number">4</span> v2^<span class="number">2</span> - vn2^<span class="number">2</span> - <span class="number">2</span> G m2/r2) + (G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">    c^<span class="number">4</span> r1) (<span class="number">2</span>/r2 + <span class="number">5</span>/(<span class="number">2</span> R) + (r1^<span class="number">2</span> - r2^<span class="number">2</span>)/(<span class="number">2</span> R^<span class="number">3</span>)) + (G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">    c^<span class="number">4</span> r2) (<span class="number">2</span>/r1 + <span class="number">5</span>/(<span class="number">2</span> R) + (r2^<span class="number">2</span> - r1^<span class="number">2</span>)/(<span class="number">2</span> R^<span class="number">3</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">(*shift vector*)</span></span><br><span class="line">\[<span class="keyword">Beta</span>] = &#123;-((4 G m1 vx1)/(c^3 r1)) - (4 G m2 vx2)/(</span><br><span class="line">    c^3 r2), -((4 G m1 vy1 )/(c^3 r1)) - (4 G m2 vy2 )/(</span><br><span class="line">    c^3 r2), -((4 G m1 vz1 )/(c^3 r1)) - (4 G m2 vz2 )/(c^3 r2)&#125;;</span><br><span class="line">\[Psi][x_, y_, z_] := <span class="number">1</span> + (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) + (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line">\[Psi]<span class="number">1</span>[x_, y_, z_] := <span class="number">1</span> - (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) - (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 3-metric which is conformal to flat space in isotropic coordinates *)</span></span><br><span class="line">metric = &#123;&#123;\[Psi][x, y, z], 0, 0&#125;, &#123;0, \[Psi][x, y, z], 0&#125;, &#123;0, </span><br><span class="line">    0, \[Psi][x, y, z]&#125;&#125;;</span><br><span class="line"><span class="comment">(* inverse 3-metric *)</span></span><br><span class="line">inversemetric = &#123;&#123;\[Psi]1[x, y, z], 0, 0&#125;, &#123;0, \[Psi]1[x, y, z], </span><br><span class="line">    0&#125;, &#123;0, 0, \[Psi]1[x, y, z]&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(*confomal 3-metric and its inverse metric*)</span>  </span><br><span class="line">confmetric = &#123;&#123;1, 0, 0&#125;, &#123;0, 1, 0&#125;, &#123;0, 0, 1&#125;&#125;;</span><br><span class="line">inverseconfmetric = &#123;&#123;1, 0, 0&#125;, &#123;0, 1, 0&#125;, &#123;0, 0, 1&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(* extrinsic curvature according to its definition *)</span></span><br><span class="line">k[i_, j_] := -<span class="keyword">D</span>[u[i], coord[j]] + </span><br><span class="line">   <span class="keyword">Sum</span>[affine[[k, i, j]] u[k], &#123;k, 0, 3&#125;] - </span><br><span class="line">   u[i] <span class="keyword">D</span>[<span class="keyword">Log</span>[\[Alpha][x, y, z]], coord[j]];</span><br><span class="line">k = <span class="keyword">Sum</span>[ inversemetric[[i, j]] k[i, j], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;];</span><br><span class="line"> <span class="comment">(* alternatively extrinsic curvature solved in isotropic coordinates*)</span></span><br><span class="line"> k[i_, j_] := (<span class="number">3</span> m1)/(</span><br><span class="line">   <span class="number">2</span> r1^<span class="number">2</span>) ( </span><br><span class="line">    v1[i] nn1[j] + </span><br><span class="line">     v1[j] nn1[i] - (confmetric[i, j] - nn1[i] nn1[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v1[k] nn1[k], &#123;k, 1, 3&#125;]) + (<span class="number">3</span> m2)/(</span><br><span class="line">   <span class="number">2</span> r2^<span class="number">2</span>) ( </span><br><span class="line">    v2[i] nn2[j] + </span><br><span class="line">     v2[j] nn2[i] - (confmetric[i, j] - nn2[i] nn2[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v2[k] nn2[k], &#123;k, 1, 3&#125;])</span><br><span class="line">k = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
@@ -886,7 +956,7 @@ $$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Records on 25/10/2018</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">随机变量及其概率密度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">1. 参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.1点估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2区间估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.3正态总体均值与方差的区间估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.4两个总体样本$N(\mu_1,\sigma^2_1),~N(\mu_2,\sigma^2_2)$的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.5 (0—1)分布参数的区间估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.6单侧置信区间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.假设检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.正态总体的假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">2.1 	Z检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">2.2	t检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">2.3	 (逐对比较法)成对数据的t检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">2.4	 $\chi^2$检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">2.5	$F$检验法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.置信区间与假设检验之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.样本容量的选取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">3.1 Z检验法的OC函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">3.2 $t$检验法的OC函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.5.</span> <span class="nav-text">4. 分布拟合检验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Records on 27/10/2018</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Records on 25/10/2018</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">随机变量及其概率密度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">1. 参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.1点估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2区间估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.3正态总体均值与方差的区间估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.4两个总体样本$N(\mu_1,\sigma^2_1),~N(\mu_2,\sigma^2_2)$的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.5 (0—1)分布参数的区间估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.6单侧置信区间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">2. 假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.1.假设检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.2.正态总体的假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">2.2.1 	Z检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">2.2.2	t检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">2.2.3	 (逐对比较法)成对数据的t检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">2.2.4	 $\chi^2$检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">2.2.5	$F$检验法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.3.置信区间与假设检验之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.</span> <span class="nav-text">2.4.样本容量的选取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">2.4.1 Z检验法的OC函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">2.4.2 $t$检验法的OC函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.5.</span> <span class="nav-text">2.5. 分布拟合检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">2.5.1 单个分布的$\chi^2$拟合检验法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">2.5.2 分布族的$\chi^2$拟合检验</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Records on 27/10/2018</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</span></a></li></ol></li></ol></div>
             
 
           </div>
