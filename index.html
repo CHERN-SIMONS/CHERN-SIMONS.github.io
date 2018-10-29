@@ -808,6 +808,27 @@ $$
 \end{align}
 $$
 $\alpha$为显著性水平。以上就是用来检验分布族的$\chi^2$拟合检验法。</p>
+<h3>2.8 假设检验问题的$p$值法</h3>
+<p>以上我们讨论的检验假设的方法称为<strong>临界法</strong>。我们现在介绍另一种被称为$p$值法的检验方法。</p>
+<p><strong>定义</strong> 假设检验问题的$p$值可以根据检验统计量的样本观察得出原假设可能被拒绝的最小显著性水平。</p>
+<p>常用的检验问题的$p$值可以根据检验统计量的样本观察值一级检验统计量在$H_0$下一个特定的参数值(一般是$H_0$和$H_1$所规定的参数的分界点)对应的分布求出。例如在正态总体$N(\mu,\sigma)$均值的检验中，当$\sigma$未知时，可采用检验统计量$t = \frac{\bar{X}-\mu_0}{S/\sqrt{n}}$，在以下三个检验问题中，当$\mu=\mu_0$时$t\sim t(n-1)$。如果由样本求得统计量$t$得观测值为$t_0$，那么在检验问题
+$$
+\begin{align}
+	&amp;H_0:~\mu\leq \mu_0,~~H_1:~\mu&gt;\mu_0中,,\
+	&amp;P值=P_{\mu_0}\left{ t\geq t_0\right} = t_0右侧尾部面积,,\
+	&amp;H_0:~\mu\geq \mu_0,~~H_1:~\mu&lt;\mu_0中,,\
+	&amp;P值=P_{\mu_0}\left{ t\leq t_0\right} = t_0左侧尾部面积,,\
+	&amp;H_0:~\mu = \mu_0,<s>H_1:~\mu\neq \mu_0中,,\
+	&amp;</s>(1)当t_0&gt;0时\
+	&amp;~~~~~~~~~~~~<s>p值=P_{\mu_0}\left{ |t|\geq t_0 \right}=2\times (t_0右侧尾部面积) \
+	&amp;</s>(2)当t_0&lt;0时\
+	&amp;~~~~~~~~~~~~~~p值=P_{\mu_0}\left{ |t|\geq -t_0 \right}=2\times (t_0左侧尾部面积)
+\end{align}
+$$
+按照$p$值法的定义，对于任意指定的显著水平$\alpha$就有</p>
+<p>​	(1) 若$p$值$\leq \alpha$，则在显著水平$\alpha$下拒绝$H_0$，</p>
+<p>​	(2) 若$p$值$&gt; \alpha$，则在显著水平$\alpha$下接受$H_0$。</p>
+<p>有了这两条结论就能方便地确定是否拒绝$H_0$，这种方法就称为$p$值法。</p>
 <h1>Records on 27/10/2018</h1>
 <h3>Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</h3>
 <p>We give the initial data, follows,</p>
