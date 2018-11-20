@@ -321,15 +321,40 @@ $$
 \end{align}
 $$</p>
 <h2>Mercury Perihelion Calculation</h2>
-<p>First we obtain the Christoeffel symbol
+<p>The metric is
 $$
 \begin{align}
-	\Gamma^{i}<em>{jk} = &amp; 2\left( \delta^i_j \partial_k\log \psi + \delta^i_k\partial_j\log\psi -\delta</em>{jk}\delta^{il}\partial_l\log\psi \right) \
-	\Gamma^0_{00} = &amp; 0\
-	\Gamma^i_{00} = &amp; -\frac{2}{\psi^8}\partial_i\log\psi \
-	\Gamma^0_{0j} =&amp; -2\partial_i\log\psi\
-	\Gamma^i_{0j} = &amp; 0\
-	\Gamma^0_{jk} = &amp; 0
+	g_{\mu\nu} = \left(
+\begin{array}{cccc}
+-c^2\psi^{-4}&amp;0&amp;0&amp;0\
+0&amp;\psi^4 &amp;0&amp;0\
+0&amp;0&amp;\psi^4r^2&amp;0\
+0&amp;0&amp;0&amp;\psi^4r^2\sin^2\theta
+\end{array}
+\right)
+\end{align}
+$$
+in spherical coordinates. First we obtain the Christoeffel symbol
+$$
+\begin{align}
+	\Gamma^{i}<em>{jk} = &amp; 2\left(\delta^i_k \partial_j\log\psi + \delta^i_j\partial_k\log\psi - f^{il}f</em>{jk}\partial_l \log\psi \right) -\frac{1}{2}\left( f_{kl}\partial_j f^{il} + f_{jl}\partial_k f^{il} -f_{jk}\partial_lf^{il} \right) \
+	\Gamma^0_{00} = &amp; -\frac{2}{c}\partial_t\log\psi\
+	\Gamma^i_{00} = &amp; -\frac{2}{\psi^8}f^{ij}\partial_j\log\psi \
+	\Gamma^0_{0j} =&amp; -2\partial_j\log\psi\
+	\Gamma^i_{0j} = &amp; -\frac{1}{c} f_{jl}\partial_t f^{il} + \frac{2}{c}\delta^i_j \partial_t\log\psi\
+	\Gamma^0_{jk} = &amp; -\frac{2}{c^3}f_{jk}\psi^8\partial_t\log\psi
+\end{align}
+$$
+where
+$$
+\begin{align}
+	f_{ij} = \left(
+\begin{array}{ccc}
+\psi^4 &amp;0&amp;0\
+0&amp;\psi^4r^2&amp;0\
+0&amp;0&amp;\psi^4r^2\sin^2\theta
+\end{array}
+\right)
 \end{align}
 $$
 and the acceration is
@@ -338,12 +363,143 @@ $$
 	\frac{d^2x^\mu}{dt^2} = &amp; -\Gamma^\mu_{\nu\rho}v^\nu v^\rho + \Gamma^0_{\nu\rho}v^{\mu}v^\nu v^\rho,.
 \end{align}
 $$
-This can be simplified as
+Since $\psi$ is not a function of $t$, this can be simplified as
 $$
 \begin{align}
 	a^i = &amp; -\Gamma^i_{00} - 2\Gamma^i_{0j}v^j -\Gamma^i_{jk}v^jv^k +\Gamma^0_{00}v^i+ 2\Gamma^0_{0j}v^iv^j + \Gamma^0_{jk}v^iv^jv^k\
-	= &amp; \frac{2}{\psi^8}\partial_i\log\psi - 4v^iv^j\partial_j\log\psi +2v^2\delta^{ij}\partial_j\log\psi -4v^iv^j\partial_j\log\psi\
-	= &amp; \frac{2}{\psi^8}\partial_i\log\psi - 8 v^iv^j\partial_j\log\psi +2v^2\delta^{ij}\partial_j\log\psi
+	= &amp; \frac{2}{\psi^8}f^{ij}\partial_j\log\psi - 4v^iv^j\partial_j\log\psi +2v^2f^{ij}\partial_j\log\psi -f_{kl}v^kv^j\partial_j f^{il} -4v^iv^j\partial_j\log\psi\
+	= &amp; \frac{2}{\psi^8}f^{ij}\partial_j\log\psi - 8 v^iv^j\partial_j\log\psi +2v^2f^{ij}\partial_j\log\psi -f_{kl}v^kv^j\partial_j f^{il}\
+	= &amp; 2\left[ \left(\frac{1}{\psi^8}+v^2 \right)f^{ij} - 4v^iv^j \right]\partial_j\log\psi -f_{kl}v^kv^j\partial_jf^{il}
+\end{align}
+$$</p>
+<p>When consider retangular coordinates, the affine connection is
+$$
+\begin{align}
+	\Gamma^{i}<em>{jk} = &amp; 2\left(\delta^i_k \partial_j\log\psi + \delta^i_j\partial_k\log\psi - \delta^{il}\delta</em>{jk}\partial_l \log\psi \right)  \
+	\Gamma^0_{00} = &amp; -\frac{2}{c}\partial_t\log\psi\
+	\Gamma^i_{00} = &amp; -\frac{2}{\psi^8}\delta^{ij}\partial_j\log\psi \
+	\Gamma^0_{0j} =&amp; -2\partial_j\log\psi\
+	\Gamma^i_{0j} = &amp; -\frac{1}{c} \delta_{jl}\partial_t \delta^{il} + \frac{2}{c}\delta^i_j \partial_t\log\psi = \frac{2}{c}\delta^i_j \partial_t\log\psi\
+	\Gamma^0_{jk} = &amp; -\frac{2}{c^3}\delta_{jk}\psi^8\partial_t\log\psi
+\end{align}
+$$
+and thus the acceleration is
+$$
+\begin{align}
+	a^i = &amp; 2\left[ \left(\frac{1}{\psi^8}+v^2 \right)\delta^{ij} - 4v^iv^j \right]\partial_j\log\psi
+\end{align}
+$$</p>
+<p>or
+$$
+\begin{align}
+	\vec{a} = 2\left( \frac{1}{\psi^8}+v^2 \right)\nabla\log\psi - 8\vec{v}\left(\vec{v}\cdot\nabla\log\psi\right)
+\end{align}
+$$</p>
+<p>We also adopt the Will's convention that simplifies the mathematical description of the motion by taking the orbital plane to coincide with the $ x-y$ plane of the coordinate system, and by introducing the vectorial basis $\vec{\lambda} = (-\sin\phi,\cos\phi,0),,<s>\vec{n}=(\cos\phi,\sin\phi,0)$ and $\vec{e}_z = (0,0,1)$, in which $\phi$ is the orbital angle. In terms of the orbital basis, we have
+$$
+\begin{align}
+	\vec{r} = &amp; r\vec{n},,</s>\vec{v}=\dot{r}\vec{n}+r\dot{\phi}\vec{\lambda},,~~\vec{a} = (\ddot{r}-r\dot{\phi}^2)\vec{n}+\frac{1}{r}\frac{d}{dt}(r^2\dot{\phi})\vec{\lambda}
+\end{align}
+$$
+and
+$$
+\begin{align}
+	\vec{r}\times \vec{v} = (r^2\dot{\phi})\vec{e}_z,.
+\end{align}
+$$</p>
+<p>Back to $a^i$, we have
+$$
+\begin{align}
+	\partial_i\log\psi = \frac{1}{\psi}\partial_i\psi = \sum_A\frac{m_A}{2\psi}\partial_i\left(\frac{1}{r_A}  \right)=-\sum_A\frac{m_A}{2\psi}\frac{n_A^i}{r_A^2}
+\end{align}
+$$
+and thus the component form of $a^i$ is
+$$
+\begin{align}
+	a^i = &amp; \sum_A -\frac{m_A }{\psi r_A^2}\left( \frac{1}{\psi^8}+v^2 \right)n_A^i + \frac{4m_A (\vec{v}\cdot \vec{n}_A)}{\psi r_A^2}v^i\
+	= &amp; -\frac{m_1 }{\psi r_1^2}\left( \frac{1}{\psi^8}+v^2 \right)n_1^i-\frac{m_2 }{\psi r_2^2}\left( \frac{1}{\psi^8}+v^2 \right)n_2^i + \frac{4m_1 (\vec{v}\cdot \vec{n}_1)}{\psi r_1^2}v^i+ \frac{4m_2 (\vec{v}\cdot \vec{n}_2)}{\psi r_2^2}v^i\
+	= &amp; -\frac{m_1 }{\psi r^2}\left( \frac{1}{\psi^8}+v^2 \right)n^i-\frac{m_2 }{\psi r_2^2}\left( \frac{1}{\psi^8}+v^2 \right)n_2^i + \frac{4m_1 (\vec{v}\cdot \vec{n})}{\psi r^2}v^i+ \frac{4m_2 (\vec{v}\cdot \vec{n}_2)}{\psi r_2^2}v^i
+\end{align}
+$$
+where
+$$
+\begin{align}
+	\vec{n}_1 = \vec{n},,~~n_2^i =
+\end{align}
+$$
+To 1PN, it is
+$$
+\begin{align}
+	\psi^n = &amp; \left(1 + \frac{m_1}{2r}+\frac{m_2}{2r_2}\right)^n = 1+\frac{n m_1}{2r}+\frac{nm_2}{2r_2}\
+	\vec{a} = &amp; -\frac{m_1}{r^2}\vec{n} +\frac{9m_1}{2r^2}\left(\frac{m_1}{r}+\frac{m_2}{r_2} \right)\vec{n}- \frac{m_1v^2}{r^2}\vec{n}-\frac{m_2}{r_2^2}\vec{n}_2 +\frac{9m_2}{2r_2^2}\left(\frac{m_1}{r}+\frac{m_2}{r_2} \right)\vec{n}- \frac{m_2v^2}{r_2^2}\vec{n}\
+	 &amp; + \frac{4m_1}{r^2}(\vec{v}\cdot \vec{n})\vec{v}+ \frac{4m_2}{r_2^2}(\vec{v}\cdot \vec{n}_2)\vec{v}
+\end{align}
+$$
+where
+$$
+\begin{align}
+	\vec{n} = &amp;\frac{r^X}{r}\vec{e}_X+\frac{r^Y}{r}\vec{e}_Y+\frac{r^Z}{r}\vec{e}_Z\
+	\vec{n}_2 = &amp; \frac{r_2^X}{r_2}\vec{e}_X+\frac{r_2^Y}{r_2}\vec{e}_Y+\frac{r_2^Z}{r_2}\vec{e}_Z\
+	r_2 = &amp; \sqrt{X^2+(Y-R)^2+Z^2}\
+	r^X= &amp;X,,<s>r^Y=Y,,<s>r^Z = Z,,</s>
+	r_2^X = X,,<s>r_2^Y = Y-R,,<s>r_2^Z = Z,,\
+	X = &amp; (\cos\Omega \cos\omega-\cos\iota\sin\Omega\sin\omega)x-(\cos\Omega\sin\omega+\cos\iota\sin\Omega\cos\omega)y +(\sin\iota\sin\Omega)z\
+	Y= &amp; (\sin\Omega\cos\omega+\cos\iota\cos\Omega\sin\omega)x-(\sin\Omega\sin\omega-\cos\iota\cos\Omega\cos\omega)y-(\sin\iota\cos\Omega)z\
+	Z=&amp; (\sin\iota\sin\omega)x+(\sin\iota\cos\omega)y+(\cos\iota)z
+\end{align}
+$$
+and
+$$
+\begin{align}
+	x = r\cos f,,<s>y = r\sin f,,<s>z=0,,
+\end{align}
+$$
+which leads to
+$$
+\begin{align}
+	r^X = &amp; r[\cos\Omega\cos(\omega+f)-\cos\iota\sin\Omega\sin(\omega+f)]\
+	r^Y = &amp; r[\sin\Omega\cos(\omega+f)+\cos\iota\cos\Omega\sin(\omega+f)]\
+	r^Z = &amp; r\sin\iota\sin(\omega+f),.
+\end{align}
+$$
+This implies
+$$
+\begin{align}
+	r_2 = &amp; \sqrt{ r^2+R^2 -2Rr^Y} = \sqrt{ r^2+R^2 -2Rr[\sin\Omega\cos(\omega+f)+\cos\iota\cos\Omega\sin(\omega+f)]}
+\end{align}
+$$
+Meanwhile, the vector basis are
+$$
+\begin{align}
+	\vec{e}_x = &amp; (\cos\Omega\cos\omega-\cos\iota\sin\Omega\sin\omega)\vec{e}_X +(\sin\Omega\cos\omega+\cos\iota\cos\Omega\sin\omega)\vec{e}_Y+(\sin\iota\sin\omega)\vec{e}_Z\
+	\vec{e}_y = &amp; -(\cos\Omega\sin\omega+\cos\iota\sin\Omega\cos\omega)\vec{e}_X-(\sin\Omega\sin\omega-\cos\iota\cos\Omega\cos\omega)\vec{e}_Y+(\sin\iota\cos\omega)\vec{e}_Z\
+	\vec{e}_z = &amp; (\sin\iota\sin\Omega)\vec{e}_X-(\sin\iota\cos\Omega)\vec{e}_Y+(\cos\iota)\vec{e}_Z
+\end{align}
+$$
+and
+$$
+\begin{align}
+	\vec{e}_x = &amp; \vec{n}\cos f-\vec{\lambda}\sin f,,</s>~\vec{e}_y = \vec{n}\sin f+\vec{\lambda}\cos f,,\
+	\vec{n} = &amp; \vec{e}_x\cos f + \vec{e}_y\sin f,,</s>~\vec{\lambda} = -\vec{e}_x\sin f+\vec{e}_y\cos f,.
+\end{align}
+$$
+Thus the relation between $\vec{e}_X,,~\vec{e}_Y,,</s>\vec{e}_Z$ and $\vec{n},,</s>\vec\lambda,,</s>\vec{e}_z$ is
+$$
+\begin{align}
+	\vec{n} = &amp; [\cos\Omega \cos(\omega +f) -\cos\iota\sin\Omega\sin(\omega+f)]\vec{e}_X\
+	&amp;+[\sin\Omega\cos(\omega+f)+\cos\iota\cos\Omega\sin(\omega+f)]\vec{e}_Y+\sin\iota\sin(\omega+f)\vec{e}_Z \
+	\vec{\lambda} = &amp; -[\cos\Omega\sin(\omega+f)+\cos\iota\sin\Omega\cos(\omega+f)]\vec{e}_X \
+	&amp;+ [-\sin\Omega\sin(\omega+f)+\cos\iota\cos\Omega\cos(\omega+f)]\vec{e}_Y+\sin\iota\cos(\omega+f)\vec{e}_Z\
+	\vec{e}_z = &amp; (\sin\iota\sin\Omega)\vec{e}_X-(\sin\iota\cos\Omega)\vec{e}_Y+(\cos\iota)\vec{e}_Z
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\vec{e}_X = &amp; [\cos\Omega\cos(\omega+f)-\cos\iota\sin\Omega\sin(\omega+f)]\vec{n} \
+	 &amp;-[\cos\Omega\sin(\omega+f)+\cos\iota\sin\Omega\cos(\omega+f)]\vec{\lambda}+(\sin\iota\sin\Omega)\vec{e}_z\
+	 \vec{e}_Y = &amp; [\sin\Omega\cos(\omega+f)+\cos\iota\cos\Omega\sin(\omega+f)]\vec{n}\
+&amp; +[-\sin\Omega\sin(\omega+f)+\cos\iota\cos\Omega\cos(\omega+f)]\vec{\lambda} -(\sin\iota\cos\Omega) \vec{e}_z\
+\vec{e}_Z = &amp; (\sin\iota\sin(\omega+f))\vec{n}+(\sin\iota\cos(\omega+f))\vec{\lambda}+(\cos\iota)\vec{e}_z
 \end{align}
 $$</p>
 
