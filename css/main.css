@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 h1,
@@ -1237,7 +1237,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1740,25 +1740,7 @@ pre .javascript .function {
   padding: 2px;
   max-width: 96px;
   height: auto;
-  border: site-author-image-border-color;
-/* start*/
-  border-radius: 50%;
-  webkit-transition: 1.4s all;
-  moz-transition: 1.4s all;
-  ms-transition: 1.4s all;
-  transition: 1.4s all;
-/* end */
-}
-.site-author-image:hover {
-  background-color: #55dae1;
-  webkit-transform: rotate(360deg) scale(1.1);
-  moz-transform: rotate(360deg) scale(1.1);
-  ms-transform: rotate(360deg) scale(1.1);
-  -webkit-transform: rotate(360deg) scale(1.1);
-  -moz-transform: rotate(360deg) scale(1.1);
-  -ms-transform: rotate(360deg) scale(1.1);
-  -o-transform: rotate(360deg) scale(1.1);
-  transform: rotate(360deg) scale(1.1);
+  border: 2px solid #333;
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -1840,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d142ff;
+  background: #2b4d87;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2644,7 +2626,7 @@ embed {
     padding: 0;
     background: #fff;
     border-bottom: 1px solid #ddd;
-    z-index: 1030;
+    z-index: 1050;
   }
 }
 @media (max-width: 767px) {
@@ -2677,23 +2659,4 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
-}
-body {
-  background: url("/images/picture_theme.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-}
-.main-inner {
-  margin-top: 60px;
-  padding: 60px 60px 60px 60px;
-  background: #fff;
-  min-height: 500px;
-}
-.post {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 25px;
-  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
-  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
