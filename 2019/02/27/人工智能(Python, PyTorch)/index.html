@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="[TOC] Q: 7/11/2018 PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。 我要研究的问题开始于水星近日点的近动 New General Relativistic Contribution to Mercury’s Perihelion Advance Will根据他自己书上的得到了最终的加速度，up">
+<meta name="description" content="[TOC] 人工智能(Python, PyTorch) 参考书: 《深度学习原理与PyTorch实战》 深度学习的本质是做一个表征 (representation) 的学习。并非网络层数深. 1. 超参数(实践, 调参数)、架构、训练方法 训练方法： 超参数：经验 架构 可学习性是关键，其中最重要的就是反向传播  卷积神经网络(CNN)：适于处理图像数据  ​			图形的平移对称性对应于神经元的横">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning Notes">
-<meta property="og:url" content="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/人工智能(Python, PyTorch)/index.html">
 <meta property="og:site_name" content="Learning Notes">
-<meta property="og:description" content="[TOC] Q: 7/11/2018 PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。 我要研究的问题开始于水星近日点的近动 New General Relativistic Contribution to Mercury’s Perihelion Advance Will根据他自己书上的得到了最终的加速度，up">
+<meta property="og:description" content="[TOC] 人工智能(Python, PyTorch) 参考书: 《深度学习原理与PyTorch实战》 深度学习的本质是做一个表征 (representation) 的学习。并非网络层数深. 1. 超参数(实践, 调参数)、架构、训练方法 训练方法： 超参数：经验 架构 可学习性是关键，其中最重要的就是反向传播  卷积神经网络(CNN)：适于处理图像数据  ​			图形的平移对称性对应于神经元的横">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-24T03:44:16.273Z">
+<meta property="og:updated_time" content="2019-03-20T03:11:49.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning Notes">
-<meta name="twitter:description" content="[TOC] Q: 7/11/2018 PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。 我要研究的问题开始于水星近日点的近动 New General Relativistic Contribution to Mercury’s Perihelion Advance Will根据他自己书上的得到了最终的加速度，up">
+<meta name="twitter:description" content="[TOC] 人工智能(Python, PyTorch) 参考书: 《深度学习原理与PyTorch实战》 深度学习的本质是做一个表征 (representation) 的学习。并非网络层数深. 1. 超参数(实践, 调参数)、架构、训练方法 训练方法： 超参数：经验 架构 可学习性是关键，其中最重要的就是反向传播  卷积神经网络(CNN)：适于处理图像数据  ​			图形的平移对称性对应于神经元的横">
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/27/人工智能(Python, PyTorch)/">
 
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/人工智能(Python, PyTorch)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T14:51:26+08:00">
-                2018-11-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T08:59:57+08:00">
+                2019-02-27
               </time>
             
 
@@ -300,59 +300,94 @@
 
       
         <p>[TOC]</p>
-<h1>Q: 7/11/2018</h1>
-<p>PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。</p>
-<p>我要研究的问题开始于水星近日点的近动 <em>New General Relativistic Contribution to Mercury’s Perihelion Advance</em></p>
-<p>Will根据他自己书上的得到了最终的加速度，up to 1PN。</p>
-<p>现在我们从广义相对论出发BSSN formulation，使用punture condition 得到$K_{ij}$，其满足栋动量约束方程，再从Hamiltonian约束出发得到$\psi$，其形式非常简单，做到1PN近似，与Will的结果相同。我们希望得到一个准稳态的过程，即从演化方程中得到坐标条件Lapse和shift。</p>
-<p>整个故事到这儿，我们实际上已经解了Einstein场方程，原则上整个时空就已经知道了。但是和Will不相同的就是坐标选取不同，即导致lapse和shift不相同。这是工作的第一阶段。</p>
-<p>第二阶段：如何从我们的坐标变成Will的坐标？</p>
-<p>我们从Harmonic condition 出发，得到我们的Isotropic坐标下的Harmonic 坐标，但是代价就是其不满足Einstein场方程。即使如此，在演化方程计算的时候，仍旧发现这个不满足的阶数与Will的1PN结果相同。至此，我们有理由相信最后我们与Will之间只是差一个在Harmonic坐标下的一个坐标变换。</p>
-<p>第三段故事：问题：Will到底选取了什么样的额外的条件，使得$\alpha$和$\beta^i$有他写出来的样子？这就需要查书<strong><em>Poisson E., Will C.M.-Gravity_ Newtonian, Post-Newtonian, Relativistic-CUP (2014)</em></strong>，但是没找到，具体解决问题再问。</p>
-<h1>Q: 14/11/2018</h1>
-<p>在Will的书上，1PN的出发点就是 Einstein场方程+harmonic gauge condition 这就导致了后面的基本方程
-$$
-\begin{align}
-\Box_{\eta} h^{\mu\nu} = \frac{16\pi G}{c^4}\tau^{\mu\nu}
-\end{align}
-$$
-其中$\tau^{\mu\nu}$包含物质的能动张量，Landau-Lifshitz赝张量，harmonic gauge的规范potential，所以这个方程本身右边就是含着$h^{\mu\nu}$，这实际上就导致了方程的非线性性。对于这个方程的1PN来说，只有物质的能动张量才是非零贡献，而点源粒子又是给出$\delta$函数的样子。</p>
-<p>对于我们的方程来说，满足的harmonic方程是
-$$
-\begin{align}
-	(\partial_t -\beta^i\partial_i)\alpha = &amp; -2\alpha K,,\
-	(\partial_t-\beta^j\partial_j)\beta^i = &amp; -\alpha^2(\gamma^{ij}\partial_j \log \alpha + \gamma^{jk}\Gamma^i_{jk})
-\end{align}
-$$
-这里实际上存在两个问题：一个是方程都是几何量，没有物质的$\delta $函数的来源，看不出$\alpha$和$\beta$的解的形式，所以在这个意义上，将上面的方程改造为二阶导数的$\Box_\eta \alpha,~\Box_\eta\beta^i$，然后配合着Hamiltonian约束和momentum约束可以在后面出现点源里物质； 另一个问题，也是本质的问题，我们采取的是punture condition 和maximal slice condition将$K=0$变成我们的假设，但实际上在Will的1PN计算时，得到的$K$是$c^{-3}$的量，可以从演化方程看出
-$$
-\begin{align}
-	\partial_t\log \psi  = -\frac{1}{6}\alpha K + \frac{1}{6}D_i \beta^i
-\end{align}
-$$
-若$\psi$不含时间，则$K$和$\beta^i$的阶数是一样的，这就导致了我们的情况就是$K =0$时候，$\beta^i =0$，而这时候Will给出$\beta^i \sim c^{-3}$就意味着$K\sim c^{-3}$不可能会等于零，也就是说maximal slice condition与1PN计算是有矛盾之处的。</p>
-<p>实际上第一个问题在第二个问题提出之后已经没有必要回答了，因为如果$\Box\alpha$和$\Box\beta^i$右边仍会出现$K$，或者$K_{ij}$，那么解$\alpha$和$\beta^i$的时候仍会出现和Will不同的结果。</p>
-<h2>Solution Method</h2>
-<p>这里我们发现没有任何办法解决这个问题，这本质就是假设的出发点的矛盾带来的效应，所以我们只能使用我们的conditions/gauge conditions 计算水星近日点的近动。</p>
-<h1>Q: 10/1/2019</h1>
-<h2>4 things to do with lessons</h2>
+<h1>人工智能(Python, PyTorch)</h1>
+<p>参考书: 《深度学习原理与PyTorch实战》</p>
+<p>深度学习的本质是做一个表征 (representation) 的学习。并非网络层数深.</p>
+<h1>1. 超参数(实践, 调参数)、架构、训练方法</h1>
+<p>训练方法：</p>
+<p>超参数：经验</p>
+<h2>架构</h2>
+<p>可学习性是关键，其中最重要的就是反向传播</p>
 <ol>
-<li>
-<p>roughly check my calculation to ensure the accuracy YES</p>
-</li>
-<li>
-<p>repeat the work in PRL of Shao, especially the orbital dynamics part, especially focus on the perihelion advance $\Delta\omega$ if it propotional to $1/e$. YUS</p>
-</li>
-<li>
-<p>Why the unit described the advance is XX second/century? The observing data owns too long time scale or just simply enlarge the quantity? or other reasons. NO</p>
-</li>
-<li>
-<p>repeat the figure 1 and specify our case.  YET</p>
-</li>
-<li>
-<p>substitute the coefficients in $a_5$ and obtain the rough quantity.  ROUGHLY YES</p>
-</li>
+<li>卷积神经网络(CNN)：适于处理图像数据</li>
 </ol>
+<p>​			图形的平移对称性对应于神经元的横列</p>
+<p>​			图形的自相似性通过缩放得到</p>
+<ol start="2">
+<li>循环神经网络(RNN)：处理序列数据</li>
+</ol>
+<p>​			同一神经元的循环可以具有记忆性，整个网络具有长程记忆性</p>
+<ol start="3">
+<li>神经计算机(神经图灵机)</li>
+<li>Transformer (google)：自注意力机制</li>
+<li>图网络：arxiv: 1906.01261</li>
+<li>capsule network: arxiv: 1710.09829</li>
+<li>BERT: 先 Transfromer, 然后遮挡部分语句，将剩下的句子给网络学习填上消失的语句，从一个有监督学习算   法实现无监督学习的效果；可以迁移学习来解决自然语言的问题（小数据训练，效果好）</li>
+</ol>
+<p>监督学习：打标签学习</p>
+<p>无监督学习：无标签学习</p>
+<h2>训练方法</h2>
+<p>训练方法的影响：在课程学习中，训练的次序很重要，将一个大问题分成多个子问题，子问题很容易，但合并起来			       效果很好</p>
+<p>​			       在迁移学习中，如何迁移很重要？</p>
+<p>AlphaGo: 在很多工作用于流程设计</p>
+<h2>特征</h2>
+<p>通过可视化可以判断学习特征的过程</p>
+<p>对于图形识别来说，在层数低的神经元学习边边角角（局部小特征），在层数高的神经元学习轮廓（整体特征）</p>
+<h1>13/3/2019</h1>
+<h2>单车预测&amp; 神经网络</h2>
+<p>Universal Approximating Theorem (UAT): 任意连续函数都能用神经元逼近。神经元的叠加就能形成各种各样的峰，函数就能用这样组合的神经元逼近。</p>
+<p>1.读取数据，pandas</p>
+<p>2.将语音，图片，列表变成tensor变量</p>
+<p>3.神经网络：生成正态随机分布torch.randn(1,counts)  1是输入神经元个数；偏置； 取学习率$\alpha = 0.0001$；</p>
+<p>3.循环(epoch): 前馈</p>
+<p>旧版本x.expand(counts, length) 将tensor扩张成length长度</p>
+<p>每隔10000个loss点打印loss，</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> i%<span class="number">10000</span> == <span class="number">0</span>:</span><br><span class="line">	print(<span class="string">"loss: "</span>,loss)</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure></p>
+<p>时刻注意 过拟合、欠拟合、无免费午餐</p>
+<p>需要足够的特征；</p>
+<p>数据准备：</p>
+<p>建模时候，输入要注意，不同的输入要做不同的操作：类型变量（0，1，2，3，……）大小没有含义，需要转化为one hot编码，即转化为二进制$0\rightarrow 10000,~1\rightarrow 01000,~2\rightarrow 00100$ 但变量多会导致很长。对于每一个特征，如果它有m个可能值，那么经过独热编码后，就变成了m个二元特征。并且，这些特征互斥，每次只有一个激活。因此，数据会变成稀疏的。好处主要有：1.解决了分类器不好处理属性数据的问题；2.在一定程度上也起到了扩充特征的作用。</p>
+<p>数值变量需要归一化才能使用，例如温度和湿度，两个单位不同需要归一化。</p>
+<p>random sample：数据采样和数据分布有关，例如随时间变化的数据，需要随机均匀地取，要训练不同时间的模式。</p>
+<p>数据处理：分批处理(batch)。将训练集分成很多块，在每一小块上进行梯度更新，(32, 64, 128条数据等等，需要具体运行)</p>
+<p>建立神经网络：</p>
+<p>pytorch自带nn模块，可以很快搭建神经网络(sequential 构造)</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">neu = torch.nn.Sequential(torch.nn.Linear(input_size, hidden_size))。。。。。</span><br></pre></td></tr></table></figure></p>
+<p>可以模块化损失函数和优化器 nn有很多损失函数，优化器可以将梯度下降模块化，也存在很多梯度下降，包括随机梯度下降(SGD)</p>
+<p>画出loss函数曲线</p>
+<h1>20/3/2019</h1>
+<p>分批次处理数据放到GPU上面可以自动并行计算。而且梯度下降的效果比不分批要好。</p>
+<p>对于连续的情况相同，但离散求导数就不同，误差累计为
+$$
+\frac{\partial L}{\partial x} = \sum_i\frac{\partial L_i}{\partial x},~~~L=\sum_iL_i
+$$</p>
+<p>输入层到下一个任意一个神经元的向量为
+$$
+w_j = \sum_{i}w_{ij}x_i
+$$
+<strong>训练结束后，每一个神经单元在探测，只有$W_j$和$X$两个矢量方向相同才能激活神经元，就是说神经元在匹配输入的数据模板，比较符合匹配的时候就能激活神经单元。这对应于激活和抑制。</strong></p>
+<p>作业：1实现一个三类网络，对自行车预测进行高、中、低着三类的划分。</p>
+<pre><code>  	2. 写一个三层的网络(或者多层)和反向传播算法，包含一个隐藏层
+</code></pre>
+<p>激活函数 sigmoid $\sigma(x) = \frac{1}{1+e^{-x}}$,  ReLU$\sigma (x) = \max(0,x)$, RNN用$\sigma(x) = \tanh(x)$</p>
+<p>那么函数为
+$$
+y_i = \sigma\left( \sum_i W_{ji}x_i \right)
+$$
+在numpy用向量做运算。</p>
+<p>预测问题输出为
+$$
+Y = \sigma(X\cdot W^{IH})\cdot W^{HO}
+$$
+分类问题输出为
+$$
+Y = \sigma\left(\sigma(X\cdot W^{IH})\cdot W^{HO}\right)
+$$
+此时$Y\in(0,1)$，取$1/2$为分界线，进行分类。</p>
+<p>误差计算$e_j=y_j^<em>-y_j$， N个输出单元的误差向量$E=Y^</em>-Y$，计算总误差，取极小
+$$
+W^* = \text{argmin}_W \varepsilon (W)
+$$</p>
 
       
     </div>
@@ -377,8 +412,8 @@ $$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/25/Research-Records20181025/" rel="next" title="Research Records">
-                <i class="fa fa-chevron-left"></i> Research Records
+              <a href="/2019/01/03/Research-Records20190103/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -387,7 +422,7 @@ $$
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/08/英语记录/" rel="prev" title="">
+              <a href="/2019/03/13/Research-Records20190113/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -503,7 +538,7 @@ $$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Q: 7/11/2018</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Q: 14/11/2018</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Solution Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Q: 10/1/2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">4 things to do with lessons</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">人工智能(Python, PyTorch)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">1. 超参数(实践, 调参数)、架构、训练方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">训练方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">特征</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">13/3/2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">单车预测&amp; 神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">20/3/2019</span></a></li></ol></div>
             
 
           </div>

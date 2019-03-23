@@ -229,6 +229,1687 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/python_education/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/23/python_education/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T12:16:04+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>1.</h1>
+<h1>2. 程序文件结构</h1>
+<h1>3. 虚拟环境搭建</h1>
+<h1>4. python编程语言基础技术框架</h1>
+<h2>对象引用与变量</h2>
+<p>python将<strong>所有数据</strong>存为内存对象；而<strong>变量</strong>是指向内存对象的引用；变量名本身也是对象，也存在内存中，只是一个指针指向于数据。</p>
+<p>例如</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"Tom"</span></span><br><span class="line">name = <span class="string">"Jerry"</span></span><br></pre></td></tr></table></figure></p>
+<p>只是将name指向Tom，第二个就是重新将指针指向Jerry，但是Tom此时没有被销毁，还在内存中。</p>
+<p><strong>动态类型</strong>：在任何时候，只要需要，某个对象引用都可以重新引用一个不同的对象（可以是不同的数据类型）；内置函数**type()**返回给定数据的数据类型。</p>
+<p>因而，在Python中，<strong>=</strong>  就是将变量名与内存中的某对象绑定：如果对象事先存在，就直接绑定，否则由 &quot;=“ 直接创建引用的对象。</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"Tom"</span></span><br><span class="line">print(id(name))</span><br><span class="line">print(name)</span><br><span class="line"></span><br><span class="line">test = <span class="string">"Tom"</span></span><br><span class="line">print(id(test))</span><br></pre></td></tr></table></figure></p>
+<p>最后连个地址都是同一个，说明Tom已经存在内存中了，我们直接引用它。</p>
+<h2>变量</h2>
+<p>保留字：系统本身的命令</p>
+<p>命令惯例：1. 单一下划线 _x 的变量名不会被 from module import * 导入</p>
+<ol start="2">
+<li>前后有下划线的变量 _<em>x</em>_ 是系统定义的变量名</li>
+<li>一两个下划线开头，但是结尾没有下划线的变量名 __x 是类的本地变量</li>
+<li>交互模式下，变量名 _ 用于保留最后表达式的结果，类似于mathematica中的%。</li>
+</ol>
+<p>注意：变量名没有类型，对象才有。</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="number">3.14</span></span><br><span class="line">print(type(name))</span><br><span class="line"></span><br><span class="line">name = <span class="string">"Tom"</span></span><br><span class="line">print(type(name))</span><br></pre></td></tr></table></figure></p>
+<p>最后输出结果本别是浮点类型和字符串类型，所以name只是一个名字，只有对象才有。</p>
+<h2>组合数据类型</h2>
+<p>数据结构：通过某种方式（例如对元素进行编号）组织在一起的数据的集合</p>
+<p>Python常用的组合数据类型：</p>
+<ol>
+<li>序列类型：列表 &quot;[]&quot;，元祖 &quot;()&quot;，字符串</li>
+<li>集合类型：集合</li>
+<li>映射类型：字典 {}</li>
+</ol>
+<p>字符串也可以切片处理，和列表很像。字典，列表都是可变对象；而元祖不可变。</p>
+<p>可以用函数 **len() ** 获取元素个数。</p>
+<p>注意：1. python 中，组合数据类型也是对象，所以可以嵌套，例如[&quot;hello&quot;,&quot;world&quot;,[1,2,3]]</p>
+<ol start="2">
+<li>实质上，列表和元祖并不真正存贮数据，而是<strong>存放对象引用</strong>。</li>
+<li>对象可以具有其可以被调用的特定方法。</li>
+</ol>
+<h2>控制流语句</h2>
+<p>控制流语句是过程式编程语言的比本控制机制。</p>
+<p>python常见的控制流语句：</p>
+<ol>
+<li>if</li>
+<li>while</li>
+<li>for … in</li>
+<li>try</li>
+</ol>
+<p>其中try是异常处理。</p>
+<h2>算术操作符</h2>
+<h2>输入/输出</h2>
+<p>input()</p>
+<p>print()</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"String %format1 %format2 ……"</span>, %(variable1,variable2,……))</span><br></pre></td></tr></table></figure></p>
+<p>其中的format可以是各种类型的写法</p>
+<ol>
+<li>d,i 十进制整数或者长整数</li>
+<li>u 无符号整数或长整数</li>
+<li>o 八进制整数或者长整数</li>
+<li>x 十六进制整数或者长整数</li>
+<li>X 十六进制整数(大写字母)</li>
+<li>f 浮点数</li>
+<li>e 浮点数，如 2.34878e$\pm$7374</li>
+<li>E 浮点数，如2.34878E$\pm$7374</li>
+<li>g,G 指数小于-4或者更高精度时使用%e或者%E，否则使用%f，这是一个自动化处理浮点型格式</li>
+<li>s 字符串或者任意对象。格式化代码使用str() 生成字符串</li>
+<li>r 同repr() 生成的字符串</li>
+<li>c 单个字符</li>
+<li>% 字面量%</li>
+</ol>
+<p>除此之外，还能对输出类型给限定</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%[(name)][flag][width][.precision]typecode</span><br></pre></td></tr></table></figure></p>
+<p>flag : &quot;-&quot; 左对齐，默认又对齐，&quot;+&quot; 带上数值符号， &quot;0&quot; 零填充</p>
+<p>width：制定最小宽度的数字，用多大宽度显示字符串</p>
+<p>[.precision]：精度，例如&amp;10f，就是总小数点后10位</p>
+<p>name是字典的索引，typecode就是要输出的类型，可以辅助做类型转换，例如</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">'x'</span>:<span class="number">21</span>,<span class="string">'y'</span>:<span class="number">27.7482</span>,<span class="string">'z'</span>:<span class="number">65</span>&#125;</span><br><span class="line">print(<span class="string">"we= %(x)-10d %(y)0.3g"</span> %d)</span><br></pre></td></tr></table></figure></p>
+<h2>函数的创建与调用</h2>
+<p>函数是实现模块化编程的基本组件。</p>
+<p>python使用def定义函数；函数可以<strong>参数化</strong>，通过传递不同的参数来调用</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">funct</span><span class="params">(name)</span>:</span></span><br><span class="line">  print(name)</span><br></pre></td></tr></table></figure></p>
+<p>每个python函数都有一个返回值，默认为None，也可以使用&quot;return value&quot;明确定义返回值</p>
+<p>def语句会创建一个函数对象，并同时创建一个指向函数的对象引用：</p>
+<ol>
+<li>函数也是对象，可以存储在组合数据类型中，也可以作为参数传递给其他函数</li>
+<li>**callable() ** 可用于测试函数是否可调用</li>
+</ol>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">funct</span><span class="params">(name)</span>:</span></span><br><span class="line">  print(name)</span><br><span class="line">callable(funct)</span><br></pre></td></tr></table></figure></p>
+<p>内置函数：<strong>range()  dir()  id() type() dir()  help() len() callable()</strong> 等等可以直接使用</p>
+<p>range()生成序列</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(<span class="number">2</span>,<span class="number">11</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以生成从2到11的偶数。</p>
+<p>python标准库拥有众多内置模块，这些模块拥有大量函数：</p>
+<ol>
+<li>
+<p>python模块实际上就是包含python代码的.py文件，其拥有自定义的函数与类及变量等</p>
+</li>
+<li>
+<p>导入模块使用import语句进行，后跟模块名称（不能指定模块文件名的后缀,py）</p>
+</li>
+<li>
+<p>导入一个模块后，可以访问其内部包含的任意函数、类及变量</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">x = random.choice([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>])</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<h1>5. Python编程风格</h1>
+<p>注释：#</p>
+<p>续行： \ ； &quot;&quot;&quot; &quot;&quot;&quot; 为闭合操作符，单一语句跨多行</p>
+<p>注意缩进相同的代码块表示同一等级</p>
+<p>若用if, while这些开头，那么最后一定是冒号</p>
+<p>模块： 每一个python脚本文件都可以被当成是一个模块；模块里的代码可以是一段直接执行的脚本，也可以是一些类似库函数的代码，从而可由别的模块执行导入(import)。</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mod</span><br><span class="line">name = <span class="string">"123"</span></span><br><span class="line">mod.print(name)</span><br></pre></td></tr></table></figure></p>
+<p>调用方法需要用点。</p>
+<p>整体语法格式</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/usr/bin/env python  #起始行</span></span><br><span class="line"><span class="string">"this is a test module"</span>  <span class="comment">#跨行用三引号，模块文档</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os <span class="comment">#模块导入</span></span><br><span class="line"></span><br><span class="line">debug = <span class="keyword">True</span>  <span class="comment">#全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooClass</span> <span class="params">(object)</span>:</span>					<span class="comment">#类定义</span></span><br><span class="line">  <span class="string">"Foo class"</span></span><br><span class="line">  <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="string">"test function"</span></span><br><span class="line">  foo = FooClass()							<span class="comment">#实例化</span></span><br><span class="line">  <span class="keyword">if</span> debug:</span><br><span class="line">    print(<span class="string">'ran test()'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:			<span class="comment">#主程序</span></span><br><span class="line">  test()</span><br></pre></td></tr></table></figure></p>
+<p>主程序：无论当前模块是被别的模块都如还是作为脚本直接执行，都会执行这部分代码</p>
+<p>注意：所有模块都有能力执行代码</p>
+<ol>
+<li>最高级别的python语句(没有缩进的)在模块被导入时就会执行，无论是否真的需要执行</li>
+<li>妥当的做法：除了那些真正需要执行的代码之外，所有的功能代码都通过函数建立，因此仅仅才主程序模块中编写大量的顶级可执行代码；用于被导入的模块只应该存在较少的顶级执行代码</li>
+</ol>
+<p>每个模块都有一个名为_<em>name</em>_ 的内置变量，此变量值会更具调用次模块的方式发生变化：</p>
+<ol>
+<li>如果此文件被作为模块导入，则__name__的值为模块名称</li>
+<li>如果此文件被直接执行，则 _<em>name</em>_ 的值  ___ name__</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/Research-Records20190113/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/13/Research-Records20190113/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T07:45:29+08:00">
+                2019-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>Research on 13/3/2019</h1>
+<p>​	We could make a ephemeris for Earth and Mercury in terms of
+$$
+\begin{align}
+	\ddot{\vec{r}}<em>{Mercury} = &amp; -\frac{GM}{r^2}\vec{n}+\vec{a}</em>{3-body}+\vec{a}<em>{PPN}+\vec{a}</em>{\eta_{DM}}\
+	\ddot{\vec{R}}<em>{Earth} = &amp; -\frac{Gm}{R^2}\vec{N}+\vec{A}</em>{3-body}+\vec{A}<em>{PPN}+\vec{a}</em>{\eta_{DM}}
+\end{align}
+$$
+which implies that the relative acceleration is  irrelevant to fifth interaction.
+$$
+\begin{align}
+	\ddot{\vec{D}} = -\frac{GM}{r^2}\vec{n}+\frac{Gm}{R^2}\vec{N}+\vec{a}<em>{3-body}-\vec{A}</em>{3-body}+\vec{a}<em>{PPN}-\vec{A}</em>{PPN}
+\end{align}
+$$
+Actually according to  osculationg orbit method (Will), the 5 integral constants $p,e,\iota,\Omega,\omega$ are varied with time (exact) or true anomaly (first-order approximation)
+$$
+\begin{align}
+	\frac{dp}{dt} = &amp; 2 \sqrt{\frac{p^3}{Gm}} \frac{1}{1+e\cos f}\mathcal{S}\
+	\frac{de}{dt} = &amp; \sqrt{\frac{p}{Gm}}\left[ \sin f ~ \mathcal{R}+ \frac{2\cos f+e(1+\cos^2 f)}{1+e\cos f}\mathcal{S} \right]\
+	\frac{d\iota}{dt} = &amp; \sqrt{\frac{p}{Gm}}\frac{\cos(\omega+f)}{1+e\cos f}\mathcal{W}\
+	\sin\iota \frac{d\Omega}{dt} = &amp; \sqrt{\frac{p}{Gm}}\frac{\sin(\omega+f)}{1+e\cos f}\mathcal{W}\
+	\frac{d\omega}{dt} = &amp; \frac{1}{e}\sqrt{\frac{p}{Gm}}\left[ -\cos f~\mathcal{R} + \frac{2+e\cos f}{1+e\cos f}\sin f~\mathcal{S} -e\cot\iota \frac{\sin(\omega+f)}{1+e\cos f}\mathcal{W} \right] \
+	\frac{df}{dt} = &amp; \sqrt{\frac{Gm}{p^3}}(1+e\cos f)^2 + \frac{1}{e}\sqrt{\frac{p}{Gm}}\left[ \cos f\mathcal{R} - \frac{2+e\cos f}{1+e\cos f}\sin f\mathcal{S} \right]
+\end{align}
+$$
+or
+$$
+\begin{align}
+	\frac{dp}{df}\simeq &amp; \frac{2p^2}{Gm}\frac{1}{(1+e\cos f)^3}\mathcal{S} \
+	\frac{de}{df}\simeq &amp;\frac{p^2}{Gm}\left[ \frac{\sin f}{(1+e\cos f)^2}\mathcal{R} + \frac{2\cos f+e(1+\cos^2 f)}{(1+e\cos f)^3}\mathcal{S} \right] \
+	\frac{d\iota}{df}\simeq &amp; \frac{p^2}{Gm}\frac{\cos(\omega+f)}{Gm(1+e\cos f)^3}\mathcal{W} \
+	\sin \iota \frac{d\Omega}{df}\simeq &amp; \frac{p^2}{Gm}\frac{\sin(\omega+f)}{(1+e\cos f)^3}\mathcal{W} \
+	\frac{d\omega}{df}\simeq &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} -e\cot\iota \frac{\sin(\omega+f)}{(1+e\cos f)^3}\mathcal{W} \bigg]\
+\end{align}
+$$
+while the other physical quantities such as $r$, $A$  (the Runge-Lenz vector), $\dot{r}​$ are all time equal to previous expressions
+$$
+\begin{align}
+	A = &amp; e(t)\
+	h = &amp; \sqrt{Gmp(t)} \
+	r = &amp; \frac{p(t)}{1+e(t)\cos f(t)}\
+	\dot{r} = &amp; \sqrt{\frac{Gm}{p(t)}}e(t)\sin f(t)
+\end{align}
+$$
+a listing of equations of integral constants that govern the behavior of the osculating orbital elements. To these we can add
+$$
+\begin{align}
+	\frac{da}{dt} = &amp; 2\sqrt{\frac{a^3}{Gm}}(1-e^2)^{-1/2}\left[ e\sin f~\mathcal{R}+(1+e\cos f)\mathcal{S} \right],.
+\end{align}
+$$
+Therefore the integral constants are now
+$$
+\begin{align}
+	p(f) = &amp; p+\Delta p\
+	e(f) = &amp; e+ \Delta e\
+	\iota(f) = &amp; \iota + \Delta l\
+	\Omega(f) = &amp; \Omega+\Delta \Omega\
+	\omega(f) = &amp; \omega+\Delta\omega\
+\end{align}
+$$
+Then the coordinates projecting into $(X,Y,Z)$ are
+$$
+\begin{align}
+	r^X = &amp; r\left[\cos\Omega\cos(\omega+f)-\cos\iota\sin\Omega\sin(\omega+f) \right]\
+	r^Y = &amp; r\left[\sin\Omega\cos(\omega+f)+\cos\iota\cos\Omega\sin(\omega+f) \right]\
+	r^Z = &amp; r \sin\iota \sin(\omega+f)
+\end{align}
+$$
+In addition, variable from $f$ to $t$ , the differential equation is
+$$
+\begin{align}
+	\frac{df}{dt} = &amp; \sqrt{\frac{Gm}{p^3}}(1+e\cos f)^2 + \frac{1}{e}\sqrt{\frac{p}{Gm}}\left[ \cos f ~ \mathcal{R} - \frac{2+e\cos f}{1+e\cos f}\sin f ~ \mathcal{S} \right]
+\end{align}
+$$
+The solution to $f$ without perturbation is
+$$
+\begin{align}
+	t-T = &amp; \sqrt{\frac{a^3}{Gm}}\left{ 2\arctan\left[ \sqrt{\frac{1-e}{1+e}}\tan \frac{f}{2} \right] - \frac{e\sqrt{1-e^2}\sin f}{1+e\cos f} \right}
+\end{align}
+$$
+where $ p  = a (1-e^2)$.  We can numerically solve $f(t)$ and substitute $f$ into $r,\Omega,\omega$.</p>
+<p>Finally for two planets, the distance between them is
+$$
+\begin{align}
+	D(t) = \sqrt{(r^X_1-r_2^X)^2+(r^Y_1-r^Y_2)^2+(r^Z_1-r^Z_2)^2 }
+\end{align}
+$$</p>
+<h1>14/3/2019</h1>
+<p>Perturbate with $\iota = 0$. From $\sin\iota \sin \omega = \vec{e}<em>x\cdot \vec{e}</em>{Z} = \frac{\vec{A}\cdot \vec{e}_Z}{e}$, one can differential it
+$$
+\begin{align}
+	\cos\iota \sin\omega \frac{d\iota}{dt}+\cos\omega\sin\iota \frac{d\omega}{dt} = \frac{d\vec{e}_x}{dt}\cdot \vec{e}_Z
+\end{align}
+$$
+After an algebraic calculation, it becomes
+$$
+\begin{align}
+	\cos\omega\sin\iota \frac{d\omega}{dt} = \frac{1}{e}\sqrt{\frac{Gm}{p}}\left[ -\cos f~\mathcal{R} +\frac{2+e\cos f}{1+e\cos f}\mathcal{S} \right]\sin\iota\cos\omega - \sqrt{\frac{Gm}{p}}\frac{\sin(\omega+f)}{1+e\cos f}\cos\omega \cos\iota~\mathcal{W}
+\end{align}
+$$
+Here we see that, when $\iota \rightarrow 0$, $\sin\omega \frac{d\iota}{dt} = \frac{d\vec{e}_x}{dt}\cdot \vec{e}_Z$, there is no solution involved $d\omega/dt$.</p>
+<p>We should replace the last term by ascending node $\Omega$ derivative with respect to time
+$$
+\begin{align}
+	\frac{d\omega}{dt} = -\cos\iota \frac{d\Omega}{dt}+ \frac{1}{e}\sqrt{\frac{Gm}{p}}\left[ -\cos f~\mathcal{R} +\frac{2+e\cos f}{1+e\cos f}\mathcal{S} \right]
+\end{align}
+$$
+when $\iota \rightarrow 0$ , we have
+$$
+\begin{align}
+	\frac{d\bar{\omega}}{dt}= \frac{d(\omega+\Omega)}{dt} = \frac{1}{e}\sqrt{\frac{Gm}{p}}\left[ -\cos f~\mathcal{R} +\frac{2+e\cos f}{1+e\cos f}\mathcal{S} \right]
+\end{align}
+$$
+And $\mathcal{W}\rightarrow 0$ , we have $\sin\iota \frac{d\Omega}{dt}\rightarrow 0$ . If $\iota\rightarrow 0$ holds, then $\frac{d\Omega}{dt}$ varies, but the perihelion condition $\bar{\omega}$ is constraint above.</p>
+<h1>15/3/2019</h1>
+<p><strong>Nothing important here</strong>Specifically for co-plane motion $\Omega = 0,~\iota = 0$, it reduces 3 integral constant $p,e,\omega$ with
+$$
+\begin{align}
+\frac{dp}{df}\simeq &amp; \frac{2p^2}{Gm}\frac{1}{(1+e\cos f)^3}\mathcal{S} \
+	\frac{de}{df}\simeq &amp;\frac{p^2}{Gm}\left[ \frac{\sin f}{(1+e\cos f)^2}\mathcal{R} + \frac{2\cos f+e(1+\cos^2 f)}{(1+e\cos f)^3}\mathcal{S} \right] \
+	\frac{d\omega}{df}\simeq &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg]
+\end{align}
+$$
+Based on a parallel force perturbation
+$$
+\begin{align}
+	\mathcal{R} = &amp; b \cos(\omega+f)\
+	\mathcal{S} = &amp; - b \sin(\omega+f)
+\end{align}
+$$
+the components of displacement vector are
+$$
+\begin{align}
+	r^X = &amp; r \cos(\omega+f)\
+	r^Y = &amp; r\sin(\omega+f)\
+	r^Z = &amp; 0.
+\end{align}
+$$</p>
+<h1>18/3/2019</h1>
+<p>de Sitter precession: for example, to the Earth-Moon-Sun system, after Earth traveling one circle around the Sun, Moon's orbit plane circulating the Earth will rotate around the axis of angular momentum of the Moon's orbit plane. In GR, we can state that a spinning object with certain angular momentum travels in a stationary/static gravitational field, then the spinning axis will change secularly orbiting one circle. This geodesic deviation is generated by spinning.</p>
+<p>In addition the spin of planet rotates around the constant total angular momentum vector with a constant angular velocity.</p>
+<p>In Will's paper, actually, the advance could seperate into 2 parts
+$$
+\begin{align}
+	\bar{\omega} = \omega+\Omega
+\end{align}
+$$
+where $\Omega$ is the ascending node and $\omega$ is the ordinary perihelion. The so-called de Sitter pression is the last term (as inclination $\iota$ vanishes)
+$$
+\begin{align}
+	\frac{d\Omega}{dt} = &amp; 4\pi \sum_A \frac{Gm_A}{c^2a}\left(\frac{a}{R_A} \right)^{5/2}
+\end{align}
+$$
+It is a constant.</p>
+<h1>19/3/2019</h1>
+<p>Thibault Damour and Gerhard Schafer states that a new measurable quantity $x\equiv a \sin\iota$ . Then the derivative with respect to time is
+$$
+\begin{align}
+	\frac{dx}{dt} = \frac{d(a\sin\iota)}{dt} = &amp; 2\sin\iota \sqrt{\frac{a^3}{GM}}(1-e^2)^{-1/2}[e\sin f~\mathcal{R}+(1+e\cos f)\mathcal{S}]\
+	&amp;+\cos\iota\sqrt{\frac{a^3}{GM}}(1-e^2)^{1/2}\frac{\cos(\omega+f)}{1+e\cos f}\mathcal{W}
+\end{align}
+$$
+For perturbated force
+$$
+\begin{align}
+\vec{f} = a_5\cos\Phi ~\vec{e}_X + a_5\sin\Phi ~\vec{e}_Y
+\end{align}
+$$
+gives rise to
+$$
+\begin{align}
+	\mathcal{R} = &amp; \cos(\omega+f)\cos(\Omega-\Phi)-\cos\iota\sin(\omega+f)\sin(\Omega-\Phi)\
+	\mathcal{S} = &amp; -\sin(\omega+f)\cos(\Omega-\Phi)+\cos\iota\cos(\omega+f)\sin(\Phi-\Omega)\
+	\mathcal{W} = &amp; \sin\iota\sin(\Omega-\Phi)
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+\frac{dx}{df} \simeq \frac{a^3(1-e^2)a_5}{GM} \bigg{ 2\sin\iota \left[ \frac{\sin f}{(1+e\cos f)^2}\mathcal{R} + \frac{1}{1+e\cos f}\mathcal{S} \right] +(1-e^2)\frac{\cos\iota \cos(\omega+f)}{(1+e\cos f)^3}\mathcal{W} \bigg}
+\end{align}
+$$</p>
+<p>The $x$ is changed for one orbit
+$$
+\begin{align}
+	\Delta x = &amp; \frac{4a_5 \pi  a^3  (1-e) \sqrt{1-e^2} \left(\sqrt{1-e^2}-1\right) \sin \iota \left[\sin \omega ~ \cos(\Phi -\Omega )-\cos \iota \cos \omega  \sin (\Phi -\Omega )\right]}{e^2 G M}\
+	&amp;+ \frac{3 \pi a_5  a^3 e \sin\iota \cos\iota \cos\omega \sin (\Phi -\Omega )}{\sqrt{1-e^2} G M}\
+	=&amp; \frac{\pi a_5 a^3\sin\iota}{GM} \bigg{\frac{4 (1-e) \sqrt{1-e^2} \left(\sqrt{1-e^2}-1\right) \left[\sin \omega ~ \cos(\Phi -\Omega )-\cos \iota \cos \omega  \sin (\Phi -\Omega )\right]}{e^2 }\
+&amp;~~~~~~~~~~~~~~~~~~~~~~+ \frac{3 e \cos\iota \cos\omega \sin (\Phi -\Omega )}{\sqrt{1-e^2}}  \bigg}
+\end{align}
+$$
+Substituting the Mercury data and dark matter, we reach per orbit
+$$
+\begin{align}
+	\Delta x = 100\eta_{DM}\sin\omega
+\end{align}
+$$
+for $\Phi =\Omega$. This value is too small to be detected.  For Earth, it is about
+$$
+\begin{align}
+	\Delta x = 434\eta_{DM}\sin\omega
+\end{align}
+$$</p>
+<h1>22/3/2019</h1>
+<h2>Query on Triditional Statistics</h2>
+<p>Exact renormalization group flow proposed by Polchinski states that modifying momentum space to be curved is automatically renormalized and inverse equivalently flatten momentum space and change kinetic terms in Lagrangian with a factor depending on momentum.</p>
+<p>This also implies that equal possibility principle is broken and triditional statistics is uncorrect to prescribe the high temperature case, $10^9$K for abundance of Lithium problem.</p>
+<p>Furthermore, the temperature of a newly formed neutron star is as high as $10^{11}$ to $10^{12}$ K, although the huge number of emitted neutrinos carry away amount of energy that the temperature of an isolated neutron star falls within a few years to around $10^6$ K  whose temperature can be detected in X-rays.</p>
+<p>Periodically secular change for Neutron star-white Dwarf binary:
+$$
+T = \frac{2\pi}{\omega}<s>\Longrightarrow</s>\frac{dT}{dt} = \frac{T^2}{2\pi}\frac{d\omega}{dt}~~\Longrightarrow \Delta T = \frac{T^2}{2\pi}\Delta\omega
+$$
+and
+$$
+a = \left( \frac{GMT^2}{4\pi^2} \right)^{1/3}
+$$
+The fifth force gives rise to the advance of periastron
+$$
+\Delta T_5 = \frac{T^2}{2\pi}\Delta\omega_5 = - \frac{3\pi T^2a^2a_5}{2\pi GM e}\cos(\omega-F)(1-e^2)^{1/2}
+$$
+Consequently $a_5$ equals to
+$$
+\begin{align}
+\Delta T_5 = &amp;- \frac{3\pi T^2a^2a_5}{2\pi GM e}\cos(\omega-F)(1-e^2)^{1/2}\
+= &amp; -\frac{3T^2a_5 \left( \frac{G^2M^2T^4}{16\pi^4}\right)^{1/3}}{2GMe}\cos(\omega-F)(1-e^2)^{1/2}\
+= &amp; -\frac{3T^{10/3}a_5}{4\pi e (2\pi GM)^{1/3}}\cos(\omega-F)(1-e^2)^{1/2}
+\end{align}
+$$
+$\Longrightarrow$   <strong>Eotvos parameter</strong>
+$$
+\eta_{DM}= \bigg| \frac{4\pi e(2\pi GM)^{1/3}}{3T^{10/3}a_{DM}(1-e^2)^{1/2}\cos(\omega-F)} \bigg|\Delta T
+$$
+In addition, ignored for gravitational binding energy of WD, the binding energy of neutron star is
+$$
+U = \frac{3Gm^2}{5R}= \frac{3mc^2}{5R} \frac{Gm}{c^2} = \frac{3mc^2}{5}\frac{r_s}{R}
+$$
+or
+$$
+\frac{U}{mc^2} = \frac{3r_s}{5R}
+$$
+Then the <strong>Nordtvedt effect</strong> reads as
+$$
+\bar{\eta}<em>{DM} = \bigg| \frac{20\pi eR(2\pi GM)^{1/3}}{9T^{10/3}a</em>{DM}r_s(1-e^2)^{1/2}\cos(\omega-F)} \bigg|\Delta T
+$$
+or directly ($m\simeq M$)
+$$
+\bar{\eta}<em>{DM} = \bigg| \frac{20\pi (2\pi)^{1/3} eRc^2}{9T^{10/3}a</em>{DM}(GM)^{2/3}(1-e^2)^{1/2}\cos(\omega-F)} \bigg|\Delta T
+$$
+where $R$ is the radius of neutron star.  Substituting $R=10km,~r_s=6km,~M=2M_{\odot},~a_{DM}=10^{-10}m/s^2,~e=0.1,~T=10yr$, into the expression, we reach
+$$
+\bar{\eta}<em>{DM} = 6.5\times 10^{-12}\frac{\Delta T}{\cos(\omega-F)}
+$$
+for $T=1yr$, $\bar{\eta}</em>{DM} = 1.4\times10^{-8}\frac{\Delta T}{\cos(\omega-F)}$. What's more, $\Delta T\sim 1hour$, $\bar{\eta}_{DM} = 5\times 10^{-5}$ .</p>
+<p>for $T=10yr,~ \Delta T= 1hour​$, $\bar{\eta}_{DM} = 2.3\times 10^{-8}​$ .</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/人工智能(Python, PyTorch)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/27/人工智能(Python, PyTorch)/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T08:59:57+08:00">
+                2019-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>人工智能(Python, PyTorch)</h1>
+<p>参考书: 《深度学习原理与PyTorch实战》</p>
+<p>深度学习的本质是做一个表征 (representation) 的学习。并非网络层数深.</p>
+<h1>1. 超参数(实践, 调参数)、架构、训练方法</h1>
+<p>训练方法：</p>
+<p>超参数：经验</p>
+<h2>架构</h2>
+<p>可学习性是关键，其中最重要的就是反向传播</p>
+<ol>
+<li>卷积神经网络(CNN)：适于处理图像数据</li>
+</ol>
+<p>​			图形的平移对称性对应于神经元的横列</p>
+<p>​			图形的自相似性通过缩放得到</p>
+<ol start="2">
+<li>循环神经网络(RNN)：处理序列数据</li>
+</ol>
+<p>​			同一神经元的循环可以具有记忆性，整个网络具有长程记忆性</p>
+<ol start="3">
+<li>神经计算机(神经图灵机)</li>
+<li>Transformer (google)：自注意力机制</li>
+<li>图网络：arxiv: 1906.01261</li>
+<li>capsule network: arxiv: 1710.09829</li>
+<li>BERT: 先 Transfromer, 然后遮挡部分语句，将剩下的句子给网络学习填上消失的语句，从一个有监督学习算   法实现无监督学习的效果；可以迁移学习来解决自然语言的问题（小数据训练，效果好）</li>
+</ol>
+<p>监督学习：打标签学习</p>
+<p>无监督学习：无标签学习</p>
+<h2>训练方法</h2>
+<p>训练方法的影响：在课程学习中，训练的次序很重要，将一个大问题分成多个子问题，子问题很容易，但合并起来			       效果很好</p>
+<p>​			       在迁移学习中，如何迁移很重要？</p>
+<p>AlphaGo: 在很多工作用于流程设计</p>
+<h2>特征</h2>
+<p>通过可视化可以判断学习特征的过程</p>
+<p>对于图形识别来说，在层数低的神经元学习边边角角（局部小特征），在层数高的神经元学习轮廓（整体特征）</p>
+<h1>13/3/2019</h1>
+<h2>单车预测&amp; 神经网络</h2>
+<p>Universal Approximating Theorem (UAT): 任意连续函数都能用神经元逼近。神经元的叠加就能形成各种各样的峰，函数就能用这样组合的神经元逼近。</p>
+<p>1.读取数据，pandas</p>
+<p>2.将语音，图片，列表变成tensor变量</p>
+<p>3.神经网络：生成正态随机分布torch.randn(1,counts)  1是输入神经元个数；偏置； 取学习率$\alpha = 0.0001$；</p>
+<p>3.循环(epoch): 前馈</p>
+<p>旧版本x.expand(counts, length) 将tensor扩张成length长度</p>
+<p>每隔10000个loss点打印loss，</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> i%<span class="number">10000</span> == <span class="number">0</span>:</span><br><span class="line">	print(<span class="string">"loss: "</span>,loss)</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure></p>
+<p>时刻注意 过拟合、欠拟合、无免费午餐</p>
+<p>需要足够的特征；</p>
+<p>数据准备：</p>
+<p>建模时候，输入要注意，不同的输入要做不同的操作：类型变量（0，1，2，3，……）大小没有含义，需要转化为one hot编码，即转化为二进制$0\rightarrow 10000,~1\rightarrow 01000,~2\rightarrow 00100$ 但变量多会导致很长。对于每一个特征，如果它有m个可能值，那么经过独热编码后，就变成了m个二元特征。并且，这些特征互斥，每次只有一个激活。因此，数据会变成稀疏的。好处主要有：1.解决了分类器不好处理属性数据的问题；2.在一定程度上也起到了扩充特征的作用。</p>
+<p>数值变量需要归一化才能使用，例如温度和湿度，两个单位不同需要归一化。</p>
+<p>random sample：数据采样和数据分布有关，例如随时间变化的数据，需要随机均匀地取，要训练不同时间的模式。</p>
+<p>数据处理：分批处理(batch)。将训练集分成很多块，在每一小块上进行梯度更新，(32, 64, 128条数据等等，需要具体运行)</p>
+<p>建立神经网络：</p>
+<p>pytorch自带nn模块，可以很快搭建神经网络(sequential 构造)</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">neu = torch.nn.Sequential(torch.nn.Linear(input_size, hidden_size))。。。。。</span><br></pre></td></tr></table></figure></p>
+<p>可以模块化损失函数和优化器 nn有很多损失函数，优化器可以将梯度下降模块化，也存在很多梯度下降，包括随机梯度下降(SGD)</p>
+<p>画出loss函数曲线</p>
+<h1>20/3/2019</h1>
+<p>分批次处理数据放到GPU上面可以自动并行计算。而且梯度下降的效果比不分批要好。</p>
+<p>对于连续的情况相同，但离散求导数就不同，误差累计为
+$$
+\frac{\partial L}{\partial x} = \sum_i\frac{\partial L_i}{\partial x},~~~L=\sum_iL_i
+$$</p>
+<p>输入层到下一个任意一个神经元的向量为
+$$
+w_j = \sum_{i}w_{ij}x_i
+$$
+<strong>训练结束后，每一个神经单元在探测，只有$W_j$和$X$两个矢量方向相同才能激活神经元，就是说神经元在匹配输入的数据模板，比较符合匹配的时候就能激活神经单元。这对应于激活和抑制。</strong></p>
+<p>作业：1实现一个三类网络，对自行车预测进行高、中、低着三类的划分。</p>
+<pre><code>  	2. 写一个三层的网络(或者多层)和反向传播算法，包含一个隐藏层
+</code></pre>
+<p>激活函数 sigmoid $\sigma(x) = \frac{1}{1+e^{-x}}$,  ReLU$\sigma (x) = \max(0,x)$, RNN用$\sigma(x) = \tanh(x)$</p>
+<p>那么函数为
+$$
+y_i = \sigma\left( \sum_i W_{ji}x_i \right)
+$$
+在numpy用向量做运算。</p>
+<p>预测问题输出为
+$$
+Y = \sigma(X\cdot W^{IH})\cdot W^{HO}
+$$
+分类问题输出为
+$$
+Y = \sigma\left(\sigma(X\cdot W^{IH})\cdot W^{HO}\right)
+$$
+此时$Y\in(0,1)$，取$1/2$为分界线，进行分类。</p>
+<p>误差计算$e_j=y_j^<em>-y_j$， N个输出单元的误差向量$E=Y^</em>-Y$，计算总误差，取极小
+$$
+W^* = \text{argmin}_W \varepsilon (W)
+$$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/03/Research-Records20190103/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/03/Research-Records20190103/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T21:12:08+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>Research Records on 3/1/2019</h1>
+<p>Assume that the distribution of dark matter(DM) in galactic centre is
+$$
+\begin{align}
+	\rho = \left{
+\begin{array}{cc}
+\frac{\rho_{sp}(r) \rho_{in}(r) }{\rho_{sp}(r) +\rho_{in}(r) },, &amp; \frac{4GM}{c^2}\leq r &lt; R_{sp}\
+\rho_{GNFW}(r),, &amp; r\geq R_{sp}
+\end{array}
+\right.
+\end{align}
+$$
+where the symbols represent
+$$
+\begin{align}
+	\rho_{sp} = \alpha r^{-\gamma_{sp}},,<s>\rho_{in} = \beta r^{-\gamma_{in}},,</s> \rho_{GNFW} = \frac{\rho_0}{(r/R_{s})^\gamma (1+r/R_s)^{3-\gamma}},,
+\end{align}
+$$
+and $\alpha,~\beta$  are the quantities that characterize the properties of dark matter in different region, say, $r&lt; r_{ann}$ and $r&gt;r_{ann}$ ($r_{ann}$ means the characteristic radius of annihilation of dark matter particles).  $R_s = 20kpc$ and $\rho_0$ can be determined by $\rho_{GNFW} = 0.4~Gev/cm^3$ at $r=8 kpc$. In addition, the parameters $\gamma_{sp} related$ is to $\gamma$ ,
+$$
+\begin{align}
+	\gamma_{sp} = &amp; \frac{9-2\gamma}{4-\gamma}\
+	\gamma_{in} = &amp; \left{
+	\begin{array}{cc}
+	0.5,, &amp;for~s-wave~annihilation\
+	0.34,, &amp;for~p-wave~annihilation
+\end{array}
+\right. \
+\gamma \in &amp;[1.0,1,4]
+\end{align}
+$$
+By the way, the coefficients $\alpha$ and $\beta$ can be refered to be
+$$
+\begin{align}
+	\alpha = &amp; \rho_Rg_\gamma(r)R_{sp}^{\gamma_{sp}},,~~\rho_R = \rho_0\left(\frac{r_0}{R_{sp}} \right)^\gamma ,, R_{sp} = \alpha_\gamma r_0\left(\frac{M}{\rho_0 r_0^3} \right)^{1/(3-\gamma)},,<s>g_\gamma(r) = \left(1-\frac{4R_s}{r} \right)^3\
+	\beta = &amp; \frac{\rho_{ann}R_{ann}^{1/2}}{(p+1)I_{1/2}(p;1)},,~<s>p=0.86,,</s>~\rho_{ann}(s-wave)=1.7\times 10^8M_{solar}/pc^3,,\
+	\rho_{ann}&amp;(p-wave)=  6.6\times 10^{10} M_{solar}/pc^3 ,,</s>~ r_{ann}(s-wave) = 3.1\times 10^{-3}pc ,,\
+	r_{ann}&amp;(p-wave) = 2.5\times 10^{-4}pc
+\end{align}
+$$</p>
+<p>Integrating the $\rho$ , we obtain the mass which is related to the acceleration
+$$
+\begin{align}
+	m(r) = &amp; \int_{\frac{4GM}{c^2}}^{R_{sp}} \frac{\rho_{sp}(r) \rho_{in}(r) }{\rho_{sp}(r) +\rho_{in}(r) } 4\pi r^2 dr + \int_{R_{sp}}^r \rho_{GNFW}(r')4\pi r'^2 dr'\
+	= &amp; \int_{\frac{4GM}{c^2}}^{R_{sp}} \frac{\alpha\beta r^{-\gamma_{in}-\gamma_{sp}}}{\alpha r^{-\gamma_{sp}}+\beta r^{-\gamma_{in}}} 4\pi r^2 dr + \int^r_{R_{sp}}\frac{\rho_0}{(r'/R_s)^\gamma (1+r'/R_{s})^{3-\gamma}}4\pi r'^2dr'\
+	= &amp; \frac{4\pi\beta \left(\frac{4GM}{c^2}\right)^{3-\gamma_{in}}}{\gamma_{in}-3}{}<em>2F_1\left[1,\frac{\gamma</em>{in}-3}{\gamma_{in}-\gamma_{sp}},\frac{3+\gamma_{sp}-2\gamma_{in}}{\gamma_{sp}-\gamma_{in}}, - \frac{\beta}{\alpha}\left( \frac{4GM}{c^2} \right)^{\gamma_{sp}-\gamma_{in}}\right]\
+	&amp;- \frac{4\pi\beta R_{sp}^{3-\gamma_{in}}}{\gamma_{in}-3}{}<em>2F_1\left[1,\frac{\gamma</em>{in}-3}{\gamma_{in}-\gamma_{sp}},\frac{3+\gamma_{sp}-2\gamma_{in}}{\gamma_{sp}-\gamma_{in}}, - \frac{\beta}{\alpha}R_{sp}^{\gamma_{sp}-\gamma_{in}}\right]\
+	&amp; + \frac{4\pi \rho_0 R_s^{2+\gamma}R_{sp}^{1-\gamma}}{\gamma-1}\left{ -2\left( 1+\frac{R_{sp}}{R_s} \right)^{\gamma-1} + {}<em>2F_1\left(1-\gamma,1-\gamma,2-\gamma,-\frac{R</em>{sp}}{R_s}\right) \
++{}<em>2F_1\left( 1-\gamma,3-\gamma,2-\gamma, - \frac{R</em>{sp}}{R_s} \right) \right} \
+&amp; - \frac{4\pi \rho_0 R_s^{2+\gamma}r^{1-\gamma}}{\gamma-1}\left{ -2\left( 1+ \frac{r}{R_s} \right)^{\gamma-1} + {}_2F_1\left(1-\gamma,1-\gamma,2-\gamma,-\frac{r}{R_s}\right) \
++{}_2F_1\left( 1-\gamma,3-\gamma,2-\gamma, - \frac{r}{R_s} \right) \right}
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	a_{DM} = &amp; \frac{G}{r^2} \bigg{ \frac{4\pi\beta \left(\frac{4GM}{c^2}\right)^{3-\gamma_{in}}}{\gamma_{in}-3}{}<em>2F_1\left[1,\frac{\gamma</em>{in}-3}{\gamma_{in}-\gamma_{sp}},\frac{3+\gamma_{sp}-2\gamma_{in}}{\gamma_{sp}-\gamma_{in}}, - \frac{\beta}{\alpha}\left( \frac{4GM}{c^2} \right)^{\gamma_{sp}-\gamma_{in}}\right]\
+	&amp;- \frac{4\pi\beta R_{sp}^{3-\gamma_{in}}}{\gamma_{in}-3}{}<em>2F_1\left[1,\frac{\gamma</em>{in}-3}{\gamma_{in}-\gamma_{sp}},\frac{3+\gamma_{sp}-2\gamma_{in}}{\gamma_{sp}-\gamma_{in}}, - \frac{\beta}{\alpha}R_{sp}^{\gamma_{sp}-\gamma_{in}}\right]\
+	&amp; + \frac{4\pi \rho_0 R_s^{2+\gamma}R_{sp}^{1-\gamma}}{\gamma-1}\left{ -2\left( 1+\frac{R_{sp}}{R_s} \right)^{\gamma-1} + {}<em>2F_1\left(1-\gamma,1-\gamma,2-\gamma,-\frac{R</em>{sp}}{R_s}\right) \
++{}<em>2F_1\left( 1-\gamma,3-\gamma,2-\gamma, - \frac{R</em>{sp}}{R_s} \right) \right} \
+&amp; - \frac{4\pi \rho_0 R_s^{2+\gamma}r^{1-\gamma}}{\gamma-1}\left{ -2\left( 1+ \frac{r}{R_s} \right)^{\gamma-1} + {}_2F_1\left(1-\gamma,1-\gamma,2-\gamma,-\frac{r}{R_s}\right) \
++{}_2F_1\left( 1-\gamma,3-\gamma,2-\gamma, - \frac{r}{R_s} \right) \right}
+\bigg}
+\end{align}
+$$</p>
+<p>Moreover the additional fundamental force is characterized by the coefficient
+$$
+\begin{align}
+	\eta_{DM} = &amp; \pm \frac{g_5^2}{4\pi G u^2} \frac{q_5^{DM}}{\mu_{DM}}\left( \frac{q_5^A}{\mu_A} - \frac{q_5^B}{\mu_B} \right)\left(1 + \frac{r}{\lambda} \right) e^{-r/\lambda}
+\end{align}
+$$
+and
+$$
+\begin{align}
+	\frac{q_5}{\mu} = \frac{Z}{\mu}\cos\psi + \frac{N}{\mu}\sin\psi,, ~~~\tan\psi = \frac{q_5^{(n)}}{q_5^{(p)}+q_5^{(e)}}
+\end{align}
+$$
+where $Z$ and $N$ are proton and neutron number respectively. Thus the fifth force affects the binary system with the acceleration
+$$
+\begin{align}
+	a_{5} = \eta_{DM}(r=R=8kpc) \times a_{DM}(r=R=8kpc)
+\end{align}
+$$</p>
+<p>in which $a_5$ is a constant force between objects A and B.</p>
+<p>The acceleration is
+$$
+\begin{align}
+	\ddot{\vec{r}} = &amp; -\frac{Gm}{r^2}\vec{n} + \vec{A}<em>{1PN} + a_5\vec{N}
+\end{align}
+$$
+source from
+$$
+\begin{align}
+	\ddot{\vec{r}} = -\frac{Gm}{r^2}\vec{n} + \vec{A}</em>{1PN} + \vec{A}_\eta
+\end{align}
+$$
+In this relative acceleration, the 0PN and 1PN terms can be witten as
+$$
+\begin{align}
+	\vec{a} = -\frac{Gm}{r^2}\vec{n} - \frac{Gm}{c^2r^2}\left{ \left[ (1+3\eta)v^2 - \frac{3}{2}\eta \dot{r}^2 - 2(2+\eta)\frac{Gm}{r} \right]\vec{n} -2(2-\eta)\dot{r}\vec{v} \right}
+\end{align}
+$$
+and thus
+$$
+\begin{align}
+	\vec{a} = &amp; -\frac{Gm}{r^2}\vec{n} - \frac{Gm}{c^2r^2}\left{ \left[ (1+3\eta)v^2 - \frac{3}{2}\eta \dot{r}^2 - 2(2+\eta)\frac{Gm}{r} \right]\vec{n} -2(2-\eta)\dot{r}\vec{v} \right}+ a_5\vec{N} \
+	\vec{r} = &amp; r\vec{n},,<s>\vec{v}=\dot{r}\vec{n}+r\dot{\phi}\vec{\lambda},,</s>\vec{a} = (\ddot{r}-r\dot{\phi}^2)\vec{n}+\frac{1}{r}\frac{d}{dt}(r^2\dot{\phi})\vec{\lambda}
+\end{align}
+$$
+This implies that the two dynamical equations
+$$
+\begin{align}
+	\ddot{r}- r\dot{\phi}^2 = &amp; -\frac{Gm}{r^2} - \frac{Gm}{c^2r^2}\left[ (1+3\eta)v^2 - \frac{3}{2}\eta \dot{r}^2 - 2(2+\eta)\frac{Gm}{r} \right] -2(2-\eta)\dot{r}^2 + a_5\vec{n}\cdot\vec{N}\
+	\frac{1}{r}\frac{d}{dt}(r^2\dot{\phi}) = &amp; 2(2-\eta)\frac{Gm}{c^2r}\dot{r}\dot{\phi} + a_5\vec{\lambda}\cdot\vec{N},,\
+	\vec{n}\cdot\vec{N} = &amp; \cos(\omega+f-F)\
+	\vec{\lambda}\cdot\vec{N} = &amp; -\sin(\omega+f-F)
+\end{align}
+$$
+where $F$ comes from
+$$
+\begin{align}
+	\vec{N} = \cos F\vec{e}_X+\sin F\vec{e}_Y
+\end{align}
+$$
+The components of perturbative force read as
+$$
+\begin{align}
+	\mathcal{R} = &amp; \vec{f}\cdot \vec{n} = - \frac{Gm}{c^2r^2}\left[ (1+3\eta)v^2 - \frac{3}{2}\eta \dot{r}^2 - 2(2+\eta)\frac{Gm}{r} \right] -2(2-\eta)\dot{r}^2 + a_5\cos(\omega+f-F)\
+	\mathcal{S} = &amp; \vec{f}\cdot\vec{\lambda} = 2(2-\eta)\frac{Gm}{c^2r}\dot{r}\dot{\phi} - a_5\sin(\omega+f-F)\
+	\mathcal{W} = &amp; \vec{f}\cdot \vec{e}_Z = 0
+\end{align}
+$$</p>
+<p>Finally the differential equation for  advanced perihelion is
+$$
+\begin{align}
+	\frac{d\omega}{df}\approx &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg]\
+\end{align}
+$$</p>
+<p>which, as the fifth-force contribution, gives
+$$
+\begin{align}
+	\Delta\omega_5 = &amp; - \frac{3\pi p^2a_5}{Gm}\frac{\cos(\omega-F)}{e(1-e^2)^{3/2}} = - \frac{3\pi a^2a_5}{Gm e}\cos(\omega-F)(1-e^2)^{1/2} \
+	&amp;= -1.16\cos(\omega-F)\times 10^{-12}~rad/orbit~period
+\end{align}
+$$
+and for average speaking, perihelionlion will not have a secular non-zero advance
+$$
+\begin{align}
+	\langle \Delta\omega \rangle_5 = 0,.
+\end{align}
+$$</p>
+<p>The pericenter advance of Sun-Mecury system is
+$$
+\begin{align}
+	\langle\Delta\omega\rangle_{GR} = 6\pi \frac{Gm}{ac^2(1-e^2)} = 4.9\times 10^{-7}~rad/orbtit~period
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	&amp;a = 0.387099AU\
+	&amp;1Au = 1.496\times 10^{11}m\
+	&amp;G = 6.67408\times 10^{-11}N\cdot m^2/kg^2\
+	&amp;m = 1.9891 \times 10^{30}kg\
+	&amp;e = 0.205628 \
+	&amp;P = 0.24085 yr\
+	&amp;1GeV = 1.783\times 10^{-27}kg\
+	&amp;1 rad = 2.063 \times 10^5 arcsecond
+\end{align}
+$$</p>
+<h1>15/1/2019</h1>
+<p>$\eta_{DM} \approx \alpha \left(\frac{q_5^{DM}}{\mu_{DM}}\right) \Delta\left( \frac{q_5^{OM}}{\mu_{OM}} \right)$ if $\lambda \gg r$</p>
+<p>Yukawa strength $\alpha = 10^{-11}​$</p>
+<p>However, one can use a technical skill to viod the $\alpha$ and $\frac{q_5^{DM}}{\mu_{DM}}$ if $\eta_{DM}$ is known in experiment with $|\eta_{DM}|\leq 10^{-5} $. The expression is
+$$
+\begin{align}
+	\frac{a_{ng}^{DM}}{a^{DM}_{gal}} = \eta^{DM} \frac{\langle q_5/\mu \rangle}{\Delta (q_5/\mu)}
+\end{align}
+$$
+where the upper line in the fraction represents the mean value and the bottom one is the difference of test bodies. The figures in literatures, in fact, characterize the ratio
+$$
+\begin{align}
+	R = \frac{\langle q_5/\mu \rangle}{\Delta (q_5/\mu)} = \frac{\sin\psi \langle N/\mu \rangle + \cos\psi \langle Z/\mu\rangle}{\sin\psi\left[ \Delta(N/\mu)\right] + \cos\psi\left[\Delta(Z/\mu)\right]}
+\end{align}
+$$</p>
+<h1>18/1/2019</h1>
+<p>dynamics in this triple system is perturbated by dark matter and first order relativistic effect
+$$
+\begin{align}
+	\vec{a} = -G\frac{m}{r^2}\vec{n} + \vec{A}<em>{PN}+\eta</em>{DM}\vec{a}<em>g
+\end{align}
+$$
+where
+$$
+\begin{align}
+	\vec{a} = &amp; -\frac{Gm}{r^2}\vec{n} - \frac{Gm}{c^2r^2}\left{ \left[ (1+3\eta)v^2 - \frac{3}{2}\eta \dot{r}^2 - 2(2+\eta)\frac{Gm}{r} \right]\vec{n} -2(2-\eta)\dot{r}\vec{v} \right}+ \eta</em>{DM}a_g\vec{N} \
+	\vec{r} = &amp; r\vec{n},,<s>\vec{v}=\dot{r}\vec{n}+r\dot{\phi}\vec{\lambda},,</s>\vec{a} = (\ddot{r}-r\dot{\phi}^2)\vec{n}+\frac{1}{r}\frac{d}{dt}(r^2\dot{\phi})\vec{\lambda} \
+	\vec{N} = &amp; \sin\Theta \cos\Phi~ \vec{e}_X+\sin\Theta\sin\Phi~\vec{e}_Y + \cos\Theta~\vec{e}_Z\
+	\vec{n} = &amp; \left[ \cos\Omega\cos(\omega+f)-\cos\iota \sin\Omega\sin(\omega+f) \right]~\vec{e}_X \
+	&amp; + \left[\sin\Omega\cos(\omega+f) + \cos\iota \cos\Omega\sin(\omega+f) \right]~\vec{e}_Y\
+	&amp; + \sin\iota\sin(\omega+f)~\vec{e}_Z \
+	\vec{\lambda} = &amp; \left[ -\cos\Omega\sin(\omega+f) -\cos\iota\sin\Omega\cos(\omega+f) \right]~\vec{e}_X\
+	&amp; + \left[-\sin\Omega\sin(\omega+f)+\cos\iota\cos\Omega\cos(\omega+f) \right]~\vec{e}_Y\
+	&amp; + \sin\iota\cos(\omega+f)~\vec{e}<em>Z\
+	\vec{e}_z = &amp; \sin\iota\sin\Omega ~\vec{e}_X - \sin\iota\cos\Omega~\vec{e}_Y+\cos\iota~\vec{e}_Z
+\end{align}
+$$
+so that
+$$
+\begin{align}
+	\vec{n}\cdot\vec{N} = &amp; \sin\Theta\cos(\omega+f)\cos(\Omega-\Phi)-\cos\iota\sin\Theta\sin(\omega+f)\sin(\Omega-\Phi)+\sin\iota\sin(\omega+f)\cos\Theta\
+	\vec{\lambda}\cdot\vec{N} = &amp; -\sin\Theta \sin(\omega+f)\cos(\Omega-\Phi)+\sin\Theta\cos\iota\cos(\omega+f)\sin(\Phi-\Omega)+\sin\iota\cos(\omega+f)\cos\Theta\
+	\vec{e}<em>z\cdot\vec{N} = &amp; \sin\iota \sin\Theta\sin(\Omega-\Phi)+\cos\iota\cos\Theta
+\end{align}
+$$
+The perturbative force component is
+$$
+\begin{align}
+	\mathcal{R} =  \vec{f}\cdot \vec{n} = &amp; - \frac{Gm}{c^2r^2}\left[ (1+3\eta)v^2 - \frac{3}{2}\eta \dot{r}^2 - 2(2+\eta)\frac{Gm}{r} \right] -2(2-\eta)\dot{r}^2 \
+&amp; + \eta</em>{DM}a_g \bigg[ \sin\Theta\cos(\omega+f)\cos(\Omega-\Phi)-\cos\iota\sin\Theta\sin(\omega+f)\sin(\Omega-\Phi)\
+&amp; ~~~<s><s><s><s><s><s><s>+\sin\iota\sin(\omega+f)\cos\Theta \bigg]\
+	\mathcal{S} =  \vec{f}\cdot\vec{\lambda} = &amp; 2(2-\eta)\frac{Gm}{c^2r}\dot{r}\dot{\phi} \
+	&amp; + \eta</s></s></s></s></s></s></s></em>{DM} a_g \bigg[ -\sin\Theta \sin(\omega+f)\cos(\Omega-\Phi)+\sin\Theta\cos\iota\cos(\omega+f)\sin(\Phi-\Omega)\
+	&amp;~~~~~+\sin\iota\cos(\omega+f)\cos\Theta \bigg]  \
+	\mathcal{W} =  \vec{f}\cdot \vec{e}<em>Z = &amp; \eta</em>{DM} a_g \bigg[ \sin\iota \sin\Theta\sin(\Omega-\Phi)+\cos\iota\cos\Theta \bigg]
+\end{align}
+$$
+The perihelion advance differential equation is
+$$
+\begin{align}
+	\frac{d\omega}{df}\simeq &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} -e\cot\iota \frac{\sin(\omega+f)}{(1+e\cos f)^3}\mathcal{W} \bigg]\
+\end{align}
+$$</p>
+<p>with the contribution from dark matter
+$$
+\begin{align}
+	\Delta\omega = &amp; -\frac{2\eta_{DM}a_g\pi a^2}{Gm e^3}\big[1+e^4-\sqrt{1-e^2}-2e^2(1-\sqrt{1-e^2}) \big] \\
+	&amp;~<s><s><s>\times \bigg[ \cos(\Phi-\Omega)\cos\omega\sin\Theta+\cos\Theta\sin\iota\sin\omega + \sin\omega\cos\iota\sin\Theta\sin(\Phi-\Omega) \bigg] \
+	&amp; - \frac{\eta_{DM}a_g \pi a^2}{e^3Gm}\sqrt{1-e^2}\bigg[ 2-e^2-2\sqrt{1-e^2}+2e^2\sqrt{1-e^2} \bigg]\
+	&amp;</s></s></s>~\times\bigg[ \cos\Theta\sin\iota\sin\omega+\cos\iota\sin\Theta\sin\omega\sin(\Phi-\Omega)+\sin\Theta\cos\omega\cos(\Phi-\Omega) \bigg]\
+	&amp; + \frac{3\eta_{DM}a_g\pi a^2}{Gm\sqrt{1-e^2}}\cos\iota\sin\omega[\cos\Theta\cot\iota - \sin\Theta\sin(\Phi-\Omega)]
+\end{align}
+$$
+For $\Theta \rightarrow \pi/2$ ,
+$$
+\begin{align}
+	\sin \iota \frac{d\Omega}{df}\simeq &amp; \frac{p^2}{Gm}\frac{\sin(\omega+f)}{(1+e\cos f)^3}\mathcal{W} = \frac{\eta_{DM} a_g p^2}{Gm}\frac{\sin(\omega+f)}{(1+e\cos f)^3} \bigg[ \sin\iota \sin\Theta\sin(\Omega-\Phi)+\cos\iota\cos\Theta \bigg]\
+	= &amp; \frac{\eta_{DM} a_g p^2}{Gm}\frac{\sin(\omega+f)}{(1+e\cos f)^3} \sin\iota\sin(\Omega-\Phi)
+\end{align}
+$$
+so even for $\iota \rightarrow 0$ , the derivative is
+$$
+\begin{align}
+	\frac{d\Omega}{df} = \frac{\eta_{DM} a_g p^2}{Gm}\frac{\sin(\omega+f)}{(1+e\cos f)^3} \sin(\Omega-\Phi)
+\end{align}
+$$
+Then the advance is
+$$
+\begin{align}
+	\frac{d\omega}{df} = - \cos\iota \frac{d\Omega}{df} + \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg]
+\end{align}
+$$
+for $\iota\rightarrow 0$ becoming
+$$
+\begin{align}
+	\frac{d\bar{\omega}}{df} =\frac{d\omega}{df} +\frac{d\Omega}{df} = \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg]
+\end{align}
+$$</p>
+<p>The acceleration of dark matter is
+$$
+\begin{align}
+	a_5 =\eta_{DM}a_g  \sim 10^{-15}m/s^2
+\end{align}
+$$
+From FIG.2 of Shao's work, we see that the magnitude of the acceleration in solar system is roughly same in different models, so we can use the simplest model GNFW
+$$
+\begin{align}
+	m = \int_{10^{-5}}^{8kpc} 4\pi r^2\rho_{GNFW}dr = \int_{10^{-5}}^{8kpc} 4\pi r^2\frac{\rho_0}{(r/R_s)^\gamma(1+r/R_s)^{3-\gamma}} dr
+\end{align}
+$$
+where $R_s = 20kpc$ and $\rho(r=8kpc)=0.4~GeV/cm^3$ and $\gamma = 1.24$ or $\gamma = 1.26$. Thus
+$$
+\begin{align}
+	\rho_0 &amp;= 0.4^{1+\gamma}\times1.4^{3-\gamma}~GeV/cm^3 = 0.4^{1+\gamma}\times1.4^{3-\gamma}\times 10^6~GeV/m^3 \
+&amp;= 0.4^{1+\gamma}\times1.4^{3-\gamma}\times 10^6 \times 3.084^3\times 10^{48}~GeV/pc^3\
+&amp;= 0.4^{1+\gamma}\times1.4^{3-\gamma}\times 10^6 \times 3.084^3\times 10^{57}~GeV/kpc^3 \
+&amp; = 0.4^{1+\gamma}\times1.4^{3-\gamma}\times 29.3321\times 10^{63}~GeV/kpc^3\
+&amp; = \left(\frac{2}{7}\right)^\gamma \times 3.22488\times 10^{64}GeV/kpc^3
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	m = &amp; \int_{10^{-5}kpc}^{8kpc} 4\pi r^2\frac{0.4^{1+\gamma}\times1.4^{3-\gamma}\times 29.3321\times 10^{63}}{(r/20)^\gamma(1+r/20)^{3-\gamma}} dr \
+\approx &amp; \int_{10^{-5}kpc}^{8kpc} 9.39\pi \frac{0.4^{1+\gamma}\times1.4^{3-\gamma}\times 10^{68}}{(20+r)^{3-\gamma}}r^{2-\gamma} dr
+\end{align}
+$$</p>
+<p>The dark matter mass is
+$$
+\begin{align}
+	m_{\gamma=1.24} &amp;= 5.28305\times 10^{61}~ GeV = 5.28305\times 10^{67}\times 1.783 \times 10^{-27} ~kg= 9.419\times 10^{40} ~kg\
+	m_{\gamma=1.26} &amp;= 5.33912\times 10^{61}~ GeV = 5.33912\times 10^{67}\times 1.783 \times 10^{-27} ~kg = 9.519\times 10^{40}~kg
+\end{align}
+$$
+They generate the accelerations as</p>
+<p>$$
+\begin{align}
+	a_{DM,\gamma=1.24} = &amp; \frac{Gm}{R^2} = \frac{6.673\times10^{-11}\times 9.419\times 10^{40}}{(8000\times 3.084\times 10^{16})^2} ~m/s^2 = 1.032\times 10^{-10} m/s^2\
+	a_{DM,\gamma=1.26} = &amp; \frac{Gm}{R^2} = \frac{6.673\times10^{-11}\times 9.519\times 10^{40}}{(8000\times 3.084\times 10^{16})^2} ~m/s^2 = 1.043\times 10^{-10} m/s^2
+\end{align}
+$$</p>
+<h1>26/2/2019</h1>
+<p>For Sun, the ratio of charge to mass unit is [Progress in Particle and Nuclear Physics 62 (2009) 102–134]
+$$
+\begin{align}
+	Z/\mu = &amp; 0.86 \
+	N/\mu = &amp; 0.14 \
+	B/\mu = &amp; 0.99
+\end{align}
+$$
+For Mercury, the ratio of charge is unknown...</p>
+<p>For Earth, the ratio is
+$$
+\begin{align}
+	Z/\mu = &amp; 0.49\
+	N/\mu = &amp; 0.51\
+	B/\mu = &amp; 1.00
+\end{align}
+$$
+$\Delta (Z/\mu) = 0.37,~\Delta (N/\mu) = -0.37,~\lang Z/\mu\rang = 0.675,~\lang N/\mu \rangle = 0.325$
+$$
+\begin{align}
+	\eta_{DM}\cos(\omega-F) = &amp; -\frac{\Delta\omega_5 Gme}{3\pi a^2(1-e^2)^{1/2}a_{DM}} \
+	A_{\eta} = \eta_{DM} a_{DM}
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\Delta\omega = \Delta\omega_{Newton}+\Delta\omega_{PPN} +\Delta\omega_{DM}
+\end{align}
+$$</p>
+<p>$G = 6.672\times 10^{-11}N\cdot m^2/kg^2$,$a = 0.387099 AU$, $1AU = 149.60\times 10^9m$, periodicity $P = 0.24085yr$, $e=0.205628$, $\iota = 7^\circ 0'15''$, $1rad = 2.063\times 10^5 ~as$,<br>
+$$
+\begin{align}
+\eta_{DM}\cos(\omega-F) = &amp; - 8.45847\times 10^6\Delta\omega_5 ~~~~~~~~~~~~(rad/orbit)\
+\eta_{DM}\cos(\omega-F) = &amp; -0.0987505\Delta\omega_5  ~~~~~~~~~~~~~~~~~(as/century)
+\end{align}
+$$</p>
+<p>The advances of thrid bodies perturbations reach
+$$
+\begin{align}
+	\Delta\omega_3 = &amp; \frac{3\pi}{2} \frac{m_3a^3}{M R^3}(1-e^2)^{1/2}\left[1+5\cos2(\omega-F) \right]
+\end{align}
+$$</p>
+<p><strong><em>BepiColombo</em></strong> is a joint mission of the <a href="https://en.wikipedia.org/wiki/European_Space_Agency" target="_blank" rel="noopener">European Space Agency</a> (ESA) and the <a href="https://en.wikipedia.org/wiki/JAXA" target="_blank" rel="noopener">Japan Aerospace Exploration Agency</a> (JAXA) to the planet <a href="https://en.wikipedia.org/wiki/Mercury_(planet)" target="_blank" rel="noopener">Mercury</a>.[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-Amos-4" target="_blank" rel="noopener">4]</a> The mission comprises two satellites launched together: the <strong>Mercury Planetary Orbiter</strong> (<strong>MPO</strong>) and <strong><em>Mio</em></strong> (<strong>Mercury Magnetospheric Orbiter</strong>, <strong>MMO</strong>).[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-Miopressrelease-5" target="_blank" rel="noopener">5]</a> The mission will perform a comprehensive study of Mercury, including characterization of its <a href="https://en.wikipedia.org/wiki/Magnetic_field" target="_blank" rel="noopener">magnetic field</a>, <a href="https://en.wikipedia.org/wiki/Magnetosphere" target="_blank" rel="noopener">magnetosphere</a>, and both interior and surface structure. It was launched on an <a href="https://en.wikipedia.org/wiki/Ariane_5" target="_blank" rel="noopener">Ariane 5</a>[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-ariane-2" target="_blank" rel="noopener">2]</a> rocket on 20 October 2018 at 01:45 UTC, with an arrival at Mercury planned for December 2025, after a flyby of Earth, two flybys of Venus, and six flybys of Mercury.[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-FACTS-1" target="_blank" rel="noopener">1]</a>[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-esa20161125-6" target="_blank" rel="noopener">6]</a> The mission was approved in November 2009, after years in proposal and planning as part of the European Space Agency's <a href="https://en.wikipedia.org/wiki/List_of_European_Space_Agency_programs_and_missions#Horizon_2000+" target="_blank" rel="noopener">Horizon 2000+</a> programme;[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-7" target="_blank" rel="noopener">7]</a> it is the last mission of the programme to be launched.[<a href="https://en.wikipedia.org/wiki/BepiColombo#cite_note-scaling_back-8" target="_blank" rel="noopener">8]</a></p>
+<p>The mission involves three components, which will separate into independent spacecraft upon arrival at Mercury.</p>
+<ul>
+<li>Mercury Transfer Module (MTM) for propulsion, built by ESA</li>
+<li>Mercury Planetary Orbiter (MPO) built by ESA</li>
+<li>Mercury Magnetospheric Orbiter (MMO) or <em>Mio</em> built by JAXA</li>
+</ul>
+<p>Arriving in Mercury orbit on 5 December 2025, the <em>Mio</em> and MPO satellites will separate and observe Mercury in collaboration for one year, with a possible one-year extension.</p>
+<p>Verify Einstein's theory of <a href="https://en.wikipedia.org/wiki/General_relativity" target="_blank" rel="noopener">general relativity</a> by measuring the parameters <em>gamma</em> and <em>beta</em> of the <a href="https://en.wikipedia.org/wiki/Parameterized_post-Newtonian_formalism" target="_blank" rel="noopener">parameterized post-Newtonian formalism</a>with high accuracy.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Event</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 October 2018</td>
+<td>Launch</td>
+<td></td>
+</tr>
+<tr>
+<td>6 April 2020</td>
+<td><a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noopener">Earth</a> flyby</td>
+<td>1.5 years after launch</td>
+</tr>
+<tr>
+<td>12 October 2020</td>
+<td>First <a href="https://en.wikipedia.org/wiki/Venus" target="_blank" rel="noopener">Venus</a> flyby</td>
+<td></td>
+</tr>
+<tr>
+<td>11 August 2021</td>
+<td>Second Venus flyby</td>
+<td>1.35 Venus years after first Venus flyby</td>
+</tr>
+<tr>
+<td>2 October 2021</td>
+<td>First <a href="https://en.wikipedia.org/wiki/Mercury_(planet)" target="_blank" rel="noopener">Mercury</a> flyby</td>
+<td></td>
+</tr>
+<tr>
+<td>23 June 2022</td>
+<td>Second Mercury flyby</td>
+<td>2 orbits (3.00 Mercury years) after 1st Mercury flyby</td>
+</tr>
+<tr>
+<td>20 June 2023</td>
+<td>Third Mercury flyby</td>
+<td>&gt;3 orbits (4.12 Mercury years) after 2nd Mercury flyby</td>
+</tr>
+<tr>
+<td>5 September 2024</td>
+<td>Fourth Mercury flyby</td>
+<td>~4 orbits (5.04 Mercury years) after 3rd Mercury flyby</td>
+</tr>
+<tr>
+<td>2 December 2024</td>
+<td>Fifth Mercury flyby</td>
+<td>1 orbit (1.00 Mercury year) after 4th Mercury flyby</td>
+</tr>
+<tr>
+<td>9 January 2025</td>
+<td>Sixth Mercury flyby</td>
+<td>~0.43 orbits (0.43 Mercury years) after 5th Mercury flyby</td>
+</tr>
+<tr>
+<td>5 December 2025</td>
+<td>Mercury orbit insertion</td>
+<td><strong>Spacecraft separation</strong>; 3.75 Mercury years after 6th Mercury flyby</td>
+</tr>
+<tr>
+<td>14 March 2026</td>
+<td>MPO in final science orbit</td>
+<td>1.13 Mercury years after orbit insertion</td>
+</tr>
+<tr>
+<td>1 May 2027</td>
+<td>End of nominal mission</td>
+<td>5.82 Mercury years after orbit insertion</td>
+</tr>
+<tr>
+<td>1 May 2028</td>
+<td>End of extended mission</td>
+<td>9.98 Mercury years after orbit insertion</td>
+</tr>
+</tbody>
+</table>
+<p>Will gives the result
+$$
+\begin{align}
+\dot{\omega} = 0.22milliarcseconds~per~century
+\end{align}
+$$
+for third bodies contribution arising from the other planets of our Solar system up to Saturn.</p>
+<p>So according to the satellites' precision, we obtain
+$$
+\begin{align}
+	|\eta_{DM}\cos(\omega-F)| \approx 0.22\times 0.0987505\times10^{-6} \approx 2.2\times 10^{-8}
+\end{align}
+$$</p>
+<p>![image-20190305151330279](/Users/bingsun/Library/Application Support/typora-user-images/image-20190305151330279.png)</p>
+<h1>12/3/2019</h1>
+<h2>The Constraints on PPN</h2>
+<p>![image-20190312153135136](/Users/bingsun/Library/Application Support/typora-user-images/image-20190312153135136.png)</p>
+<p>In simulation $\beta\in [2\times 10^{-6},~7.3\times 10^{-7}]$, $\gamma\in[2\times 10^{-6},~9.3\times 10^{-7}]$. $\Delta\omega \simeq0.22\times 10^{-6}$</p>
+<p>$$
+\begin{align}
+	\dot{\omega} = \frac{6\pi Gm}{ac^2(1-e^2)}\left[\frac{1}{3}(2+2\gamma-\beta)+\frac{1}{6}\eta(2\alpha_1-\alpha_2+\alpha_3+2\xi_2)+\frac{J_2R^2}{2ma(1-e^2)} \right]
+\end{align}
+$$
+where $m=m_1+m_2$ and $ \eta=m_1m_2/(m_1+m_2)$ are the total mass and dimensionless reduced mass of the two-body system respectively. $R$ is the mean radius of the oblate body; and $J_2$ is a dimensionless measure of its quadrupole moment, given by $J_2=(C-A)/(m_1R^2)$ where $C$ and $A$ are the moments of inertia about the body’s rotation and equatorial axes, respectively.  $\eta\simeq 2\times 10^{-7},~~J_2\simeq (2.2\pm 0.1)\times 10^{-7}$.</p>
+<p>![image-20190312155828001](/Users/bingsun/Library/Application Support/typora-user-images/image-20190312155828001.png)</p>
+<p>We could make a ephemeris for Earth and Mercury in terms of
+$$
+\begin{align}
+	\ddot{\vec{r}}<em>{Mercury} = &amp; -\frac{GM}{r^2}\vec{n}+\vec{a}</em>{3-body}+\vec{a}<em>{PPN}+\vec{a}</em>{\eta_{DM}}\
+	\ddot{\vec{R}}<em>{Earth} = &amp; -\frac{Gm}{R^2}\vec{N}+\vec{A}</em>{3-body}+\vec{A}<em>{PPN}+\vec{a}</em>{\eta_{DM}}
+\end{align}
+$$
+which implies that the relative acceleration is  irrelevant to fifth interaction.</p>
+<p>Actually according to  osculationg orbit method (Will), the 5 integral constants $p,e,\iota,\Omega,\omega$ are varied with time or true anomaly (first-order approximation)
+$$
+\begin{align}
+	\frac{dp}{df}\simeq &amp; \frac{2p^2}{Gm}\frac{1}{(1+e\cos f)^3}\mathcal{S} \
+	\frac{de}{df}\simeq &amp;\frac{p^2}{Gm}\left[ \frac{\sin f}{(1+e\cos f)^2}\mathcal{R} + \frac{2\cos f+e(1+\cos^2 f)}{(1+e\cos f)^3}\mathcal{S} \right] \
+	\frac{d\iota}{df}\simeq &amp; \frac{p^2}{Gm}\frac{\cos(\omega+f)}{Gm(1+e\cos f)^3}\mathcal{W} \
+	\sin \iota \frac{d\Omega}{df}\simeq &amp; \frac{p^2}{Gm}\frac{\sin(\omega+f)}{(1+e\cos f)^3}\mathcal{W} \
+	\frac{d\omega}{df}\simeq &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} -e\cot\iota \frac{\sin(\omega+f)}{(1+e\cos f)^3}\mathcal{W} \bigg]\
+\end{align}
+$$
+while the other physical quantities such as $r$, $A$  (the Runge-Lenz vector), $\dot{r}$ are all time equal to previous expressions
+$$
+\begin{align}
+	A = &amp; e(t)\
+	r = &amp; \frac{p(t)}{1+e(t)\cos f(t)}\
+	\dot{r} = &amp; \sqrt{\frac{Gm}{p(t)}}e(t)\sin f(t)
+\end{align}
+$$
+Therefore the integral constants are now
+$$
+\begin{align}
+	p(f) = &amp; p+\Delta p\
+	e(f) = &amp; e+ \Delta e\
+	\iota(f) = &amp; \iota + \Delta l\
+	\Omega(f) = &amp; \Omega+\Delta \Omega\
+	\omega(f) = &amp; \omega+\Delta\omega\
+\end{align}
+$$
+Then the coordinates projecting into $(X,Y,Z)$ are
+$$
+\begin{align}
+	r^X = &amp; r\left[\cos\Omega\cos(\omega+f)-\cos\iota\sin\Omega\sin(\omega+f) \right]\
+	r^Y = &amp; r\left[\sin\Omega\cos(\omega+f)+\cos\iota\cos\Omega\sin(\omega+f) \right]\
+	r^Z = &amp; r \sin\iota \sin(\omega+f)
+\end{align}
+$$
+In addition, variable from $f$ to $t$ , the differential equation is
+$$
+\begin{align}
+	\frac{df}{dt} = &amp; \sqrt{\frac{Gm}{p^3}}(1+e\cos f)^2 + \frac{1}{e}\sqrt{\frac{p}{Gm}}\left[ \cos f\mathcal{R} - \frac{2+e\cos f}{1+e\cos f}\sin f\mathcal{S} \right]
+\end{align}
+$$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/Finite element methods/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/09/Finite element methods/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-09T21:27:16+08:00">
+                2018-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>Chapter 1 Finite Element Construction</h1>
+<p>有限元法是一种数值方法，在用来求解一般场的问题时，大致要经过如下几个步骤：</p>
+<ol>
+<li>寻找与原问题相适应的变分形式；</li>
+<li>建立有限元子空间，即选择元素类型和相应的<strong><em>形状函数</em></strong>；</li>
+<li>单元刚度矩阵、单元列阵的计算和总刚度矩阵、总列阵的合成；</li>
+<li>边界条件的处理和有限元方程组求解；</li>
+<li>回到实际问题中去。</li>
+</ol>
+<h2>1.1 Galerkin变分原理和Ritz变分原理</h2>
+<p>以二维线性问题为例，考察问题
+$$
+\begin{align}
+\left{
+\begin{array}
+	-\bigg[ \frac{\partial}{\partial x}\bigg( p(x,y) \frac{\partial u}{\partial x} \bigg) + \frac{\partial}{\partial y}\bigg( p(x,y) \frac{\partial u}{\partial y} \bigg) \bigg] = f(x,y)\
+	u\bigg|<em>{\Gamma_1}= 0 \
+	\bigg[ p(x,y)\frac{\partial u}{\partial n} +\sigma(x,y)u \bigg]</em>{\Gamma_2} = g(x,y)
+\end{array}\right.
+\end{align}
+$$
+其中$\Omega$是$R^2$中的连通区域，它的边界$\partial\Omega=\Gamma_1\cup\Gamma_2$分段光滑。$n$是$\partial\Omega$的外法线方向，$p(x,y)$一阶连续可导且$p(x,y)\geq p_0&gt;0$, $\sigma(x,y)$连续且$\sigma(x,y)\geq 0$。</p>
+<p>用$C(\Omega)$记$\Omega$上一切$r$阶连续可导函数的全体。如果函数$u(x,y)\in C^2(\Omega)$，且在$\Omega$内及$\partial \Omega$上满足上述方程，那么称$u(x,y)$为定解问题的古典解。</p>
+<p>以下讨论\eqref{1.1.1}​ 的弱解。在范数
+$$
+\begin{align}
+	||u||^2_{1,\Omega} = \int\int_\Omega (u_x^2+u_y^2+u_z^2)dxdy
+\end{align}
+$$
+下完备化$C^1(\Omega)$所得到的函数空间记为$H^1(\Omega)$，若引进内积	
+$$
+\begin{align}
+	(u,v)<em>1 = \int\int</em>\Omega (u_xv_x+u_yv_y+uv)dxdy
+\end{align}
+$$
+则$H^1(\Omega)$是Hilbert空间，这类Hilbert空间称之为<strong>一阶Sobolev空间</strong>。将$\Omega$上一切无限可微且支集在$\Omega$内函数的全体记为$D(\Omega)$，$D(\Omega)$在上述范数下完备化得到的空间记为$H_0^1(\Omega)$。</p>
+<p>设$C_#^1(\Omega)={ v:v在\Omega内分片一阶连续可导，~ v\bigg|<em>{\Gamma_1} = 0 }$ ，$C^1</em>#(\Omega)$在范数下完备化所得到的空间等价于
+$$
+\begin{align}
+	V = { v:v\in H^1(\Omega),~v\bigg|_{\Gamma_1} = 0 }
+\end{align}
+$$
+在$V$上赋予内急，则$V$也是一个Hilbert空间，且
+$$
+\begin{align}
+	H_0^1(\Omega)\subset V \subset H^1(\Omega)
+\end{align}
+$$</p>
+<p>作双线性泛函
+$$
+\begin{align}
+	B(u,v) = \int\int_\Omega (pu_xv_x+pu_yv_y)dxdy + \int_{\Gamma_2}\sigma uv ds,,~\forall u,, v\in H^1(\Omega),.
+\end{align}
+$$
+可以证明这样的定义的$B(u,v)$具有以下性质：</p>
+<ol>
+<li>
+<p>对称性，即：
+$$
+\begin{align}
+	B(u,v)=B(v,u)
+\end{align}
+$$</p>
+</li>
+<li></li>
+<li></li>
+<li>
+<p>在$V\times V$上连续。即存在一个常数$M&gt;0$，使得
+$$
+\begin{align}
+	|B(u,v)|\leq M||u||<em>{1,\Omega}||v||</em>{1,\Omega},,~~\forall u,v\in V,.
+\end{align}
+$$</p>
+</li>
+</ol>
+<ol start="3">
+<li>在$V$上强制的，即存在常数$\gamma&gt;0$，使得
+$$
+\begin{align}
+	B(u,u)\geq \gamma ||u||^2_{1,\Omega},,~~\forall \in V
+\end{align}
+$$</li>
+</ol>
+<p>显然
+$$
+\begin{align}
+	f(v) = \int\int_\Omega fvdxdy + \int_{\Gamma_2}gvds
+\end{align}
+$$
+是$v$的线性连续泛函。</p>
+<p>原问题的Galerkin变分问题是：求$u\in V$，使得
+$$
+\begin{align}
+	B(u,v) = f(v),,~~\forall v\in V,.
+\end{align}
+$$
+满足上述的解$u$称为原问题的弱解，将弱解所在的空间称为容许空间，也称试探空间。同时，由于上面必须对$V$中任意元素$v$都要成立，故称$V$为检验空间。如果变分问题的容许空间和检验空间取同一个Hilbert空间$V$，这时又称为$V$为<strong>能量空间</strong>。</p>
+<p>边界$\Gamma_2$上的条件称为<strong>自然边界条件</strong>。边界$\Gamma_1$上的条件称为编织边界条件，或称为<strong>强边界条件</strong>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/C++模板深度解析/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1009,6 +2690,184 @@ $$
 	&amp;-\frac{m_2}{R^2}\left[4(\vec{v}\cdot\vec{N})\vec{v}  + v^2\vec{N} +V^2 \vec{N} +4(\vec{V}\cdot\vec{N})\vec{V} \right],.
 \end{align}
 $$</p>
+<p>So the equation of motion is
+$$
+\begin{align}
+	\ddot{r}-r\dot{\phi}^2 = &amp; -\frac{m}{r^2} - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}(\vec{n}\cdot \vec{N})^2 + \frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1}{r^2}(\vec{v}\cdot \vec{n})\dot{r} \
+	&amp; + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3(\vec{n}\cdot\vec{N})^2 \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}(\vec{v}\cdot\vec{N})(
+	\vec{n}\cdot\vec{N}) \bigg] - v^2\bigg[ 1-3(\vec{n}\cdot \vec{N})^2 \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4(\vec{v}\cdot \vec{N})(\vec{v}\cdot \vec{n}) + (v^2+V^2)(\vec{n}\cdot\vec{N}) + 4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{n}) \bigg}
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\frac{1}{r}\frac{d}{dt}(r^2\dot{\phi}) = &amp; \frac{3m_2r}{R^3}(\vec{n}\cdot\vec{N})(\vec{N}\cdot \vec{\lambda}) + \frac{4m_1}{r^2}(\vec{v}\cdot\vec{n})r\dot{\phi}\
+	&amp; + \frac{9m_1m_2}{2rR^2}(\vec{N}\cdot\vec{\lambda})-\frac{54m_1m_2}{4R^3}(\vec{N}\cdot\vec{n})(\vec{N}\cdot\vec{\lambda})\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[\dot{r} - 3(\vec{v}\cdot\vec{N})(\vec{n}\cdot\vec{N})\bigg]r\dot{\phi} + 3v^2(\vec{n}\cdot\vec{N})(\vec{N}\cdot\vec{\lambda}) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4(\vec{v}\cdot\vec{N})r\dot{\phi} +(v^2+V^2)(\vec{N}\cdot\vec{\lambda}) +4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{\lambda})\bigg]
+\end{align}
+$$</p>
+<p>Therefore, according to Will, the components of the perturbated in the Keplerian basis $(\vec{n},~\vec{\lambda},~\vec{e}_z)$ are
+$$
+\begin{align}
+	\mathcal{R}:= \vec{f}\cdot\vec{n} = &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}(\vec{n}\cdot \vec{N})^2 \
+	&amp;+\frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1}{r^2}(\vec{v}\cdot \vec{n})\dot{r} \
+	&amp; + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3(\vec{n}\cdot\vec{N})^2 \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}(\vec{v}\cdot\vec{N})(
+	\vec{n}\cdot\vec{N}) \bigg] - v^2\bigg[ 1-3(\vec{n}\cdot \vec{N})^2 \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4(\vec{v}\cdot \vec{N})(\vec{v}\cdot \vec{n}) + (v^2+V^2)(\vec{n}\cdot\vec{N}) + 4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{n}) \bigg}\
+	\mathcal{S} := \vec{f}\cdot \vec{\lambda} = &amp; \frac{3m_2r}{R^3}(\vec{n}\cdot\vec{N})(\vec{N}\cdot \vec{\lambda}) + \frac{4m_1}{r^2}(\vec{v}\cdot\vec{n})r\dot{\phi}\
+	&amp;+\frac{4m_1}{r^2}(\vec{v}\cdot\vec{n})r\dot{\phi} + \frac{9m_1m_2}{2rR^2}(\vec{N}\cdot\vec{\lambda})-\frac{54m_1m_2}{4R^3}(\vec{N}\cdot\vec{n})(\vec{N}\cdot\vec{\lambda})\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[\dot{r} - 3(\vec{v}\cdot\vec{N})(\vec{n}\cdot\vec{N})\bigg]r\dot{\phi} + 3v^2(\vec{n}\cdot\vec{N})(\vec{N}\cdot\vec{\lambda}) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4(\vec{v}\cdot\vec{N})r\dot{\phi} +(v^2+V^2)(\vec{N}\cdot\vec{\lambda}) +4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{\lambda})\bigg] \
+	\mathcal{W}:= \vec{f}\cdot\vec{e}_z = &amp; 0
+\end{align}
+$$
+And the direction to Saturn is
+$$
+\begin{align}
+	\vec{N} = \vec{e}_X
+\end{align}
+$$
+and direction to Mercury is
+$$
+\begin{align}
+	\vec{n} = &amp; \cos(f+\omega)\vec{e}_X +\sin(f+\omega)\vec{e}_Y\
+	\vec{\lambda} = &amp; -\sin(f+\omega)\vec{e}_X +\cos(f+\omega)\vec{e}_Y\
+	\vec{e}_z = &amp;\vec{e}_Z
+\end{align}
+$$
+From these expressions we find that
+$$
+\begin{align}
+	\vec{n}\cdot\vec{N} = &amp; \cos(\omega+f)\
+	\vec{\lambda}\cdot\vec{N} = &amp; -\sin(\omega+f)\
+	\vec{e}_z\cdot\vec{N} = &amp; 0
+\end{align}
+$$
+and the components of the perturbing force become
+$$
+\begin{align}
+	\mathcal{R} = &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}\cos^2(\omega+f) +\frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1\dot{r}^2}{r^2} \
+	&amp; + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg)\cos(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4\dot{r}\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg) + (v^2+V^2)\cos(\omega+f) \bigg}\
+	= &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}\cos^2(\omega+f) + \frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1\dot{r}^2}{r^2} + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}^2\cos^2(\omega+f) + 3r\dot{r}\dot{\phi}\cos(\omega+f)\sin(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4 \dot{r}^2\cos(\omega+f) - 4r\dot{r}\dot{\phi}\sin(\omega+f) + (v^2+V^2)\cos(\omega+f) \bigg}\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\mathcal{S} = &amp; -\frac{3m_2r}{R^3}\sin(\omega+f)\cos(\omega+f) +\frac{4m_1}{r}\dot{r}\dot{\phi} - \frac{9m_1m_2}{2rR^2}\sin(\omega+f) + \frac{54m_1m_2}{4R^3}\sin(\omega+f)\cos(\omega+f)\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[\dot{r} - 3\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg)\cos(\omega+f)\bigg]r\dot{\phi} - 3v^2\cos(\omega+f)\sin(\omega+f) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg)r\dot{\phi} - (v^2+V^2)\sin(\omega+f) \bigg] \
+= &amp; -\frac{3m_2r}{R^3}\sin(\omega+f)\cos(\omega+f) + \frac{4m_1}{r}\dot{r}\dot{\phi} - \frac{9m_1m_2}{2rR^2}\sin(\omega+f) + \frac{54m_1m_2}{4R^3}\sin(\omega+f)\cos(\omega+f)\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[ r\dot{r}\dot{\phi} -3r\dot{r}\dot{\phi}\cos^2(\omega+f)+3r^2\dot{\phi}^2\sin(\omega+f)\cos(\omega+f) \bigg]   - 3v^2\cos(\omega+f)\sin(\omega+f) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4\bigg(r\dot{r}\dot{\phi}\cos(\omega+f)-r^2\dot{\phi}^2\sin(\omega+f)\bigg) - (v^2+V^2)\sin(\omega+f) \bigg] \
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\mathcal{W} = &amp; 0
+\end{align}
+$$</p>
+<p>The quantities in perturbative force are given by zeroth solution
+$$
+\begin{align}
+	\cos f = &amp; \frac{\cos u -e}{1-e\cos u} \
+	\sin f = &amp; \frac{\sqrt{1-e^2}\sin u}{1-e\cos u} \
+	\sin(\omega + f) = &amp; \sin \omega \cos f+ \cos\omega \sin f = \sin\omega \frac{\cos u -e}{1-e\cos u} + \cos\omega \frac{\sqrt{1-e^2}\sin u}{1-e\cos u} \
+	= &amp; \frac{\sin\omega \cos u -e \sin\omega +\cos\omega \sin u\sqrt{1-e^2}}{1 - e\cos u} \
+	\cos(\omega + f) = &amp; \cos\omega \cos f-\sin\omega \sin f = \cos\omega \frac{\cos u - e}{1-e\cos u} -\sin\omega \frac{\sqrt{1-e^2}\sin u}{1-e\cos u}\
+= &amp; \frac{\cos\omega \cos u -e\cos\omega -\sqrt{1-e^2} \sin \omega \sin u}{1-e\cos u}\
+1+e\cos f = &amp; 1+e \frac{\cos u - e}{1-e\cos u} = \frac{1-e\cos u + e\cos u -e^2}{1-e\cos u} = \frac{1-e^2}{1-e\cos u}
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	r = &amp; a(1-e\cos u)\
+	r = &amp; \frac{p}{1+e\cos f} = \frac{a(1-e^2)}{1+e\cos f}\
+	\dot{r} = &amp; \sqrt{\frac{Gm}{a}}\frac{e\sin u}{1-e\cos u} \
+	\dot{r} = &amp; \sqrt{\frac{Gm}{a(1-e^2)}}e\sin f \
+	\dot{\phi} = &amp; \sqrt{\frac{Gm}{a^3}} \frac{\sqrt{1-e^2}}{(1-e\cos u)^2} \
+	\dot{\phi} = &amp; \sqrt{\frac{Gm}{a^3(1-e^2)^3}}[1+e\cos f]^2 \
+	\dot{u} = &amp; \sqrt{\frac{Gm}{a^3}}\frac{1}{1-e\cos u} \
+	v^2 = &amp; \frac{Gm}{a}\frac{1+e\cos u}{1-e\cos u} = Gm\left( \frac{2}{r} - \frac{1}{a} \right)\
+	v^2 = &amp; \frac{Gm}{a(1-e^2)}[1+2e\cos f +e^2] \
+	a:= &amp; \frac{p}{1-e^2} \
+	p:= &amp; \frac{h^2}{Gm} = \frac{r^4\dot{\phi}^2}{Gm}
+\end{align}
+$$
+So the perihelion of $\omega​$ satisfies
+$$
+\begin{align}
+\frac{d\omega}{df}\approx &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg]\
+	= &amp; \frac{1}{e}\frac{a^2(1-e^2)^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{e}\frac{a^2(1-e^2)^2}{Gm}\bigg[ -\frac{\cos f}{p^2}r^2\mathcal{R} + \frac{2+e\cos f}{p^3}r^3 \sin f ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{Gme}\bigg[ -r^2\cos f \mathcal{R} + \frac{2+e\cos f}{a(1-e^2)}r^3 \sin f ~\mathcal{S} \bigg] \
+	\frac{d\omega}{du} \approx &amp; \frac{1}{e}\frac{a^2}{Gm}\bigg{ \sqrt{1-e^2} (e - \cos u)\mathcal{R} + \bigg[ (2-e)\sin u + (1-2e)\cos u \sin u\bigg] \mathcal{S} \bigg}
+\end{align}
+$$
+since the relation
+$$
+\begin{align}
+	\frac{d\omega}{df}= &amp; \frac{d\omega}{d u}\frac{du}{df} = \frac{1-e\cos u}{\sqrt{1-e^2}}\frac{d\omega}{du}\
+\approx &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{ (1-e\cos u)(\cos u -e)}{(1-e^2)^2}\mathcal{R} + \frac{(1-e\cos u)(2-2e\cos u +\cos u -e )}{(1-e^2)^{5/2}}\sin u ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{e}\frac{p^2 (1-e\cos u) }{Gm(1-e^2)^2}\bigg[ (e - \cos u)\mathcal{R} + \frac{(2-2e\cos u +\cos u -e )}{\sqrt{(1-e^2)}}\sin u ~\mathcal{S} \bigg]\
+	= &amp; \frac{1}{e}\frac{a^2(1-e\cos u)}{Gm}\bigg[ (e - \cos u)\mathcal{R} + \frac{(2-e)\sin u + (1-2e)\cos u \sin u}{\sqrt{1-e^2}} ~\mathcal{S} \bigg]
+\end{align}
+$$
+Thus we can seperate the terms according to $r^n$, which says that employs the $d\omega/df$ for $n&lt;0$ and $d\omega / du$ for $n&gt;0$.</p>
+<p>The advanced perihelion is
+$$
+\begin{align}
+	\Delta \omega = \int_0^{2\pi} \frac{d\omega_1}{df}\bigg|<em>{suitable~terms} df + \int_0^{2\pi}\frac{d\omega_2}{d u} \bigg|</em>{suitable ~terms}du
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\mathcal{R} =  &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}\cos^2(\omega+f) + \frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1\dot{r}^2}{r^2} + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}^2\cos^2(\omega+f) + 3r\dot{r}\dot{\phi}\cos(\omega+f)\sin(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4 \dot{r}^2\cos(\omega+f) - 4r\dot{r}\dot{\phi}\sin(\omega+f) + (v^2+V^2)\cos(\omega+f) \bigg}\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	r^2\mathcal{R} = &amp;  - \frac{m_2r^3}{R^3} + \frac{3m_2r^3}{R^3}\cos^2(\omega+f) + \frac{9m_1^2}{2r} - m_1v^2 + 4m_1\dot{r}^2 + \frac{9m_1m_2}{2R} \
+&amp; + \frac{9m_1m_2r^2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r^3}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}^2\cos^2(\omega+f) + 3r\dot{r}\dot{\phi}\cos(\omega+f)\sin(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2r^2}{R^2}\bigg{ 4 \dot{r}^2\cos(\omega+f) - 4r\dot{r}\dot{\phi}\sin(\omega+f) + (v^2+V^2)\cos(\omega+f) \bigg}\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\Delta\omega = &amp; \frac{3\pi(1-e^2)^{1/2}}{2}\frac{m_2}{m} \left( \frac{a}{R}\right)^3(1+5\cos 2\omega)\
+&amp;-\frac{\pi  m_1 \left(e \left(9 a^3 \left(e^2-1\right)^2 m_2+2 \sqrt{1-e^2} R^3 (9 m_1-20 m)\right)\right)}{4 a e \left(1-e^2\right)^{3/2} m R^3}\
+	&amp; +\frac{9 a \left(e^2-1\right)^{1/2} m_2 (9 a e \cos 2 \omega +4 R \cos \omega )}{4  e m R^3} \
+	&amp; -\frac{7 \sqrt{1-e^2} \pi  a^2 m_2 }{2 R^3}\
+	&amp;+\frac{3 \left(4 e^6+2 \left(7 \sqrt{1-e^2}-10\right) e^2-12 \left(\sqrt{1-e^2}-1\right)+\left(5 \sqrt{1-e^2}+4\right) e^4\right) \cos (2 \omega )}{2 e^4 R^3}\
+	&amp; +\frac{\pi  a \sqrt{1-e^2} \left(e^2-20 \sqrt{1-e^2}+20\right) m_2 \cos (\omega )}{e^3 R^2}\
+	&amp;+ \frac{3 a^2 \left(\pi  \sqrt{1-e^2} (e (e (-2 e ((e-4) e-6)-23)-8)+14)-2 \pi  \left(e^2-1\right)^2 (e (e+4)-7)\right) m_2 \cos 2 \omega }{e^5 R^3}
+\end{align}
+$$</p>
+<p>Therefore the average advanced perihelion is ($m_1\approx m$)
+$$
+\begin{align}
+\langle\Delta\omega\rangle = &amp; \frac{3\pi(1-e^2)^{1/2}}{2}\frac{m_2}{m} \left( \frac{a}{R}\right)^3+ \frac{11\pi}{2(1-e^2)}\left( \frac{m}{a} \right) \
+&amp;- \frac{7\pi\sqrt{1-e^2}}{2}\left( \frac{m_2}{R} \right)\left(\frac{a}{R} \right)^2 - \frac{9\pi\sqrt{1-e^2}}{4}\left(\frac{m_2}{R} \right)\left( \frac{a}{R} \right)^2
+\end{align}
+$$
+while Will gives the result
+$$
+\begin{align}
+\langle \Delta\omega \rangle_{\text{Will}} = &amp; \frac{3\pi(1-e^2)^{1/2}}{2}\frac{m_2}{m} \left( \frac{a}{R}\right)^3 + \frac{6\pi }{(1-e^2)}\left( \frac{m}{a} \right) + \frac{21\pi}{(1-e^2)^{3/2}}\left( \frac{m_2}{R} \right)\left(\frac{a}{R} \right)^2 \
+	&amp;+ \frac{141\pi e^2}{4(1-e^2)^{3/2}}\left( \frac{m_2}{R} \right)\left(\frac{a}{R} \right)^2 + 4\pi \frac{m_2}{a}\left( \frac{a}{R}\right)^{5/2}
+\end{align}
+$$
+The first term is Newtonian 3-body contribution and the second term is relativitistic 2-body contribution which is should be $\frac{6\pi m}{a(1-e^2)}$.</p>
 
           
         
@@ -1057,7 +2916,7 @@ $$</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/英语翻译/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/英语记录/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing">
@@ -1076,7 +2935,7 @@ $$</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/08/英语翻译/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/11/08/英语记录/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -1129,9 +2988,177 @@ $$</p>
         
           
             <p>[TOC]</p>
-<h1>Unit3 Part A</h1>
-<p>现在有一种说法是人文科学已经过时。当前就业市场形势如此严峻，很多大学生及学生家长都想要选择那些将来容易就业的专业，而对人文科学嗤之以鼻。这种想法是显然过于狭隘。人文科学着眼的是培养通才。它不像自然科学和社会科学那样重视普遍规律和知识的积累，而是更注重一种智慧和能力的培养。它更注重有创造性的探讨过程而非固定的结论。它对个人的独创性留有更大的空间。</p>
-<p>There exists a popular point of view, nowadays ,  that () is out of date. The ()situation is so () that lots of students and their parents tend to take the (easy) majorities instead of (). This</p>
+<h1>单词、词组、句子</h1>
+<p>take for granted</p>
+<p>tyranny</p>
+<p>common sense</p>
+<p>come across   偶遇，明白清楚</p>
+<p>inadequate</p>
+<p>stormy present</p>
+<p>occasion</p>
+<p>disenthrall / set free</p>
+<p>fascinate</p>
+<p>be formed</p>
+<p>meet circumstances</p>
+<p>copy with</p>
+<p>fiducial</p>
+<p>standardize</p>
+<p>tremendously</p>
+<p>aptitude altitute attitude</p>
+<p>metaphor</p>
+<p>manufacture 制造，捏造   manufacturer 制造商，厂商 manufacturing 制造业</p>
+<p>batch 分批处理</p>
+<p>flourish  v.繁华，昌盛</p>
+<p>get involved in 卷入</p>
+<p>vital 至关重要的，有活力的</p>
+<p>visible</p>
+<p>make up 组成，化妆，编造，补足</p>
+<p>make of</p>
+<p>substance</p>
+<p>assignment</p>
+<p>discipline</p>
+<p>curator</p>
+<p>authentic</p>
+<p>appear to be</p>
+<p>element</p>
+<p>discover</p>
+<p>characteristic</p>
+<p>strike / stroke</p>
+<p>thick / thin</p>
+<p>ingredient</p>
+<p>pigment</p>
+<p>binding agent 粘贴剂</p>
+<p>invasive</p>
+<p>restoration</p>
+<p>touch up</p>
+<p>cover up</p>
+<p>deteriorate</p>
+<p>outcome</p>
+<p>chronically</p>
+<p>the full range of 全方位的</p>
+<p>qualify 合格</p>
+<p>attributable to</p>
+<p>it is possible that ...</p>
+<p>govern</p>
+<p>put it in another way</p>
+<p>hormone</p>
+<p>manipulation 操作；处理；篡改</p>
+<p>intervention 介入，调停，妨碍</p>
+<p>either ... or ...</p>
+<p>pose</p>
+<p>vial 小瓶，药水瓶，装入小瓶</p>
+<p>prime adj.主要的，最好的，基本的；adv. 极好地；n. 初期，青年，精华，全盛时期; vt. 做好准备，装填; vi. 作准备</p>
+<p>a series of</p>
+<p>gamble   v. n. 赌博, 冒险， 孤注一掷</p>
+<p>salive 唾液</p>
+<p>risk tolerance 风险承受能力，敢于冒险</p>
+<p>whopping adj. adv. 巨大的，天大的，非常地，异常地    whop v. 打，抽出，征服；n. 重击，打击声；</p>
+<p>whopping significant difference 巨大的不同</p>
+<p>here's … 这儿就是 ...   e.g. Here's what we find on testosterone.</p>
+<p>assertive adj. 肯定的；独断的；坚定而自信的</p>
+<p>stress-reactive adj. 应激反应，压力反应的</p>
+<p>a remarkable moment in time 一个非凡的时刻</p>
+<p>face over 面临</p>
+<p>a completely different prospect</p>
+<p>jam 堵塞</p>
+<p>polluted</p>
+<p>come about v. 产生，发生，改变方向</p>
+<p>At the same time</p>
+<p>in that period</p>
+<p>lift out of 从... 中脱离出来</p>
+<p>part of</p>
+<p>a fundamental change</p>
+<p>in the structure of</p>
+<p>account for</p>
+<p>a third of 1/3的</p>
+<p>output</p>
+<p>highlight</p>
+<p>Now, the first of <s>these transformations</s> is the basic structural change of the economies and
+societies that I've already begun to illustrate through the description of <s>Beijing</s>.</p>
+<p>put on 穿上；上演；增加；假装；使…上场</p>
+<p>profound structural change</p>
+<p>in a negligent or a shortsighted way 以疏忽或短视的方式</p>
+<p>waste, pollution, congestion, destruction of land and forests</p>
+<p>negotiate with</p>
+<p>stakes 赌注，</p>
+<p>paying for</p>
+<p>low-carbon economy</p>
+<p>I've come to realize that</p>
+<p>enormous opportunity</p>
+<p>think ahead 预见，事先考虑</p>
+<p>well established</p>
+<p>renewal 更新</p>
+<p>investment in 投资</p>
+<p>regulating  e.g. regulating coal within a few years</p>
+<p>reduced rapidly</p>
+<p>striking results</p>
+<p>intimately intertwined 紧密相连的</p>
+<p>fossil fuels 化石燃料</p>
+<p>We have to invest strongly in energy, we have to use it much more efficiently, and we have to make it clean.</p>
+<p>bring back to 使恢复</p>
+<p>renewables 可再生</p>
+<p>striking achievement</p>
+<p>the hosts to valuable plant and animal species</p>
+<p>Portugal</p>
+<p>cutting emissions 减少排放</p>
+<p>The depth of understanding of the immense risks of climate change are not there</p>
+<p>need political pressure to build</p>
+<p>step up 提高，增加，走进</p>
+<p>marine 海产的，航海的，海生的； 海运业，舰队，水兵</p>
+<p>Oceania</p>
+<p>We're expecting that ...</p>
+<p>arable land 耕地</p>
+<p>decline</p>
+<p>head for 前往，出发，取向于</p>
+<p>abundant</p>
+<p>As far back as we can go</p>
+<p>the amount of</p>
+<p>amounts of</p>
+<p>harvest</p>
+<p>turn around 转到相反方向，好转，船只留港</p>
+<p>turn out 发生；最后是，结果是；出席，参加，前去观看；关掉，熄灭（电灯、煤气等）；生产，制造</p>
+<p>coastal areas</p>
+<p>jurisdictions 司法权</p>
+<p>control ove 支配，控制</p>
+<p>quota 配额；定额；限额</p>
+<p>bycatch 副捕捞</p>
+<p>habitats 栖息地</p>
+<p>nursery areas 育苗区</p>
+<p>spawning areas 产卵区域，播种区</p>
+<p>herring 鲱鱼</p>
+<p>Norway</p>
+<p>come down 下来，降落；流传下来；倒塌；落魄，失势</p>
+<p>cost-effective 划算的；成本效益好的</p>
+<p>irrigate 灌溉</p>
+<p>graze 放牧</p>
+<p>footprint 对环境的影响，脚注</p>
+<p>obesity 肥胖</p>
+<p>biodiversity 生物多样性</p>
+<p>there's a catch 有一个棘手的问题</p>
+<p>undermines 逐渐损毁；暗中破坏；在…下挖掘</p>
+<p>sustainable 可以忍受的；足可支撑的；养得起的；可持续的</p>
+<p>fraud 欺骗；骗子；诡计</p>
+<p>traceability 可追溯性；跟踪能力；可描绘</p>
+<p>Congress 国会；代表大会；会议；社交</p>
+<p>bill [法] 法案；广告；账单；[金融] 票据；钞票；清单;宣布；开账单；用海报宣传</p>
+<p>controvert 驳斥；就…展开争论;争论；辩论</p>
+<p>attempt to</p>
+<p>discernible 可辨别的；可识别的</p>
+<p>profitably 有利地；有益地</p>
+<p>lay hands on 找到，得到，攻击</p>
+<p>in this regard to 考虑到</p>
+<p>it is related to 和...相关</p>
+<p>originate from 来自于</p>
+<p>benefit from</p>
+<p>Inspired by</p>
+<p>extraordinarily high</p>
+<p>Our purpose in theoretical physics is not just to describe the world as we find it, but to explain why the world is the way it is.</p>
+<p>​														—————————Steven Weinberg</p>
+<p>aside from</p>
+<p>arise from</p>
+<p>suspect that</p>
+<p>strictly speaking</p>
+<p>brush up on 温习，复习</p>
 
           
         
@@ -1286,6 +3313,25 @@ $$
 <p>实际上第一个问题在第二个问题提出之后已经没有必要回答了，因为如果$\Box\alpha$和$\Box\beta^i$右边仍会出现$K$，或者$K_{ij}$，那么解$\alpha$和$\beta^i$的时候仍会出现和Will不同的结果。</p>
 <h2>Solution Method</h2>
 <p>这里我们发现没有任何办法解决这个问题，这本质就是假设的出发点的矛盾带来的效应，所以我们只能使用我们的conditions/gauge conditions 计算水星近日点的近动。</p>
+<h1>Q: 10/1/2019</h1>
+<h2>4 things to do with lessons</h2>
+<ol>
+<li>
+<p>roughly check my calculation to ensure the accuracy YES</p>
+</li>
+<li>
+<p>repeat the work in PRL of Shao, especially the orbital dynamics part, especially focus on the perihelion advance $\Delta\omega$ if it propotional to $1/e$. YUS</p>
+</li>
+<li>
+<p>Why the unit described the advance is XX second/century? The observing data owns too long time scale or just simply enlarge the quantity? or other reasons. NO</p>
+</li>
+<li>
+<p>repeat the figure 1 and specify our case.  YET</p>
+</li>
+<li>
+<p>substitute the coefficients in $a_5$ and obtain the rough quantity.  ROUGHLY YES</p>
+</li>
+</ol>
 
           
         
@@ -2032,175 +4078,13 @@ $$</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/C++ and Parallel Computation/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Learning Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/25/C++ and Parallel Computation/" itemprop="url">C++ and Parallel Computation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-25T12:06:46+08:00">
-                2018-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[TOC]</p>
-<h1>Chapter 4 Roots and Integral</h1>
-<h2>Section 4.1 Roots</h2>
-<p>Newton-Raphson法求解方程的roots</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by bingsun on 2018/10/29.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//Newton-Raphson method to derive the roots of an equation</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NAMESPACE_STD</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CHAPTER_4_NEWTON_RAPHSON_METHOD_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CHAPTER_4_NEWTON_RAPHSON_METHOD_H</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// version 1</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Newton_Raphson</span><span class="params">(<span class="keyword">double</span> x0, <span class="keyword">double</span> (*func)(<span class="keyword">double</span>), <span class="keyword">double</span> (*func_der)(<span class="keyword">double</span>),</span></span></span><br><span class="line"><span class="function"><span class="params">                      <span class="keyword">int</span> max_iter, <span class="keyword">int</span> multiplicity)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> x,p = (<span class="keyword">double</span>) multiplicity;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> tolerence = <span class="number">1.0e-14</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max_iter ; ++i) &#123;</span><br><span class="line">        x = x0 - p * func(x0)/func_der(x0);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fabs</span>(func(x)) &lt; tolerence)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        x0 = x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//version 2</span></span><br><span class="line"><span class="comment">// p and x now is set to be 1 and we get rid of multiplicity</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Newton_Raphson</span><span class="params">(<span class="keyword">double</span> x0, <span class="keyword">double</span> (*func)(<span class="keyword">double</span>), <span class="keyword">double</span> (*func_der)(<span class="keyword">double</span>), <span class="keyword">int</span> max_iter)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x, p =<span class="number">1</span>; <span class="comment">//here, p stands for the multiplicity; we assume default p=1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> tolerance = <span class="number">1.0e-14</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max_iter ; ++i) &#123;</span><br><span class="line">        x = x0 - p*func(x0)/func_der(x0);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fabs</span>(func(x)) &lt; tolerance)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        x0 = x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// version 3</span></span><br><span class="line"><span class="comment">// we here introduced second derivative respect to x</span></span><br><span class="line"><span class="comment">// the convergence rate for multiple roots can be computed.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Newton_Raphson</span><span class="params">(<span class="keyword">double</span> x0, <span class="keyword">double</span> (*func)(<span class="keyword">double</span>), <span class="keyword">double</span> (*func_der)(<span class="keyword">double</span>),</span></span></span><br><span class="line"><span class="function"><span class="params">                      <span class="keyword">double</span> (*func_secondder)(<span class="keyword">double</span>),<span class="keyword">int</span> max_iter, <span class="keyword">int</span> multiplicity)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> x,p = (<span class="keyword">double</span>) multiplicity;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> tolerance = <span class="number">1.0e-14</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="string">"-------------------------------"</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="string">"x \t f(x) \t g'(x) "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max_iter; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; x0 &lt;&lt; <span class="string">"\t"</span> &lt;&lt; func(x0)</span><br><span class="line">             &lt;&lt;"\t" &lt;&lt; (1.0-p) + p*func(x0) * func_secondder(x0) / pow(func_der(x0),2) &lt;&lt; endl;</span><br><span class="line">        x = x0 - p*func(x0) / func_der(x0);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fabs</span>(func(x0))&lt; tolerance)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        x0 = x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//CHAPTER_4_NEWTON_RAPHSON_METHOD_H</span></span></span><br></pre></td></tr></table></figure></p>
-<p>这里需要注意的是，*<em>double (<em>func_der)(double)<strong>传的是函数，第一个double指的是函数返回值是double类型，第二个double是这个函数的形参类型。这里我们用</strong>函数重载</em></em>来定义求根函数，使得可以用在不同的情况。</p>
-<h1>Chapter 5 Explicit Space Discretization</h1>
-<h4>5.1.4高维数组 Dynamic Allocation of Multi-Dimensional Arrays</h4>
-<p>动态高维数组</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> npts = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">double</span> ** x;</span><br><span class="line">x = <span class="keyword">new</span> <span class="keyword">double</span>*[npts]; <span class="comment">//generate dynamical arrary with **x and keyword new as an pointer *</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;npts;i++)</span><br><span class="line">   x[i] = <span class="keyword">new</span> <span class="keyword">double</span>[npts];</span><br><span class="line"></span><br><span class="line"><span class="comment">//delete dynamical arrays </span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;npts;i++)</span><br><span class="line">   <span class="keyword">delete</span>[] x[i]; <span class="comment">// it must delete x[i] first </span></span><br><span class="line"><span class="keyword">delete</span>[] x;</span><br></pre></td></tr></table></figure></p>
-<p>若要被Fortran调用，就需要将内存连成片，不能用上面的方法，而是要变成</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> N = size; <span class="comment">//size is the specified size of the matrix (N x N) </span></span><br><span class="line"><span class="keyword">double</span> ** x;</span><br><span class="line"></span><br><span class="line">x = <span class="keyword">new</span> <span class="keyword">double</span>*[N]; <span class="comment">//allocate double* indexing array</span></span><br><span class="line"></span><br><span class="line">x[<span class="number">0</span>] = <span class="keyword">new</span> <span class="keyword">double</span>[N*N]; <span class="comment">//allocate storage as a contiguous block</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">  x[i] = x[<span class="number">0</span>]+i*N;</span><br></pre></td></tr></table></figure></p>
-<h4>5.1.5 非均匀网格上的差分格式 Non-Uniform Grids</h4>
-<h5>Lagrangian Interpolation and Non-Uniform Grids</h5>
-<p>前面的差分算子不适用于这里。同时，Tylor展开和Lagrangian Interpolation法仍可以使用，并且Lagrangian插值更好用。</p>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C is a 3-index array</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FornbergWeights</span><span class="params">(<span class="keyword">double</span> xi, <span class="keyword">double</span> *x, <span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">double</span> ***C)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,k,mn;</span><br><span class="line">	<span class="keyword">double</span> C1,C2,C3;</span><br><span class="line">	</span><br><span class="line">    C[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1.0</span>;</span><br><span class="line">	C1 = <span class="number">1.0</span>;</span><br></pre></td></tr></table></figure></p>
-<p>系数可以用mathematica或者maple精确计算，避免出现数值误差。</p>
-<h5>坐标变换法处理非均匀网格</h5>
-<p>首先用坐标变换半解析计算，可以减小误差。常用的坐标变换有
-$$
-\begin{align}
-	&amp;x=L(e^{a\xi}-1)\
-	&amp;x = L\frac{1+\xi}{1-\xi}\
-	&amp;x=-L\log\left(\frac{1-\xi}{2} \right)\
-	&amp;x = L\tanh^{-1}\xi \
-	&amp;x = L\frac{\xi}{\sqrt{1-\xi^2}},.
-\end{align}
-$$
-Fisheye变换
-$$
-\begin{align}
-x = a_1\xi+(a_0-a_1)\frac{S_1}{2\tanh\left( \frac{R_1}{S_1} \right)} \log \left[ \frac{\cosh\frac{\xi+R_1}{S_1} }{\cosh\frac{\xi-R_1}{S_1} } \right]
-\end{align}
-$$
-可以使用多次Fish变换使得整个函数看起来就是一段一段的直线。</p>
-<h5>非均匀网格的动机</h5>
-<p>空间多尺度问题，例如黑洞大小只有$\Delta x \sim 0.01$，但是黑洞间距大约是10倍$\Delta x \sim 0.1$，并且引力波波长大约50倍$\Delta x \sim 0.5$，总的计算区域大约为1000-10000倍$\Delta x \sim 10-100$。整个计算需要$10^{15}$格点数，那需要么$2\times 100\times 10^{15}\approx 10^{17}Byte \approx 10^{8}GB$的内存需求，因而需要多尺度思想，对不同的地方铺网格的大小不一样。</p>
-<h5>均匀网格细化</h5>
-<p>在不同区域覆盖不同空间步长的均匀网格，实现非均匀网格处理空间多尺度问题。保持均匀网格处理方法上的简便。</p>
-<p>动态网格细化。AMSSNCKU Project 5 cgh文件夹。作业：1.读懂文件中的类，2.仔细研究感兴趣的功能函数，写出流程结构，3.写出可能的替代算法和程序实现， 4. 利用cgh类，实现网格细化近似求导，用Fisheye变换，替换计算，计算误差。</p>
-<h4>5.1.7 高维导数的差分近似Multi-Dimensional Discretizations</h4>
-<h3>5.2 显式时间离散化(explicit time discretizations)</h3>
-<h4>5.2.3  稳定性和特征多项式</h4>
-<h5>stability regions and absolute stability</h5>
-<h4></h4>
-<h4>5.2.4  龙格库塔方法(Runge-Kutta Method)</h4>
-<h5>Classical Fourth-Order (RK4)</h5>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2244,7 +4128,7 @@ $$
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2285,7 +4169,7 @@ $$
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

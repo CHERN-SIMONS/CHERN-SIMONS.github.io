@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="[TOC] Q: 7/11/2018 PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。 我要研究的问题开始于水星近日点的近动 New General Relativistic Contribution to Mercury’s Perihelion Advance Will根据他自己书上的得到了最终的加速度，up">
+<meta name="description" content="[TOC] Chapter 1 Finite Element Construction 有限元法是一种数值方法，在用来求解一般场的问题时，大致要经过如下几个步骤：  寻找与原问题相适应的变分形式； 建立有限元子空间，即选择元素类型和相应的形状函数； 单元刚度矩阵、单元列阵的计算和总刚度矩阵、总列阵的合成； 边界条件的处理和有限元方程组求解； 回到实际问题中去。  1.1 Galerkin变分原理和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning Notes">
-<meta property="og:url" content="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/Finite element methods/index.html">
 <meta property="og:site_name" content="Learning Notes">
-<meta property="og:description" content="[TOC] Q: 7/11/2018 PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。 我要研究的问题开始于水星近日点的近动 New General Relativistic Contribution to Mercury’s Perihelion Advance Will根据他自己书上的得到了最终的加速度，up">
+<meta property="og:description" content="[TOC] Chapter 1 Finite Element Construction 有限元法是一种数值方法，在用来求解一般场的问题时，大致要经过如下几个步骤：  寻找与原问题相适应的变分形式； 建立有限元子空间，即选择元素类型和相应的形状函数； 单元刚度矩阵、单元列阵的计算和总刚度矩阵、总列阵的合成； 边界条件的处理和有限元方程组求解； 回到实际问题中去。  1.1 Galerkin变分原理和">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-24T03:44:16.273Z">
+<meta property="og:updated_time" content="2018-12-09T14:12:30.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning Notes">
-<meta name="twitter:description" content="[TOC] Q: 7/11/2018 PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。 我要研究的问题开始于水星近日点的近动 New General Relativistic Contribution to Mercury’s Perihelion Advance Will根据他自己书上的得到了最终的加速度，up">
+<meta name="twitter:description" content="[TOC] Chapter 1 Finite Element Construction 有限元法是一种数值方法，在用来求解一般场的问题时，大致要经过如下几个步骤：  寻找与原问题相适应的变分形式； 建立有限元子空间，即选择元素类型和相应的形状函数； 单元刚度矩阵、单元列阵的计算和总刚度矩阵、总列阵的合成； 边界条件的处理和有限元方程组求解； 回到实际问题中去。  1.1 Galerkin变分原理和">
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/09/Finite element methods/">
 
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/Finite element methods/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T14:51:26+08:00">
-                2018-11-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-09T21:27:16+08:00">
+                2018-12-09
               </time>
             
 
@@ -300,59 +300,104 @@
 
       
         <p>[TOC]</p>
-<h1>Q: 7/11/2018</h1>
-<p>PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。</p>
-<p>我要研究的问题开始于水星近日点的近动 <em>New General Relativistic Contribution to Mercury’s Perihelion Advance</em></p>
-<p>Will根据他自己书上的得到了最终的加速度，up to 1PN。</p>
-<p>现在我们从广义相对论出发BSSN formulation，使用punture condition 得到$K_{ij}$，其满足栋动量约束方程，再从Hamiltonian约束出发得到$\psi$，其形式非常简单，做到1PN近似，与Will的结果相同。我们希望得到一个准稳态的过程，即从演化方程中得到坐标条件Lapse和shift。</p>
-<p>整个故事到这儿，我们实际上已经解了Einstein场方程，原则上整个时空就已经知道了。但是和Will不相同的就是坐标选取不同，即导致lapse和shift不相同。这是工作的第一阶段。</p>
-<p>第二阶段：如何从我们的坐标变成Will的坐标？</p>
-<p>我们从Harmonic condition 出发，得到我们的Isotropic坐标下的Harmonic 坐标，但是代价就是其不满足Einstein场方程。即使如此，在演化方程计算的时候，仍旧发现这个不满足的阶数与Will的1PN结果相同。至此，我们有理由相信最后我们与Will之间只是差一个在Harmonic坐标下的一个坐标变换。</p>
-<p>第三段故事：问题：Will到底选取了什么样的额外的条件，使得$\alpha$和$\beta^i$有他写出来的样子？这就需要查书<strong><em>Poisson E., Will C.M.-Gravity_ Newtonian, Post-Newtonian, Relativistic-CUP (2014)</em></strong>，但是没找到，具体解决问题再问。</p>
-<h1>Q: 14/11/2018</h1>
-<p>在Will的书上，1PN的出发点就是 Einstein场方程+harmonic gauge condition 这就导致了后面的基本方程
+<h1>Chapter 1 Finite Element Construction</h1>
+<p>有限元法是一种数值方法，在用来求解一般场的问题时，大致要经过如下几个步骤：</p>
+<ol>
+<li>寻找与原问题相适应的变分形式；</li>
+<li>建立有限元子空间，即选择元素类型和相应的<strong><em>形状函数</em></strong>；</li>
+<li>单元刚度矩阵、单元列阵的计算和总刚度矩阵、总列阵的合成；</li>
+<li>边界条件的处理和有限元方程组求解；</li>
+<li>回到实际问题中去。</li>
+</ol>
+<h2>1.1 Galerkin变分原理和Ritz变分原理</h2>
+<p>以二维线性问题为例，考察问题
 $$
 \begin{align}
-\Box_{\eta} h^{\mu\nu} = \frac{16\pi G}{c^4}\tau^{\mu\nu}
+\left{
+\begin{array}
+	-\bigg[ \frac{\partial}{\partial x}\bigg( p(x,y) \frac{\partial u}{\partial x} \bigg) + \frac{\partial}{\partial y}\bigg( p(x,y) \frac{\partial u}{\partial y} \bigg) \bigg] = f(x,y)\
+	u\bigg|<em>{\Gamma_1}= 0 \
+	\bigg[ p(x,y)\frac{\partial u}{\partial n} +\sigma(x,y)u \bigg]</em>{\Gamma_2} = g(x,y)
+\end{array}\right.
 \end{align}
 $$
-其中$\tau^{\mu\nu}$包含物质的能动张量，Landau-Lifshitz赝张量，harmonic gauge的规范potential，所以这个方程本身右边就是含着$h^{\mu\nu}$，这实际上就导致了方程的非线性性。对于这个方程的1PN来说，只有物质的能动张量才是非零贡献，而点源粒子又是给出$\delta$函数的样子。</p>
-<p>对于我们的方程来说，满足的harmonic方程是
+其中$\Omega$是$R^2$中的连通区域，它的边界$\partial\Omega=\Gamma_1\cup\Gamma_2$分段光滑。$n$是$\partial\Omega$的外法线方向，$p(x,y)$一阶连续可导且$p(x,y)\geq p_0&gt;0$, $\sigma(x,y)$连续且$\sigma(x,y)\geq 0$。</p>
+<p>用$C(\Omega)$记$\Omega$上一切$r$阶连续可导函数的全体。如果函数$u(x,y)\in C^2(\Omega)$，且在$\Omega$内及$\partial \Omega$上满足上述方程，那么称$u(x,y)$为定解问题的古典解。</p>
+<p>以下讨论\eqref{1.1.1}​ 的弱解。在范数
 $$
 \begin{align}
-	(\partial_t -\beta^i\partial_i)\alpha = &amp; -2\alpha K,,\
-	(\partial_t-\beta^j\partial_j)\beta^i = &amp; -\alpha^2(\gamma^{ij}\partial_j \log \alpha + \gamma^{jk}\Gamma^i_{jk})
+	||u||^2_{1,\Omega} = \int\int_\Omega (u_x^2+u_y^2+u_z^2)dxdy
 \end{align}
 $$
-这里实际上存在两个问题：一个是方程都是几何量，没有物质的$\delta $函数的来源，看不出$\alpha$和$\beta$的解的形式，所以在这个意义上，将上面的方程改造为二阶导数的$\Box_\eta \alpha,~\Box_\eta\beta^i$，然后配合着Hamiltonian约束和momentum约束可以在后面出现点源里物质； 另一个问题，也是本质的问题，我们采取的是punture condition 和maximal slice condition将$K=0$变成我们的假设，但实际上在Will的1PN计算时，得到的$K$是$c^{-3}$的量，可以从演化方程看出
+下完备化$C^1(\Omega)$所得到的函数空间记为$H^1(\Omega)$，若引进内积	
 $$
 \begin{align}
-	\partial_t\log \psi  = -\frac{1}{6}\alpha K + \frac{1}{6}D_i \beta^i
+	(u,v)<em>1 = \int\int</em>\Omega (u_xv_x+u_yv_y+uv)dxdy
 \end{align}
 $$
-若$\psi$不含时间，则$K$和$\beta^i$的阶数是一样的，这就导致了我们的情况就是$K =0$时候，$\beta^i =0$，而这时候Will给出$\beta^i \sim c^{-3}$就意味着$K\sim c^{-3}$不可能会等于零，也就是说maximal slice condition与1PN计算是有矛盾之处的。</p>
-<p>实际上第一个问题在第二个问题提出之后已经没有必要回答了，因为如果$\Box\alpha$和$\Box\beta^i$右边仍会出现$K$，或者$K_{ij}$，那么解$\alpha$和$\beta^i$的时候仍会出现和Will不同的结果。</p>
-<h2>Solution Method</h2>
-<p>这里我们发现没有任何办法解决这个问题，这本质就是假设的出发点的矛盾带来的效应，所以我们只能使用我们的conditions/gauge conditions 计算水星近日点的近动。</p>
-<h1>Q: 10/1/2019</h1>
-<h2>4 things to do with lessons</h2>
+则$H^1(\Omega)$是Hilbert空间，这类Hilbert空间称之为<strong>一阶Sobolev空间</strong>。将$\Omega$上一切无限可微且支集在$\Omega$内函数的全体记为$D(\Omega)$，$D(\Omega)$在上述范数下完备化得到的空间记为$H_0^1(\Omega)$。</p>
+<p>设$C_#^1(\Omega)={ v:v在\Omega内分片一阶连续可导，~ v\bigg|<em>{\Gamma_1} = 0 }$ ，$C^1</em>#(\Omega)$在范数下完备化所得到的空间等价于
+$$
+\begin{align}
+	V = { v:v\in H^1(\Omega),~v\bigg|_{\Gamma_1} = 0 }
+\end{align}
+$$
+在$V$上赋予内急，则$V$也是一个Hilbert空间，且
+$$
+\begin{align}
+	H_0^1(\Omega)\subset V \subset H^1(\Omega)
+\end{align}
+$$</p>
+<p>作双线性泛函
+$$
+\begin{align}
+	B(u,v) = \int\int_\Omega (pu_xv_x+pu_yv_y)dxdy + \int_{\Gamma_2}\sigma uv ds,,~\forall u,, v\in H^1(\Omega),.
+\end{align}
+$$
+可以证明这样的定义的$B(u,v)$具有以下性质：</p>
 <ol>
 <li>
-<p>roughly check my calculation to ensure the accuracy YES</p>
+<p>对称性，即：
+$$
+\begin{align}
+	B(u,v)=B(v,u)
+\end{align}
+$$</p>
 </li>
+<li></li>
+<li></li>
 <li>
-<p>repeat the work in PRL of Shao, especially the orbital dynamics part, especially focus on the perihelion advance $\Delta\omega$ if it propotional to $1/e$. YUS</p>
-</li>
-<li>
-<p>Why the unit described the advance is XX second/century? The observing data owns too long time scale or just simply enlarge the quantity? or other reasons. NO</p>
-</li>
-<li>
-<p>repeat the figure 1 and specify our case.  YET</p>
-</li>
-<li>
-<p>substitute the coefficients in $a_5$ and obtain the rough quantity.  ROUGHLY YES</p>
+<p>在$V\times V$上连续。即存在一个常数$M&gt;0$，使得
+$$
+\begin{align}
+	|B(u,v)|\leq M||u||<em>{1,\Omega}||v||</em>{1,\Omega},,~~\forall u,v\in V,.
+\end{align}
+$$</p>
 </li>
 </ol>
+<ol start="3">
+<li>在$V$上强制的，即存在常数$\gamma&gt;0$，使得
+$$
+\begin{align}
+	B(u,u)\geq \gamma ||u||^2_{1,\Omega},,~~\forall \in V
+\end{align}
+$$</li>
+</ol>
+<p>显然
+$$
+\begin{align}
+	f(v) = \int\int_\Omega fvdxdy + \int_{\Gamma_2}gvds
+\end{align}
+$$
+是$v$的线性连续泛函。</p>
+<p>原问题的Galerkin变分问题是：求$u\in V$，使得
+$$
+\begin{align}
+	B(u,v) = f(v),,~~\forall v\in V,.
+\end{align}
+$$
+满足上述的解$u$称为原问题的弱解，将弱解所在的空间称为容许空间，也称试探空间。同时，由于上面必须对$V$中任意元素$v$都要成立，故称$V$为检验空间。如果变分问题的容许空间和检验空间取同一个Hilbert空间$V$，这时又称为$V$为<strong>能量空间</strong>。</p>
+<p>边界$\Gamma_2$上的条件称为<strong>自然边界条件</strong>。边界$\Gamma_1$上的条件称为编织边界条件，或称为<strong>强边界条件</strong>。</p>
 
       
     </div>
@@ -377,8 +422,8 @@ $$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/25/Research-Records20181025/" rel="next" title="Research Records">
-                <i class="fa fa-chevron-left"></i> Research Records
+              <a href="/2018/11/26/C++模板深度解析/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -387,7 +432,7 @@ $$
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/08/英语记录/" rel="prev" title="">
+              <a href="/2019/01/03/Research-Records20190103/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -503,7 +548,7 @@ $$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Q: 7/11/2018</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Q: 14/11/2018</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Solution Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Q: 10/1/2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">4 things to do with lessons</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1 Finite Element Construction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Galerkin变分原理和Ritz变分原理</span></a></li></ol></li></ol></div>
             
 
           </div>

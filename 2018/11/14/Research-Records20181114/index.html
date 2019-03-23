@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Learning Notes">
 <meta property="og:description" content="[TOC] Research Records on 15/11/2018 Re-test the Einstein equations of our solution We proposed the solution of metric $$ \begin{align} 	\alpha = &amp;amp; \psi^{-2}\ 	\beta^i = &amp;amp; 0\ 	\psi = &amp;amp; 1+\">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-27T23:54:29.464Z">
+<meta property="og:updated_time" content="2019-01-08T08:20:27.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning Notes">
 <meta name="twitter:description" content="[TOC] Research Records on 15/11/2018 Re-test the Einstein equations of our solution We proposed the solution of metric $$ \begin{align} 	\alpha = &amp;amp; \psi^{-2}\ 	\beta^i = &amp;amp; 0\ 	\psi = &amp;amp; 1+\">
@@ -635,6 +635,184 @@ $$
 	&amp;-\frac{m_2}{R^2}\left[4(\vec{v}\cdot\vec{N})\vec{v}  + v^2\vec{N} +V^2 \vec{N} +4(\vec{V}\cdot\vec{N})\vec{V} \right],.
 \end{align}
 $$</p>
+<p>So the equation of motion is
+$$
+\begin{align}
+	\ddot{r}-r\dot{\phi}^2 = &amp; -\frac{m}{r^2} - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}(\vec{n}\cdot \vec{N})^2 + \frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1}{r^2}(\vec{v}\cdot \vec{n})\dot{r} \
+	&amp; + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3(\vec{n}\cdot\vec{N})^2 \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}(\vec{v}\cdot\vec{N})(
+	\vec{n}\cdot\vec{N}) \bigg] - v^2\bigg[ 1-3(\vec{n}\cdot \vec{N})^2 \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4(\vec{v}\cdot \vec{N})(\vec{v}\cdot \vec{n}) + (v^2+V^2)(\vec{n}\cdot\vec{N}) + 4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{n}) \bigg}
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\frac{1}{r}\frac{d}{dt}(r^2\dot{\phi}) = &amp; \frac{3m_2r}{R^3}(\vec{n}\cdot\vec{N})(\vec{N}\cdot \vec{\lambda}) + \frac{4m_1}{r^2}(\vec{v}\cdot\vec{n})r\dot{\phi}\
+	&amp; + \frac{9m_1m_2}{2rR^2}(\vec{N}\cdot\vec{\lambda})-\frac{54m_1m_2}{4R^3}(\vec{N}\cdot\vec{n})(\vec{N}\cdot\vec{\lambda})\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[\dot{r} - 3(\vec{v}\cdot\vec{N})(\vec{n}\cdot\vec{N})\bigg]r\dot{\phi} + 3v^2(\vec{n}\cdot\vec{N})(\vec{N}\cdot\vec{\lambda}) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4(\vec{v}\cdot\vec{N})r\dot{\phi} +(v^2+V^2)(\vec{N}\cdot\vec{\lambda}) +4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{\lambda})\bigg]
+\end{align}
+$$</p>
+<p>Therefore, according to Will, the components of the perturbated in the Keplerian basis $(\vec{n},~\vec{\lambda},~\vec{e}_z)$ are
+$$
+\begin{align}
+	\mathcal{R}:= \vec{f}\cdot\vec{n} = &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}(\vec{n}\cdot \vec{N})^2 \
+	&amp;+\frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1}{r^2}(\vec{v}\cdot \vec{n})\dot{r} \
+	&amp; + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3(\vec{n}\cdot\vec{N})^2 \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}(\vec{v}\cdot\vec{N})(
+	\vec{n}\cdot\vec{N}) \bigg] - v^2\bigg[ 1-3(\vec{n}\cdot \vec{N})^2 \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4(\vec{v}\cdot \vec{N})(\vec{v}\cdot \vec{n}) + (v^2+V^2)(\vec{n}\cdot\vec{N}) + 4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{n}) \bigg}\
+	\mathcal{S} := \vec{f}\cdot \vec{\lambda} = &amp; \frac{3m_2r}{R^3}(\vec{n}\cdot\vec{N})(\vec{N}\cdot \vec{\lambda}) + \frac{4m_1}{r^2}(\vec{v}\cdot\vec{n})r\dot{\phi}\
+	&amp;+\frac{4m_1}{r^2}(\vec{v}\cdot\vec{n})r\dot{\phi} + \frac{9m_1m_2}{2rR^2}(\vec{N}\cdot\vec{\lambda})-\frac{54m_1m_2}{4R^3}(\vec{N}\cdot\vec{n})(\vec{N}\cdot\vec{\lambda})\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[\dot{r} - 3(\vec{v}\cdot\vec{N})(\vec{n}\cdot\vec{N})\bigg]r\dot{\phi} + 3v^2(\vec{n}\cdot\vec{N})(\vec{N}\cdot\vec{\lambda}) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4(\vec{v}\cdot\vec{N})r\dot{\phi} +(v^2+V^2)(\vec{N}\cdot\vec{\lambda}) +4(\vec{V}\cdot\vec{N})(\vec{V}\cdot\vec{\lambda})\bigg] \
+	\mathcal{W}:= \vec{f}\cdot\vec{e}_z = &amp; 0
+\end{align}
+$$
+And the direction to Saturn is
+$$
+\begin{align}
+	\vec{N} = \vec{e}_X
+\end{align}
+$$
+and direction to Mercury is
+$$
+\begin{align}
+	\vec{n} = &amp; \cos(f+\omega)\vec{e}_X +\sin(f+\omega)\vec{e}_Y\
+	\vec{\lambda} = &amp; -\sin(f+\omega)\vec{e}_X +\cos(f+\omega)\vec{e}_Y\
+	\vec{e}_z = &amp;\vec{e}_Z
+\end{align}
+$$
+From these expressions we find that
+$$
+\begin{align}
+	\vec{n}\cdot\vec{N} = &amp; \cos(\omega+f)\
+	\vec{\lambda}\cdot\vec{N} = &amp; -\sin(\omega+f)\
+	\vec{e}_z\cdot\vec{N} = &amp; 0
+\end{align}
+$$
+and the components of the perturbing force become
+$$
+\begin{align}
+	\mathcal{R} = &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}\cos^2(\omega+f) +\frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1\dot{r}^2}{r^2} \
+	&amp; + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg)\cos(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4\dot{r}\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg) + (v^2+V^2)\cos(\omega+f) \bigg}\
+	= &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}\cos^2(\omega+f) + \frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1\dot{r}^2}{r^2} + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}^2\cos^2(\omega+f) + 3r\dot{r}\dot{\phi}\cos(\omega+f)\sin(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4 \dot{r}^2\cos(\omega+f) - 4r\dot{r}\dot{\phi}\sin(\omega+f) + (v^2+V^2)\cos(\omega+f) \bigg}\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\mathcal{S} = &amp; -\frac{3m_2r}{R^3}\sin(\omega+f)\cos(\omega+f) +\frac{4m_1}{r}\dot{r}\dot{\phi} - \frac{9m_1m_2}{2rR^2}\sin(\omega+f) + \frac{54m_1m_2}{4R^3}\sin(\omega+f)\cos(\omega+f)\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[\dot{r} - 3\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg)\cos(\omega+f)\bigg]r\dot{\phi} - 3v^2\cos(\omega+f)\sin(\omega+f) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4\bigg(\dot{r}\cos(\omega+f)-r\dot{\phi}\sin(\omega+f)\bigg)r\dot{\phi} - (v^2+V^2)\sin(\omega+f) \bigg] \
+= &amp; -\frac{3m_2r}{R^3}\sin(\omega+f)\cos(\omega+f) + \frac{4m_1}{r}\dot{r}\dot{\phi} - \frac{9m_1m_2}{2rR^2}\sin(\omega+f) + \frac{54m_1m_2}{4R^3}\sin(\omega+f)\cos(\omega+f)\
+	&amp; + \frac{m_2r}{R^3}\bigg{ 4\bigg[ r\dot{r}\dot{\phi} -3r\dot{r}\dot{\phi}\cos^2(\omega+f)+3r^2\dot{\phi}^2\sin(\omega+f)\cos(\omega+f) \bigg]   - 3v^2\cos(\omega+f)\sin(\omega+f) \bigg}\
+	&amp; -\frac{m_2}{R^2}\bigg[ 4\bigg(r\dot{r}\dot{\phi}\cos(\omega+f)-r^2\dot{\phi}^2\sin(\omega+f)\bigg) - (v^2+V^2)\sin(\omega+f) \bigg] \
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\mathcal{W} = &amp; 0
+\end{align}
+$$</p>
+<p>The quantities in perturbative force are given by zeroth solution
+$$
+\begin{align}
+	\cos f = &amp; \frac{\cos u -e}{1-e\cos u} \
+	\sin f = &amp; \frac{\sqrt{1-e^2}\sin u}{1-e\cos u} \
+	\sin(\omega + f) = &amp; \sin \omega \cos f+ \cos\omega \sin f = \sin\omega \frac{\cos u -e}{1-e\cos u} + \cos\omega \frac{\sqrt{1-e^2}\sin u}{1-e\cos u} \
+	= &amp; \frac{\sin\omega \cos u -e \sin\omega +\cos\omega \sin u\sqrt{1-e^2}}{1 - e\cos u} \
+	\cos(\omega + f) = &amp; \cos\omega \cos f-\sin\omega \sin f = \cos\omega \frac{\cos u - e}{1-e\cos u} -\sin\omega \frac{\sqrt{1-e^2}\sin u}{1-e\cos u}\
+= &amp; \frac{\cos\omega \cos u -e\cos\omega -\sqrt{1-e^2} \sin \omega \sin u}{1-e\cos u}\
+1+e\cos f = &amp; 1+e \frac{\cos u - e}{1-e\cos u} = \frac{1-e\cos u + e\cos u -e^2}{1-e\cos u} = \frac{1-e^2}{1-e\cos u}
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	r = &amp; a(1-e\cos u)\
+	r = &amp; \frac{p}{1+e\cos f} = \frac{a(1-e^2)}{1+e\cos f}\
+	\dot{r} = &amp; \sqrt{\frac{Gm}{a}}\frac{e\sin u}{1-e\cos u} \
+	\dot{r} = &amp; \sqrt{\frac{Gm}{a(1-e^2)}}e\sin f \
+	\dot{\phi} = &amp; \sqrt{\frac{Gm}{a^3}} \frac{\sqrt{1-e^2}}{(1-e\cos u)^2} \
+	\dot{\phi} = &amp; \sqrt{\frac{Gm}{a^3(1-e^2)^3}}[1+e\cos f]^2 \
+	\dot{u} = &amp; \sqrt{\frac{Gm}{a^3}}\frac{1}{1-e\cos u} \
+	v^2 = &amp; \frac{Gm}{a}\frac{1+e\cos u}{1-e\cos u} = Gm\left( \frac{2}{r} - \frac{1}{a} \right)\
+	v^2 = &amp; \frac{Gm}{a(1-e^2)}[1+2e\cos f +e^2] \
+	a:= &amp; \frac{p}{1-e^2} \
+	p:= &amp; \frac{h^2}{Gm} = \frac{r^4\dot{\phi}^2}{Gm}
+\end{align}
+$$
+So the perihelion of $\omega​$ satisfies
+$$
+\begin{align}
+\frac{d\omega}{df}\approx &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg]\
+	= &amp; \frac{1}{e}\frac{a^2(1-e^2)^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{e}\frac{a^2(1-e^2)^2}{Gm}\bigg[ -\frac{\cos f}{p^2}r^2\mathcal{R} + \frac{2+e\cos f}{p^3}r^3 \sin f ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{Gme}\bigg[ -r^2\cos f \mathcal{R} + \frac{2+e\cos f}{a(1-e^2)}r^3 \sin f ~\mathcal{S} \bigg] \
+	\frac{d\omega}{du} \approx &amp; \frac{1}{e}\frac{a^2}{Gm}\bigg{ \sqrt{1-e^2} (e - \cos u)\mathcal{R} + \bigg[ (2-e)\sin u + (1-2e)\cos u \sin u\bigg] \mathcal{S} \bigg}
+\end{align}
+$$
+since the relation
+$$
+\begin{align}
+	\frac{d\omega}{df}= &amp; \frac{d\omega}{d u}\frac{du}{df} = \frac{1-e\cos u}{\sqrt{1-e^2}}\frac{d\omega}{du}\
+\approx &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{\cos f}{(1+e\cos f)^2}\mathcal{R} + \frac{2+e\cos f}{(1+e\cos f)^3}\sin f ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{e}\frac{p^2}{Gm}\bigg[ -\frac{ (1-e\cos u)(\cos u -e)}{(1-e^2)^2}\mathcal{R} + \frac{(1-e\cos u)(2-2e\cos u +\cos u -e )}{(1-e^2)^{5/2}}\sin u ~\mathcal{S} \bigg] \
+	= &amp; \frac{1}{e}\frac{p^2 (1-e\cos u) }{Gm(1-e^2)^2}\bigg[ (e - \cos u)\mathcal{R} + \frac{(2-2e\cos u +\cos u -e )}{\sqrt{(1-e^2)}}\sin u ~\mathcal{S} \bigg]\
+	= &amp; \frac{1}{e}\frac{a^2(1-e\cos u)}{Gm}\bigg[ (e - \cos u)\mathcal{R} + \frac{(2-e)\sin u + (1-2e)\cos u \sin u}{\sqrt{1-e^2}} ~\mathcal{S} \bigg]
+\end{align}
+$$
+Thus we can seperate the terms according to $r^n$, which says that employs the $d\omega/df$ for $n&lt;0$ and $d\omega / du$ for $n&gt;0$.</p>
+<p>The advanced perihelion is
+$$
+\begin{align}
+	\Delta \omega = \int_0^{2\pi} \frac{d\omega_1}{df}\bigg|<em>{suitable~terms} df + \int_0^{2\pi}\frac{d\omega_2}{d u} \bigg|</em>{suitable ~terms}du
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\mathcal{R} =  &amp;  - \frac{m_2r}{R^3} + \frac{3m_2r}{R^3}\cos^2(\omega+f) + \frac{9m_1^2}{2r^3} -\frac{m_1v^2}{r^2}+\frac{4m_1\dot{r}^2}{r^2} + \frac{9m_1m_2}{2r^2R} + \frac{9m_1m_2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}^2\cos^2(\omega+f) + 3r\dot{r}\dot{\phi}\cos(\omega+f)\sin(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2}{R^2}\bigg{ 4 \dot{r}^2\cos(\omega+f) - 4r\dot{r}\dot{\phi}\sin(\omega+f) + (v^2+V^2)\cos(\omega+f) \bigg}\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	r^2\mathcal{R} = &amp;  - \frac{m_2r^3}{R^3} + \frac{3m_2r^3}{R^3}\cos^2(\omega+f) + \frac{9m_1^2}{2r} - m_1v^2 + 4m_1\dot{r}^2 + \frac{9m_1m_2}{2R} \
+&amp; + \frac{9m_1m_2r^2}{4R^3}\bigg[ 1 - 3\cos^2(\omega+f) \bigg] \
+&amp; + \frac{m_2r^3}{R^3} \bigg{ 4\bigg[ \dot{r}^2 -3\dot{r}^2\cos^2(\omega+f) + 3r\dot{r}\dot{\phi}\cos(\omega+f)\sin(\omega+f) \bigg] - v^2\bigg[ 1-3\cos^2(\omega+f) \bigg] \bigg} \
+	&amp; - \frac{m_2r^2}{R^2}\bigg{ 4 \dot{r}^2\cos(\omega+f) - 4r\dot{r}\dot{\phi}\sin(\omega+f) + (v^2+V^2)\cos(\omega+f) \bigg}\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\Delta\omega = &amp; \frac{3\pi(1-e^2)^{1/2}}{2}\frac{m_2}{m} \left( \frac{a}{R}\right)^3(1+5\cos 2\omega)\
+&amp;-\frac{\pi  m_1 \left(e \left(9 a^3 \left(e^2-1\right)^2 m_2+2 \sqrt{1-e^2} R^3 (9 m_1-20 m)\right)\right)}{4 a e \left(1-e^2\right)^{3/2} m R^3}\
+	&amp; +\frac{9 a \left(e^2-1\right)^{1/2} m_2 (9 a e \cos 2 \omega +4 R \cos \omega )}{4  e m R^3} \
+	&amp; -\frac{7 \sqrt{1-e^2} \pi  a^2 m_2 }{2 R^3}\
+	&amp;+\frac{3 \left(4 e^6+2 \left(7 \sqrt{1-e^2}-10\right) e^2-12 \left(\sqrt{1-e^2}-1\right)+\left(5 \sqrt{1-e^2}+4\right) e^4\right) \cos (2 \omega )}{2 e^4 R^3}\
+	&amp; +\frac{\pi  a \sqrt{1-e^2} \left(e^2-20 \sqrt{1-e^2}+20\right) m_2 \cos (\omega )}{e^3 R^2}\
+	&amp;+ \frac{3 a^2 \left(\pi  \sqrt{1-e^2} (e (e (-2 e ((e-4) e-6)-23)-8)+14)-2 \pi  \left(e^2-1\right)^2 (e (e+4)-7)\right) m_2 \cos 2 \omega }{e^5 R^3}
+\end{align}
+$$</p>
+<p>Therefore the average advanced perihelion is ($m_1\approx m$)
+$$
+\begin{align}
+\langle\Delta\omega\rangle = &amp; \frac{3\pi(1-e^2)^{1/2}}{2}\frac{m_2}{m} \left( \frac{a}{R}\right)^3+ \frac{11\pi}{2(1-e^2)}\left( \frac{m}{a} \right) \
+&amp;- \frac{7\pi\sqrt{1-e^2}}{2}\left( \frac{m_2}{R} \right)\left(\frac{a}{R} \right)^2 - \frac{9\pi\sqrt{1-e^2}}{4}\left(\frac{m_2}{R} \right)\left( \frac{a}{R} \right)^2
+\end{align}
+$$
+while Will gives the result
+$$
+\begin{align}
+\langle \Delta\omega \rangle_{\text{Will}} = &amp; \frac{3\pi(1-e^2)^{1/2}}{2}\frac{m_2}{m} \left( \frac{a}{R}\right)^3 + \frac{6\pi }{(1-e^2)}\left( \frac{m}{a} \right) + \frac{21\pi}{(1-e^2)^{3/2}}\left( \frac{m_2}{R} \right)\left(\frac{a}{R} \right)^2 \
+	&amp;+ \frac{141\pi e^2}{4(1-e^2)^{3/2}}\left( \frac{m_2}{R} \right)\left(\frac{a}{R} \right)^2 + 4\pi \frac{m_2}{a}\left( \frac{a}{R}\right)^{5/2}
+\end{align}
+$$
+The first term is Newtonian 3-body contribution and the second term is relativitistic 2-body contribution which is should be $\frac{6\pi m}{a(1-e^2)}$.</p>
 
       
     </div>
@@ -659,7 +837,7 @@ $$</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/英语翻译/" rel="next" title="">
+              <a href="/2018/11/08/英语记录/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -748,7 +926,7 @@ $$</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -805,7 +983,7 @@ $$</p>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
