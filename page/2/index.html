@@ -229,6 +229,890 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/07/Questions_records_with_MASTER/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/07/Questions_records_with_MASTER/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T14:51:26+08:00">
+                2018-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>Q: 7/11/2018</h1>
+<p>PN展开时候到底用了什么额外的条件？不要用坐标变换理解，这就变成了避开这个问题，而应该需要在Clifford Will书上寻找答案。</p>
+<p>我要研究的问题开始于水星近日点的近动 <em>New General Relativistic Contribution to Mercury’s Perihelion Advance</em></p>
+<p>Will根据他自己书上的得到了最终的加速度，up to 1PN。</p>
+<p>现在我们从广义相对论出发BSSN formulation，使用punture condition 得到$K_{ij}$，其满足栋动量约束方程，再从Hamiltonian约束出发得到$\psi$，其形式非常简单，做到1PN近似，与Will的结果相同。我们希望得到一个准稳态的过程，即从演化方程中得到坐标条件Lapse和shift。</p>
+<p>整个故事到这儿，我们实际上已经解了Einstein场方程，原则上整个时空就已经知道了。但是和Will不相同的就是坐标选取不同，即导致lapse和shift不相同。这是工作的第一阶段。</p>
+<p>第二阶段：如何从我们的坐标变成Will的坐标？</p>
+<p>我们从Harmonic condition 出发，得到我们的Isotropic坐标下的Harmonic 坐标，但是代价就是其不满足Einstein场方程。即使如此，在演化方程计算的时候，仍旧发现这个不满足的阶数与Will的1PN结果相同。至此，我们有理由相信最后我们与Will之间只是差一个在Harmonic坐标下的一个坐标变换。</p>
+<p>第三段故事：问题：Will到底选取了什么样的额外的条件，使得$\alpha$和$\beta^i$有他写出来的样子？这就需要查书<strong><em>Poisson E., Will C.M.-Gravity_ Newtonian, Post-Newtonian, Relativistic-CUP (2014)</em></strong>，但是没找到，具体解决问题再问。</p>
+<h1>Q: 14/11/2018</h1>
+<p>在Will的书上，1PN的出发点就是 Einstein场方程+harmonic gauge condition 这就导致了后面的基本方程
+$$
+\begin{align}
+\Box_{\eta} h^{\mu\nu} = \frac{16\pi G}{c^4}\tau^{\mu\nu}
+\end{align}
+$$
+其中$\tau^{\mu\nu}$包含物质的能动张量，Landau-Lifshitz赝张量，harmonic gauge的规范potential，所以这个方程本身右边就是含着$h^{\mu\nu}$，这实际上就导致了方程的非线性性。对于这个方程的1PN来说，只有物质的能动张量才是非零贡献，而点源粒子又是给出$\delta$函数的样子。</p>
+<p>对于我们的方程来说，满足的harmonic方程是
+$$
+\begin{align}
+	(\partial_t -\beta^i\partial_i)\alpha = &amp; -2\alpha K,,\
+	(\partial_t-\beta^j\partial_j)\beta^i = &amp; -\alpha^2(\gamma^{ij}\partial_j \log \alpha + \gamma^{jk}\Gamma^i_{jk})
+\end{align}
+$$
+这里实际上存在两个问题：一个是方程都是几何量，没有物质的$\delta $函数的来源，看不出$\alpha$和$\beta$的解的形式，所以在这个意义上，将上面的方程改造为二阶导数的$\Box_\eta \alpha,~\Box_\eta\beta^i$，然后配合着Hamiltonian约束和momentum约束可以在后面出现点源里物质； 另一个问题，也是本质的问题，我们采取的是punture condition 和maximal slice condition将$K=0$变成我们的假设，但实际上在Will的1PN计算时，得到的$K$是$c^{-3}$的量，可以从演化方程看出
+$$
+\begin{align}
+	\partial_t\log \psi  = -\frac{1}{6}\alpha K + \frac{1}{6}D_i \beta^i
+\end{align}
+$$
+若$\psi$不含时间，则$K$和$\beta^i$的阶数是一样的，这就导致了我们的情况就是$K =0$时候，$\beta^i =0$，而这时候Will给出$\beta^i \sim c^{-3}$就意味着$K\sim c^{-3}$不可能会等于零，也就是说maximal slice condition与1PN计算是有矛盾之处的。</p>
+<p>实际上第一个问题在第二个问题提出之后已经没有必要回答了，因为如果$\Box\alpha$和$\Box\beta^i$右边仍会出现$K$，或者$K_{ij}$，那么解$\alpha$和$\beta^i$的时候仍会出现和Will不同的结果。</p>
+<h2>Solution Method</h2>
+<p>这里我们发现没有任何办法解决这个问题，这本质就是假设的出发点的矛盾带来的效应，所以我们只能使用我们的conditions/gauge conditions 计算水星近日点的近动。</p>
+<h1>Q: 10/1/2019</h1>
+<h2>4 things to do with lessons</h2>
+<ol>
+<li>
+<p>roughly check my calculation to ensure the accuracy YES</p>
+</li>
+<li>
+<p>repeat the work in PRL of Shao, especially the orbital dynamics part, especially focus on the perihelion advance $\Delta\omega$ if it propotional to $1/e$. YUS</p>
+</li>
+<li>
+<p>Why the unit described the advance is XX second/century? The observing data owns too long time scale or just simply enlarge the quantity? or other reasons. NO</p>
+</li>
+<li>
+<p>repeat the figure 1 and specify our case.  YET</p>
+</li>
+<li>
+<p>substitute the coefficients in $a_5$ and obtain the rough quantity.  ROUGHLY YES</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/Research-Records20181025/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Learning Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/Research-Records20181025/" itemprop="url">Research Records</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-25T12:23:18+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h1>Records on 25/10/2018</h1>
+<p>复习《概率论和数理统计》，需要完成《计算天文》作业。完成英语课后作业。</p>
+<h2>随机变量及其概率密度</h2>
+<p>对于随机变量$X$的分布函数$F(x)$， 存在非负可积函数$f(x)$， 使得对于任意实数$x$，有
+$$
+\begin{align}
+	F(x) = \int_{-\infty}^x f(t)dt,,
+\end{align}
+$$
+则称$X$为<strong>连续型随机变量</strong>， $f(x)$称为$X$的概率密度函数，简称为<strong>概率密度</strong> ，所以$F(x)$的意思就是概率$P(X\leq x)$。若随机变量$X$满足的概率密度为</p>
+<p>​	
+$$
+\begin{align}
+	f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2
+}},,~<s>\text{for}</s>~-\infty&lt; x &lt; \infty,,
+\end{align}
+$$
+其中$\mu,\sigma~(\sigma&gt;0)$为常数，则称$X$服从参数为$\mu,\sigma$的<strong>正态分布</strong>或<strong>高斯</strong>分布，记为$X\sim N(\mu,\sigma)$。</p>
+<p>#Records on 26/10/2018</p>
+<p>学习数理统计的三章内容，包含参数估计(点估计和区间估计)、假设检验、方差分析及回归分析。</p>
+<h2>1. 参数估计</h2>
+<h3>1.1点估计</h3>
+<h3>1.2区间估计</h3>
+<p>​	<strong>置信区间</strong>	： 设总体样本$X$的分布函数$F(x;\theta)$ 含有一个未知参数$\theta,~\theta\in\Theta$ ($\Theta$是$\theta$可能取值的范围)， 对于给定值$\alpha~(0&lt;\alpha&lt;1)$ ， 若由来自$X$的样本$X_1,X_2,\cdots, X_n$确定的两个统计量$\underline{\theta} = \underline\theta(X_1,\cdots,X_n)$和$\bar{\theta}=\bar{\theta}(X_1,\cdots,X_n) (\underline\theta&lt;\bar\theta)$，对于任意$\theta\in\Theta$满足
+$$
+\begin{align}
+	P{\underline\theta(X_1,\cdots,X_n)&lt;\theta&lt;\bar\theta(X_1,\cdots,X_n)} \geq 1-\alpha,,
+\end{align}
+$$
+则称随机区间$(\underline\theta,\bar\theta)$是$\theta$的置信水平为$1-\alpha$的<strong>置信区间</strong>，$\underline\theta$和$\bar\theta$分别为置信水平为$1-\alpha$的双侧置信区间的<strong>置信下限</strong>和<strong>置信上限</strong>，$1-\alpha$称为<strong>置信水平</strong>.</p>
+<p>​	对于正态分布，$X\sim N(\mu,\sigma^2)$，$\sigma^2$为已知，$\mu$未知，我们知道$\bar X$是$\mu$的无偏估计，且有</p>
+<p>​	
+$$
+\begin{align}
+	\frac{\bar X -\mu}{\sigma /\sqrt{n}} \sim N(0,1),.
+\end{align}
+$$
+按照标准正态分布的上$\alpha$分位点的定义，有
+$$
+\begin{align}
+	P\left{\left|\frac{\bar X -\mu}{\sigma\sqrt{n}} \right|&lt; z_{\alpha/2}\right} = 1-\alpha,,
+\end{align}
+$$
+即
+$$
+\begin{align}
+P\left{&lt; \bar X - \frac{\sigma}{\sqrt n} z_{\alpha/2}\mu &lt; \bar X + \frac{\sigma}{\sqrt n} z_{\alpha/2}\right} = 1-\alpha,.
+\end{align}
+$$
+这样，我们就得到了$\mu$的置信水平为$1-\alpha$的置信区间</p>
+<p>​	
+$$
+\begin{align}
+	\left( \bar X -\frac{\sigma}{\sqrt n}z_{\alpha/2},\bar X +\frac{\alpha}{\sqrt n}z_{\alpha/2} \right),,
+\end{align}
+$$
+这样的置信区间写成
+$$
+\begin{align}
+\left( \bar X \pm \frac{\sigma}{\sqrt n}z_{\alpha/2} \right),.
+\end{align}
+$$</p>
+<p>​	像正态分布那样，可以寻找未知参数$\theta$的置信区间的具体做法如下：</p>
+<ol>
+<li>
+<p>寻找一个样本$X_1,\cdots,X_n$和$\theta$的函数$W=W(X_1,\cdots, X_n,\theta)$，使得$W$的分布不依赖于$\theta$以及其他未知参数，称具有这种性质的函数$W$为<strong>枢轴量</strong>。</p>
+</li>
+<li>
+<p>对于给定的置信水平$1-\alpha$，定出两个常数$a,b$使得
+$$
+\begin{align}
+P{\alpha &lt; W(X_1,X_2,\cdots,X_n;\theta)&lt;b } = 1-\alpha,.
+\end{align}
+$$
+若能从$\alpha &lt; W(X_1,X_2,\cdots,X_n;\theta)&lt;b$得到与之等价的$\theta$不等式$\underline \theta&lt;\theta&lt;\bar\theta$，其中$\underline\theta = \underline \theta(X_1,X_2,\cdots,X_n)$，$\bar\theta = \bar\theta (X_1,\cdots,X_n)$都是统计量。那么$(\bar\theta,\underline\theta)$就是$\theta$的一个置信水平为$1-\alpha $的置信区间。</p>
+</li>
+</ol>
+<p>枢轴量$W(X_1,\cdots,X_n;\theta)$的构造，通常可以从$\theta$的点估计着手考虑。常用的正太总体的参数的置信区间可以用上述的步骤获得。</p>
+<h3>1.3正态总体均值与方差的区间估计</h3>
+<p>设一给定置信水平为$1-\alpha$，并设$X_1,\cdots,X_n$为总体$N(\mu,\sigma^2)$的样本。$\bar X,~S^2$分别是样本均值和样本方差。</p>
+<ol>
+<li>
+<p>假设$\mu$未知，$\sigma^2$已知：</p>
+<p>此时可由上一节可知，取枢轴量$\frac {\bar X -\mu }{\sigma \sqrt n}$，已得到$\mu$的一个置信水平为$1-\alpha$的置信区间为
+$$
+\begin{align}
+\left( \bar X \pm \frac{\sigma}{\sqrt n}z_{\alpha/2} \right),.
+\end{align}
+$$</p>
+</li>
+<li>
+<p>假设$\mu$未知，$\sigma^2$未知：</p>
+<p>此时就不能用上述的公式，因其含有未知参数$\sigma$。考虑到$S^2$是$\sigma^2$的无偏估计，将$\sigma$换成$S = \sqrt{S^2}$，由定理可知
+$$
+\begin{align}
+	\frac{\bar X-\mu}{S\sqrt n } \sim t(n-1),,
+\end{align}
+$$
+并且右边分布不依赖于任何未知参数，使用$\frac{\bar X-\mu}{S\sqrt n }$作为枢轴量可得
+$$
+\begin{align}
+	P\left{ -t_{\alpha/2}(n-1)&lt;\frac{\bar X-\mu}{S\sqrt n }&lt; t_{\alpha/2}(n-1) \right} = 1-\alpha
+\end{align}
+$$
+于是得$\mu$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+\left( \bar X \pm \frac{S}{\sqrt n}t_{\alpha/2}(n-1) \right),.
+\end{align}
+$$</p>
+</li>
+</ol>
+<ol start="3">
+<li>
+<p>假设$\mu$未知，$\sigma$未知：</p>
+<p>$\sigma^2$的无偏估计就是$S^2$，由定理可知
+$$
+\begin{align}
+	\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1),,
+\end{align}
+$$
+并且上式右端的分布不依于任何未知参数，取$\frac{(n-1)S^2}{\sigma^2}$作为枢轴量，即得
+$$
+\begin{align}
+	P\left{ \chi^2_{1-\alpha/2}(n-1)&lt; \frac{(n-1)S^2}{\sigma^2}&lt; \chi^2_{\alpha/2}(n-1) \right} = 1-\alpha,.
+\end{align}
+$$</p>
+<p>即
+$$
+\begin{align}
+	P\left{ \frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)}&lt;\sigma^2 &lt; \frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)} \right} = 1-\alpha,.
+\end{align}
+$$
+这就得到了方差$\sigma^2$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	\left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)}\right),.
+\end{align}
+$$
+这也告诉我们标准差$\sigma$的一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	\left(\frac{\sqrt{(n-1)} S}{\sqrt {\chi^2_{\alpha/2}(n-1)}},\frac{\sqrt{(n-1)}S}{\sqrt{\chi^2_{1-\alpha/2}(n-1)}}\right),.
+\end{align}
+$$</p>
+</li>
+</ol>
+<h3>1.4两个总体样本$N(\mu_1,\sigma^2_1),~N(\mu_2,\sigma^2_2)$的情况</h3>
+<ol>
+<li>
+<p>两个总体均值差$\mu_1-\mu_2$的置信区间：</p>
+<p>（1）$\sigma_1,\sigma_2$均为已知。因$\bar{X}, \bar{Y}$分别是$\mu_1,\mu_2$的无偏估计，故$\bar X- \bar Y$是$\mu_1-\mu_2$的无偏估计。由$\bar X, \bar Y$的独立性以及$\bar X\sim N(\mu_1,\sigma^2/n_1),~bar Y\sim N(\mu_2,\sigma^2/n_2)$得到
+$$
+\begin{align}
+	\bar X-\bar Y \sim N\left(\mu_1-\mu_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}\right)
+\end{align}
+$$
+或者
+$$
+\begin{align}
+	\frac{(\bar X-\bar Y) - (\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim N(0,1)
+\end{align}
+$$
+取$\frac{(\bar X-\bar Y) - (\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}$为枢轴量，即得$\mu_1-\mu_2$的一个置信水平为$1-\alpha$得置信区间
+$$
+\begin{align}
+	\left( \bar X-\bar Y \pm z_{\alpha/2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right)
+\end{align}
+$$
+(2) $\sigma_1= \sigma_2 = \sigma$ ，但$\sigma^2$未知，此时由定理可知，构造枢轴量
+$$
+\begin{align}
+	\frac{(\bar X-\bar Y) - (\mu_1-\mu_2)}{S_w \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} \sim t(n_1+n_2-2)
+\end{align}
+$$
+可以得到$\mu_1-\mu_2$的一个置信水平为$1-\alpha$的置信区间为
+$$
+\begin{align}
+	\left( \bar X- \bar Y \pm t_{\alpha/2}(n_1+n_2-2)S_w\sqrt{\frac{1}{n_1}+\frac{1}{n_2}} \right)
+\end{align}
+$$
+此处	
+$$
+\begin{align}
+	S_w^2 = \frac{(n_1-1)S_1^2 +(n_2-1)S_2^2}{n_1+n_2-2},,~~~S_w = \sqrt{S_w^2}
+\end{align}
+$$</p>
+</li>
+<li>
+<p>两个总体方差比$\sigma_1^2/\sigma_2^2$的置信区间：</p>
+</li>
+</ol>
+<p>当总体均值$\mu_1,~\mu_2$均未知，则由定理可以得到</p>
+<p>​	
+$$
+\begin{align}
+	\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} \sim F(n_1-1,n_2-1),,
+\end{align}
+$$
+并且分布$F(n_1-1,n_2-1)$不依赖于任何未知的情况。取$\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} $为枢轴量得</p>
+<p>​	
+$$
+\begin{align}
+	P\left{ F_{1-\alpha/2}(n_1-1,n_2-1) &lt; \frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}  &lt; F_{\alpha/2}(n_1-1,n_2-1) \right} = 1-\alpha
+\end{align}
+$$
+即
+$$
+\begin{align}
+	P\left{ \frac{S_1^2}{S_2^2} \frac{1}{F_{\alpha/2}(n_1-1,n_2-1)} &lt;\frac{\sigma_1^2}{\sigma_2^2} &lt;\frac{S_1^2}{S_2^2} \frac{1}{F_{1-\alpha/2}(n_1-1,n_2-1)} \right} = 1-\alpha,.
+\end{align}
+$$</p>
+<h3>1.5 (0—1)分布参数的区间估计</h3>
+<p>已知$(0—1)$ 分布的均值和方差分别为</p>
+<p>​	
+$$
+\begin{align}
+	\mu = P ,, ~~\sigma^2 = p(1-p),.
+\end{align}
+$$
+设$X_1,\cdots, X_n$ 是一个样本。因样本容量$n$较大，由中心极限定理可知
+$$
+\begin{align}
+	\frac{\sum_{i=1}^n X_i -n p}{\sqrt{np(1-p)}} = \frac{n\bar{X} -np}{\sqrt{np(1-p)}}
+\end{align}
+$$
+近似服从$N(0,1)$分布，于是有
+$$
+\begin{align}
+	P\left{ -z_{\alpha/2}&lt; \frac{n\bar{X} - np}{\sqrt{np(1-p)}}&lt;z_{\alpha/2} \right} \approx 1-\alpha
+\end{align}
+$$
+而不等式$-z_{\alpha/2}&lt; \frac{n\bar{X} - np}{\sqrt{np(1-p)}}&lt;z_{\alpha/2}$等价于
+$$
+\begin{align}
+	(n+z_{\alpha/2}^2)p^2-(2n\bar{X}+z_{\alpha/2}^2)p+n\bar{X}^2 &lt;0,,
+\end{align}
+$$
+记
+$$
+\begin{align}
+	p_1 = &amp; \frac{1}{2a}(-b-\sqrt{b^2-4ac})\
+	p_2 = &amp; \frac{1}{2a}(-b+\sqrt{b^2-4ac})
+\end{align}
+$$</p>
+<p>此处$a = n+z_{\alpha/2}^2,~b=-(2n\bar{X}+z_{\alpha/2}^2),~c = n\bar{X}^2$。于是我们得到一个置信水平为$1-\alpha$的置信区间
+$$
+\begin{align}
+	(p_1,p_2),.
+\end{align}
+$$</p>
+<h3>1.6单侧置信区间</h3>
+<p>在某些时候我们需要研究未知参数的上限或者下限，这就引出了单侧置信区间的概念。</p>
+<p>对于给定值$\alpha~(0&lt;\alpha&lt;1)$，若由样本$X_1,\cdots,X_n$确定的统计量$\underline{\theta}=\underline{\theta}(X_1,\cdots,X_n)$，对于任意$\theta\in\Theta$满足
+$$
+\begin{align}
+	P(\theta&gt;\underline{\theta})\geq 1-\alpha,,
+\end{align}
+$$
+则称随机区间$(\underline{\theta},\infty)$是$\theta$的置信水平为$1-\alpha$的<strong>单侧置信区间</strong>，$\underline{\theta}$称为$\theta$的置信水平为$1-\alpha$的<strong>单侧置信下限</strong>。</p>
+<p>又若统计量$\bar{\theta}=\bar{\theta}(X_1,\cdots,X_n)$，对于任意$\theta\in\Theta$满足
+$$
+\begin{align}
+	P(\theta&lt;\bar{\theta})\geq 1-\alpha,,
+\end{align}
+$$
+则称随机区间$(-\infty,\bar{\theta})$是$\theta$的置信水平为$1-\alpha$的<strong>单侧置信区间</strong>，$\bar{\theta}$称为$\theta$的置信水平为$1-\alpha$的<strong>单侧置信下限</strong>。</p>
+<h2>2. 假设检验</h2>
+<h3>2.1.假设检验</h3>
+<p>统计推断的另一个重要问题就是假设检验问题。在总体样本的分布函数完全未知或者只知其形式，但不知其参数的情况下，为了推断总体样本的某些位置特性，提出某些关于总体样本的假设。例如，提出总体样本服从泊松分布的假设，又如，对于真太分布总体样本提出数学期望等于$\mu_0$的假设等等。我们要根据样本对所提出的假设作出接受还是拒绝的决策。假设检验是作出这一决策的过程。</p>
+<p>在显著性水平$\alpha$下，假设检验
+$$
+\begin{align}
+	H_0:~\mu=\mu_0,,\
+	H_1:~\mu\neq \mu_0,.
+\end{align}
+$$
+也常说成&quot;在县属性水平$\alpha$下，针对$H_1$检验$H_0$&quot;。$H_0$称之为<strong>原假设</strong>或<strong>零假设</strong>，$H_1$称为<strong>备择假设</strong>。我们要进行的工作是，根据样本，按上述检验方法作出决策在$H_0$和$H_1$两者之间接受其一。</p>
+<p>当检验统计量取在某个区域$C$中的值时，我们拒绝原假设$H_0$，则称区域$C$为<strong>拒绝域</strong>，拒绝域的边界点称为<strong>临界点</strong>。</p>
+<p>由于检验法则是根据样本做出的，总有可能作出错误的决策。在假设$H_0$实际上为真时，我们可能犯拒绝$H_0$的错误，称这类“弃真”的错误为第1类错误。当$H_0$为不真时，我们也有可能接受$H_0$，称这类“取伪”的错误为第2类错误。记犯第2类错误的概率为
+$$
+\begin{align}
+	P\left{ 当H_0不真接受H_0 \right}~<s>或</s>~P_{p\in H_1}\left{ 接受H_0 \right}
+\end{align}
+$$
+为此，在确定检验法则时，我们应尽可能使犯两类错误的概率都较小。但是，一般来说，当样本容量固定时，若减小犯一类错误的概率，则犯另一类错误的概率往往会增大。若要使犯两类错误的概率都减小，除非增加样本容量。在给定样本容量的情况下，一般来说，我们总是控制犯第一类错误的概率，使它不大于$\alpha$，$\alpha$的大小视情况而定。通常取$\alpha$为$0.1,0.05,0.01,0.005$等值。这种只对犯第一类错误加以控制，而不考虑犯第二类错误的概率的检验，称为<strong>显著性检验</strong>。</p>
+<p>形如$H_1:~\mu\neq \mu_0$的备择假设$H_1$，表示$\mu$可能大于$\mu_0$，也可能小于$\mu_0$，称之为<strong>双边备择假设</strong>，而称这样的$H_0,H_1$的假设检验为<strong>双边假设检验</strong>。</p>
+<p>有时，我们只关心总体样本均值是否增大。此时，我们需要检验假设:
+$$
+\begin{align}
+	H_0:~\mu\leq \mu_0,,\
+	H_1:~\mu&gt; \mu_0,.
+\end{align}
+$$
+这样的假设称为<strong>右边检验</strong>。类似地，我们有时需要检验假设
+$$
+\begin{align}
+	H_0:~\mu\geq \mu_0,,\
+	H_1:~\mu &lt;\mu_0,.
+\end{align}
+$$
+这样的假设检验，称为<strong>左边检验</strong>。右边检验和左边检验统称为<strong>单边检验</strong>。</p>
+<p>下边我们讨论单边检验的<strong>拒绝域</strong>。</p>
+<p>设总体样本$X\sim N(\mu,\sigma)$，$\mu$是未知参数，$\sigma$已知，$X_1,\cdots,X_n$是来自于$X$的样本，给定显著性水平$\alpha$，我们来求检验问题
+$$
+\begin{align}
+	H_0:~\mu\leq \mu_0,,\
+	H_1:~\mu&gt; \mu_0,.
+\end{align}
+$$
+的拒绝域。</p>
+<p>因$H_0$中的全部$\mu$都比$H_1$中的$\mu$要小，当$H_1$为真时，观察值$\bar{x}$往往偏大，因此拒绝域的形式为
+$$
+\begin{align}
+	\bar{x}\geq k~~~(k是某一个正常数).
+\end{align}
+$$
+下面来确定$k$。
+$$
+\begin{align}
+	P\left{ 当H_0为真拒绝H_0 \right} =&amp; P_{p\in H_0}\left{ \bar{X}\geq k \right}\
+	=&amp;P_{\mu\leq \mu_0}\left{ \frac{\bar{X}-\mu_0}{\sigma\sqrt{n}} \geq \frac{k-\mu_0}{\sigma \sqrt{n}} \right}\
+	\leq &amp;P_{\mu\leq \mu_0}\left{ \frac{\bar{X}-\mu}{\sigma\sqrt{n}} \geq \frac{k-\mu_0}{\sigma \sqrt{n}} \right}
+\end{align}
+$$
+要控制$P\left{ 当H_0为真拒绝H_0 \right}\leq \alpha$，只需令
+$$
+\begin{align}
+	P_{\mu\leq \mu_0}\left{ \frac{\bar{X}-\mu}{\sigma\sqrt{n}} \geq \frac{k-\mu_0}{\sigma \sqrt{n}} \right} = \alpha
+\end{align}
+$$
+由于$\frac{\bar{X}-\mu}{\sigma\sqrt{n}}  \sim N(0,1)$，得到$\frac{k-\mu_0}{\sigma \sqrt{n}} =z_{\alpha}$，$k=\mu_0+\frac{\sigma}{\sqrt{n}}z_\alpha$，即得检验问题的拒绝域为
+$$
+\begin{align}
+	\bar{x}\geq \mu_0+\frac{\sigma}{\sqrt{n}}z_\alpha,,
+\end{align}
+$$
+即
+$$
+\begin{align}
+	z = \frac{\bar{x}-\mu_0}{\sigma\sqrt{n}}\geq z_\alpha,.
+\end{align}
+$$
+类似地，可以得到左边检验问题的拒绝域为
+$$
+\begin{align}
+	z = \frac{\bar{x}-\mu_0}{\sigma\sqrt{n}}\leq z_\alpha,.
+\end{align}
+$$</p>
+<p>对于正态总体方差的检验假设同样可以使用。只需要将$\mu$和$\mu_0$相应地替换成$\sigma$和$\sigma_0$即可。同理对于成对出现的数据，我们可以统计推断$\mu_1-\mu_2$和$\sigma_1^2/\sigma_2^2$的检验假设。</p>
+<p>综合上述，可得处理参数的假设检验问题的步骤如下：</p>
+<ol>
+<li>根据实际问题的要求，提出原假设$H_0$及备择假设$H_1$;</li>
+<li>给定显著性水平$\alpha$一级样本容量$n$;</li>
+<li>确定检验统计量一级拒绝域的形式；</li>
+<li>按$P\left{ 当H_0为真拒绝H_0 \right} \leq \alpha$求出拒绝域；</li>
+<li>取样，根据样本观察值作出决策，是接受$H_0$还是拒绝$H_0$。</li>
+</ol>
+<h3>2.2.正态总体的假设检验</h3>
+<h4>2.2.1 	<strong>Z检验法</strong></h4>
+<h4>2.2.2	<strong>t检验法</strong></h4>
+<h4>2.2.3	 (逐对比较法)成对数据的t检验法</h4>
+<h4>2.2.4	 $\chi^2$检验法</h4>
+<h4>2.2.5	$F$检验法</h4>
+<h3>2.3.置信区间与假设检验之间的关系</h3>
+<p>置信区间就是置信水平为$1-\alpha$的区间，假设检验将$\alpha$说成针对$H_1$的检验$H_0$的显著性水平。因而，显然两者之间有对应的联系。实际上，置信区间就是接受$H_0$的范围，在置信区间之外就在拒绝域之中了。</p>
+<h3>2.4.样本容量的选取</h3>
+<p>以上我们在进行假设检验时，总是根据问题的要求，预选给出显著性水平以控制犯第1类错误的概率，而犯第2类错误的概率则依赖于样本容量的选择，在实际问题中，我们除了希望控制犯第1类错误的概率之外，往往还希望控制犯第2类错误的概率。我们将说明如何选取样本的容量使得犯第2类错误的概率控制在预先给定的限度内。</p>
+<p>我们先引入施行特征函数：</p>
+<p><strong>定义</strong>  若$C$是参数$\theta$的某检验问题的一个检验法，
+$$
+\begin{align}
+	\beta(\theta) = P_\theta(接受H_0)
+\end{align}
+$$
+称为检验法$C$的<strong>施行特征函数</strong>或<strong>OC函数</strong>，其图形称为<strong>OC曲线</strong>。</p>
+<p>由定义可知，若此检验法的显著性水平为$\alpha$，那么当真值$\theta\in H_0$时，$\beta(\theta)$就是作出正确判断的概率，故此时$\beta(\theta)\geq 1-\alpha$；而当$\theta\in H_1$时，则$\beta(\theta)$就是犯第2类错误的概率，而$1-\beta(\theta)$是作出正确判断的概率。函数$1-\beta(\theta)$称为检验法$C$的<strong>功效函数</strong>。当$\theta^<em>\in H_1$时，值$1-\beta(\theta^</em>)$称为检验法$C$在点$\theta^<em>$的</em><em>功效</em>*。它表示当参数$\theta$的真值为$\theta^*$时，检验法$C$作出正确判断的概率。</p>
+<h4>2.4.1 Z检验法的OC函数</h4>
+<p>右边检验问题。$H_0:\mu\leq \mu_0$，$H_1:\mu &gt;\mu_0$的OC函数是
+$$
+\begin{align}
+	\beta(\mu) = P_{\mu}(接受H_0)= P_\mu \left{ \frac{\bar{X}-\mu_0}{\sigma\sqrt{n}} &lt;z_\alpha \right}= P_\mu \left{ \frac{\bar{X}-\mu}{\sigma\sqrt{n}} &lt;z_\alpha=\frac{\mu-\mu_0}{\sigma /\sqrt{n}} \right} = \Phi(z_\alpha -\lambda)
+\end{align}
+$$
+其中$\lambda = \frac{\mu-\mu_0}{\sigma/\sqrt{n}}$. 此函数告诉我们，真值$\mu~(\mu&gt;\mu_0)$在$ \mu_0$附近时，检验法功效低，即$\beta(\mu)$很大，亦即犯第2类错误的概率很大。</p>
+<p>这里我们可以使用OC函数$\beta(\mu)$来确定样本容量$n$，使党真值$\mu\geq \mu_0+\delta~(\delta&gt;0)$时，犯第2类错误的概率不超过给定的$\beta$。这是由于$\beta(\mu)$是$\mu$的递减函数，故当$\mu\geq\mu_0+\delta$时有
+$$
+\begin{align}
+	\beta(\mu_0+\delta) \geq \beta(\mu)
+\end{align}
+$$
+于是只要$\beta(\mu_0+\delta) = \Phi(z_\alpha -\sqrt{n}\delta /\sigma)\leq \beta$，亦即只要$n$满足
+$$
+\begin{align}
+	z_\alpha -\sqrt{n}\delta/\sigma  \leq z_\beta
+\end{align}
+$$
+即可。这就是说，只要
+$$
+\begin{align}
+	\sqrt{n}\geq \frac{(z_\alpha+z_\beta)\sigma}{\delta}
+\end{align}
+$$
+就能使当$\mu\in H_1$且$\mu\geq \mu_0+\delta$时犯第2类错误的概率不超过$\beta$。</p>
+<p>类似地，可得左边检验问题$H_0:\mu\geq \mu_0$，$H_1:\mu  &lt;\mu_0$的OC函数是
+$$
+\begin{align}
+	\beta(\mu) =\Phi(z_\alpha+\lambda),,~~~\lambda = \frac{\mu-\mu_0}{\sigma/\sqrt{n}}
+\end{align}
+$$
+当真值$\mu\geq \mu_0$时 $\beta(\mu)$为作出正确判断的概率；当真值$\mu&lt;\mu_0$时，$\beta(\mu)$给出犯第2类错误的概率。只要样本容量$n$满足
+$$
+\begin{align}
+	\sqrt{n} \geq \frac{(z_\alpha+z_\beta)\sigma}{\delta}
+\end{align}
+$$
+就能使当$\mu\in H_1$且$\mu\leq \mu_0-\delta~(\delta&gt;0)$时，犯第2类错误的概率不超过给定的值$\beta$.</p>
+<p>同理，双边检验。</p>
+<h4>2.4.2 $t$检验法的OC函数</h4>
+<p>右边检验问题$H_0: ~\mu\leq \mu_0$，$H_1:~\mu &gt;\mu_0$的$t$检验法的OC函数为
+$$
+\begin{align}
+	\beta(\mu) = P_\mu\left{ 接受H_0 \right} = P_\mu\left{ \frac{\bar{X}-\mu_0}{S/\sqrt{n}} &lt; t_\alpha(n-1) \right}
+\end{align}
+$$
+其中变量
+$$
+\begin{align}
+	\frac{\bar{X}-\mu_0}{S/\sqrt{n}} = \left( \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}  \right)\bigg/\left( \frac{S}{\sigma}\right),,~~~\lambda = \frac{\mu-\mu_0}{\sigma/\sqrt{n}},.
+\end{align}
+$$
+我们称变量$\frac{\bar{X}-\mu_0}{S/\sqrt{n}}$服从非中心参数为$\lambda$、自由度为$n-1$的非中心$t$分布。在$\lambda = 0$时，它是通常的$t(n-1)$变量。</p>
+<p>若给定$\alpha,\beta$以及$\delta&gt;0$，则可以得到所需的容量$n$，使得当$\mu\in H_1$且$\frac{\mu-\mu_0}{\sigma}\geq \delta$时犯第2类错误的概率不超过$\beta$。</p>
+<p>若给定$\alpha,\beta$以及$\delta&gt;0$，对于左边检验问题$H_0: ~\mu\geq \mu_0$，$H_1:~\mu &lt; \mu_0$的$t$检验法，也可以得到所需的容量$n$，使得当$\mu\in H_1$且$\frac{\mu-\mu_0}{\sigma}\leq -\delta$时犯第2类错误的概率不超过$\beta$。</p>
+<p>若给定$\alpha,\beta$以及$\delta&gt;0$，对于双边检验问题$H_0: ~\mu = \mu_0$，$H_1:~\mu \neq \mu_0$的$t$检验法，也可以得到所需的容量$n$，使得当$\mu\in H_1$且$\frac{\mu-\mu_0}{\sigma}\geq \delta$时犯第2类错误的概率不超过$\beta$。</p>
+<p>同理可以得到两个正态总体均值差的$t$检验。</p>
+<h3>2.5. 分布拟合检验</h3>
+<p>上面介绍的各种检验法都是在总体分布形式已知的情况下进行讨论的。但在实际问题中，有时不能知道总体服从什么类型的分布，这时就需要根据样本来检验关于分布的假设。我们主要讲$\chi^2$拟合检验法。它可以用来检验总体是否具有某一个指定的分布或属于某一个分布族，还介绍专门用于检验分布是否为正态分布的&quot;偏度、峰度检验法&quot;。</p>
+<h4>2.5.1 单个分布的$\chi^2$拟合检验法</h4>
+<p>设总体$X$的分布未知，$x_1,\cdots,x_n$是来自$X$的样本值。我们来检验假设
+$$
+\begin{align}
+	&amp;H_0:~总体X的分布函数为F(x),,\
+	&amp;H_1:~总体X的分布函数不是F(x),.
+\end{align}
+$$
+其中设$F(x)$不含未知参数。</p>
+<p>下面来定义检验统计量。讲在$H_0$下$X$可能去治的全体$\Omega$分成互不相交的子集$A_1,\cdots,A_n$，以$f_i(i=1,2,\cdots,k )$记样本观察值$x_1,\cdots,x_n$中落在$A_i$的个数，这表示时间$A_i = {X的值落在子集A_i内}$在$n$此独立试验中发生$f_i$次，于是在这$n$此试验中时间$A_i$发生的概率为$f_i/n$。另一方面，当$H_0$为真时，我们可以根据$H_0$中所假设的$X$的分布函数来计算事件$A_i$的概率，得到$p_i=P(A_i)$，$i=1,2,\cdots,k$。频率$f_i/n$和概率$p_i$会有差异，但一般来说，当$H_0$为真时，且试验的次数又甚多时，这种差异不应太大，因此$\left( \frac{f_i}{n}-p_i \right)^2$不应太大。我们采用如下形式
+$$
+\begin{align}
+	\sum_{i=1}^k C_i\left( \frac{f_i}{n}-p_i \right)^2
+\end{align}
+$$
+的统计量来度量样本与$H_0$中所假设的分布的吻合程度，其中$C_i~(i=1,2,\cdots,k)$为给定的常数。如果选取$C_i = n/p_i$，则这个呃统计量具有如下描述的定力中所述的简单性质。我们因此采用
+$$
+\begin{align}
+	\chi^2 = \sum_{i=1}^k \frac{n}{p_i}\left( \frac{f_i}{n}-p_i \right)^2 = \sum_{i=1}^k \frac{f_i^2}{np_i}-n
+\end{align}
+$$
+作为检验统计量。</p>
+<p><strong>定理</strong>  若$n$充分大$(n\geq 50)$，则当$H_0$为真时，上述的统计量近似服从$\chi^2(k-1)$分布。</p>
+<p>根据以上的讨论，当$H_0$为真时，$\chi^2$不应太大，如$\chi^2$太大就拒绝$H_0$，拒绝域的形式为	
+$$
+\begin{align}
+	\chi^2 \geq G~~~(G为正常数)
+\end{align}
+$$
+对于给定的显著性水平$\alpha$，确定$G$使
+$$
+\begin{align}
+	P\left{ 当H_0位真时拒绝H_0 \right} = P_{H_0}\left{ \chi^2\geq G \right} = \alpha
+\end{align}
+$$
+由上述定理得到$G = \chi^2_\alpha(k-1)$。即当样本观察值使$\chi^2$的值有
+$$
+\begin{align}
+	\chi^2\geq \chi^2_\alpha(k-1),,
+\end{align}
+$$
+则在显著性水平$\alpha$下拒绝$H_0$；否则就接受$H_0$。这就是单个分布的**$\chi^2$拟合检验法**。</p>
+<p>$\chi^2$拟合检验法是机遇上述定理得到的，所以使用时必须注意$n$不能小于50. 此外$np_i$不能太小，应有$np_i\geq 5$，否则应适当合并$A_i$，以满足这个要求。</p>
+<h4>2.5.2 分布族的$\chi^2$拟合检验</h4>
+<p>上面要求总体$X$的分布函数是$F(x)$，其中$F(x)$是已知的，这种情况是不多的。我们经常遇到的所需检验的原假设是
+$$
+\begin{align}
+	H_0:~总体X的分布函数是F(x;\theta_1,\cdots,\theta_r),,
+\end{align}
+$$
+其中$F$的形式已知，而$\mathbf {\theta}= (\theta_1,\cdots,\theta_n)$是未知参数。不同的$\theta_i$给出不同的分布，因而$F(x;\theta_1,\cdots,\theta_n)$代表一族分布。上面的$H_0$表示总体$X$的分布属于分布族$F(x;\theta_1,\cdots,\theta_n)$。采用类似于上一节的方法来定义检验统计量，将在$H_0$下$X$可能取值的全体$\Omega$分成$k~(k&gt;r+1)$个互不相交的子集$A_1,\cdots,A_k$，以$f_i~(i=1,2,\cdots,k)$记样本观察值$x_1,\cdots,x_n$落在$A_i$的个数，则事件$A_i = { X的值落在A_i内 }$的频率为$f_i/n$。另一方面，当$H_0$为真时，由$H_0$所假设的分布函数来计算$P(A_i)$，得到$P(A_i) = p(\theta_1,\cdots,\theta_r) = p(\theta) = p_i$。此时，需先利用样本求出未知参数的最大似然估计，以估计值作为参数值，求出$p_i$的估计值$\hat{p} = \hat{P}(A_i)$，取
+$$
+\begin{align}
+	\chi^2 = \sum_{i=1}^k \frac{f_i^2}{np_i} - n
+\end{align}
+$$
+作为假设检验$H_0$的统计量。可以证明，在某些条件下，在$H_0$为真时近似地有
+$$
+\begin{align}
+	\chi^2  = \sum_{i=1}^k \frac{f_i^2}{n p_i} - n \sim \chi^2(k-r-1)
+\end{align}
+$$
+可以得到假设检验的拒绝域为
+$$
+\begin{align}
+	\chi^2 \geq \chi^2_\alpha (k-r-1),,
+\end{align}
+$$
+$\alpha$为显著性水平。以上就是用来检验分布族的$\chi^2$拟合检验法。</p>
+<h3>2.8 假设检验问题的$p$值法</h3>
+<p>以上我们讨论的检验假设的方法称为<strong>临界法</strong>。我们现在介绍另一种被称为$p$值法的检验方法。</p>
+<p><strong>定义</strong> 假设检验问题的$p$值可以根据检验统计量的样本观察得出原假设可能被拒绝的最小显著性水平。</p>
+<p>常用的检验问题的$p$值可以根据检验统计量的样本观察值一级检验统计量在$H_0$下一个特定的参数值(一般是$H_0$和$H_1$所规定的参数的分界点)对应的分布求出。例如在正态总体$N(\mu,\sigma)$均值的检验中，当$\sigma$未知时，可采用检验统计量$t = \frac{\bar{X}-\mu_0}{S/\sqrt{n}}$，在以下三个检验问题中，当$\mu=\mu_0$时$t\sim t(n-1)$。如果由样本求得统计量$t$得观测值为$t_0$，那么在检验问题
+$$
+\begin{align}
+	&amp;H_0:~\mu\leq \mu_0,~~H_1:~\mu&gt;\mu_0中,,\
+	&amp;P值=P_{\mu_0}\left{ t\geq t_0\right} = t_0右侧尾部面积,,\
+	&amp;H_0:~\mu\geq \mu_0,~~H_1:~\mu&lt;\mu_0中,,\
+	&amp;P值=P_{\mu_0}\left{ t\leq t_0\right} = t_0左侧尾部面积,,\
+	&amp;H_0:~\mu = \mu_0,<s>H_1:~\mu\neq \mu_0中,,\
+	&amp;</s>(1)当t_0&gt;0时\
+	&amp;~~~~~~~~~~~~<s>p值=P_{\mu_0}\left{ |t|\geq t_0 \right}=2\times (t_0右侧尾部面积) \
+	&amp;</s>(2)当t_0&lt;0时\
+	&amp;~~~~~~~~~~~~~~p值=P_{\mu_0}\left{ |t|\geq -t_0 \right}=2\times (t_0左侧尾部面积)
+\end{align}
+$$
+按照$p$值法的定义，对于任意指定的显著水平$\alpha$就有</p>
+<p>​	(1) 若$p$值$\leq \alpha$，则在显著水平$\alpha$下拒绝$H_0$，</p>
+<p>​	(2) 若$p$值$&gt; \alpha$，则在显著水平$\alpha$下接受$H_0$。</p>
+<p>有了这两条结论就能方便地确定是否拒绝$H_0$，这种方法就称为$p$值法。</p>
+<h1>Records on 27/10/2018</h1>
+<h3>Examine up to 1PN isotropic coordinate patch equivalent to harmonic coordinate system with lapse and shift expressions</h3>
+<p>We give the initial data, follows,</p>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*coordinates and initial data*)</span></span><br><span class="line">coord = &#123;x, y, z&#125;;</span><br><span class="line">vz1 = <span class="number">0</span>; vz2 = <span class="number">0</span>; r1 = <span class="keyword">Sqrt</span>[x^<span class="number">2</span> + y^<span class="number">2</span> + z^<span class="number">2</span>]; r2 = </span><br><span class="line"> <span class="keyword">Sqrt</span>[x^<span class="number">2</span> + y^<span class="number">2</span> + z^<span class="number">2</span> + R^<span class="number">2</span> - </span><br><span class="line">   <span class="number">2</span> R y]; \[Theta]<span class="number">1</span> = \[Theta]; \[Theta]<span class="number">2</span> = </span><br><span class="line"> <span class="keyword">ArcCos</span>[r1/r2 <span class="keyword">Cos</span>[\[Theta]<span class="number">1</span>]]; v1 = </span><br><span class="line"> vx1^<span class="number">2</span> + vy1^<span class="number">2</span>; vn1 = (vx1  x/r1 + vy1 y/r1)^<span class="number">2</span>; v2 = <span class="number">0</span>; vn2 = <span class="number">0</span>;</span><br><span class="line">vx2 = <span class="number">0</span>;</span><br><span class="line">vy2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">(*lapse function*)</span> <span class="comment">(*note that here is alpha not g_&#123;00&#125;=-alpha^2*)</span></span><br><span class="line">\[Alpha][x_, y_, z_] := </span><br><span class="line">  <span class="number">1</span> + (-((G m1)/r1) - (G m2)/r2)/c^<span class="number">2</span> + </span><br><span class="line">  <span class="number">1</span>/c^<span class="number">4</span> ((G^<span class="number">2</span> m1^<span class="number">2</span>)/(<span class="number">2</span> r1^<span class="number">2</span>) + (<span class="number">5</span> G^<span class="number">2</span> m1 m2)/(<span class="number">4</span> R r1) + (</span><br><span class="line">     G^<span class="number">2</span> m1 m2 r1)/(<span class="number">4</span> R^<span class="number">3</span>) + (G^<span class="number">2</span> m2^<span class="number">2</span>)/(<span class="number">2</span> r2^<span class="number">2</span>) + (<span class="number">5</span> G^<span class="number">2</span> m1 m2)/(</span><br><span class="line">     <span class="number">4</span> R r2) + (G^<span class="number">2</span> m1 m2)/(r1 r2) - (G^<span class="number">2</span> m1 m2 r1^<span class="number">2</span>)/(<span class="number">4</span> R^<span class="number">3</span> r2) + (</span><br><span class="line">     G^<span class="number">2</span> m1 m2 r2)/(<span class="number">4</span> R^<span class="number">3</span>) - (G^<span class="number">2</span> m1 m2 r2^<span class="number">2</span>)/(<span class="number">4</span> R^<span class="number">3</span> r1) - (</span><br><span class="line">     <span class="number">2</span> G m1 v1)/r1 - (<span class="number">2</span> G m2 v2)/r2 + (G m1 vn1)/(<span class="number">2</span> r1) + (G m2 vn2)/(</span><br><span class="line">     <span class="number">2</span> r2));</span><br><span class="line"></span><br><span class="line"><span class="comment">(*shift vector*)</span></span><br><span class="line">\[<span class="keyword">Beta</span>] = &#123;-((4 G m1 vx1)/(c^3 r1)) - (4 G m2 vx2)/(</span><br><span class="line">    c^3 r2), -((4 G m1 vy1 )/(c^3 r1)) - (4 G m2 vy2 )/(</span><br><span class="line">    c^3 r2), -((4 G m1 vz1 )/(c^3 r1)) - (4 G m2 vz2 )/(c^3 r2)&#125;;</span><br><span class="line">\[Psi][x_, y_, z_] := <span class="number">1</span> + (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) + (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line">\[Psi]<span class="number">1</span>[x_, y_, z_] := <span class="number">1</span> - (<span class="number">2</span> G m1)/(c^<span class="number">2</span> r1) - (<span class="number">2</span> G m2)/(c^<span class="number">2</span> r2);</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 3-metric which is conformal to flat space in isotropic coordinates *)</span></span><br><span class="line">metric = &#123;&#123;\[Psi][x, y, z], 0, 0&#125;, &#123;0, \[Psi][x, y, z], 0&#125;, &#123;0, </span><br><span class="line">    0, \[Psi][x, y, z]&#125;&#125;;</span><br><span class="line"><span class="comment">(* inverse 3-metric *)</span></span><br><span class="line">inversemetric = &#123;&#123;\[Psi]1[x, y, z], 0, 0&#125;, &#123;0, \[Psi]1[x, y, z], </span><br><span class="line">    0&#125;, &#123;0, 0, \[Psi]1[x, y, z]&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(*confomal 3-metric and its inverse metric*)</span>  </span><br><span class="line">confmetric = &#123;&#123;1, 0, 0&#125;, &#123;0, 1, 0&#125;, &#123;0, 0, 1&#125;&#125;;</span><br><span class="line">inverseconfmetric = &#123;&#123;1, 0, 0&#125;, &#123;0, 1, 0&#125;, &#123;0, 0, 1&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">(*derive affine connection and Ricci tensor*)</span></span><br><span class="line">affine := affine = <span class="keyword">Table</span>[(<span class="number">1</span>/<span class="number">2</span>)*<span class="keyword">Sum</span>[(inversemetric[[i, s]])*</span><br><span class="line">      (<span class="keyword">D</span>[metric[[s, j]], coord[[k]] ] +</span><br><span class="line">        <span class="keyword">D</span>[metric[[s, k]], coord[[j]] ] - </span><br><span class="line">        <span class="keyword">D</span>[metric[[j, k]], coord[[s]] ]), &#123;s, 1, 3&#125;],</span><br><span class="line">   &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;, &#123;k, 1, 3&#125;]  <span class="comment">(*Christoffel symbol*)</span></span><br><span class="line"></span><br><span class="line">riemann := riemann = <span class="keyword">Table</span>[</span><br><span class="line">   <span class="keyword">D</span>[affine[[i, j, l]], coord[[k]] ] - </span><br><span class="line">    <span class="keyword">D</span>[affine[[i, j, k]], coord[[l]] ] +</span><br><span class="line">    <span class="keyword">Sum</span>[affine[[s, j, l]] affine[[i, k, s]] - </span><br><span class="line">      affine[[s, j, k]] affine[[i, l, s]],</span><br><span class="line">     &#123;s, 1, 3&#125;],</span><br><span class="line">   &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;, &#123;k, 1, 3&#125;, &#123;l, 1, 3&#125;] <span class="comment">(*Riemann tensor*)</span></span><br><span class="line"></span><br><span class="line">RR := RR = </span><br><span class="line">  <span class="keyword">Table</span>[<span class="keyword">Sum</span>[riemann[[i, j, i, l]], &#123;i, 1, 3&#125;], &#123;j, 1, 3&#125;, &#123;l, 1, 3&#125;] <span class="comment">(*Ricci tensor*)</span></span><br><span class="line">RRR = <span class="keyword">Sum</span>[inversemetric[[i, j]] RR[[i, j]], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;] ;  <span class="comment">(*Ricci scalar*)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">(*obtain 4-dimensional affine connection*)</span></span><br><span class="line">n = <span class="number">4</span>;</span><br><span class="line">coord1 = &#123;t, x, y, z&#125;;</span><br><span class="line">u[i_] := <span class="number">0</span> ;</span><br><span class="line"><span class="comment">(*4-velocity*)</span></span><br><span class="line">u[<span class="number">1</span>] = (\[Alpha][x, y, z])^<span class="number">-1</span>; </span><br><span class="line">u[<span class="number">2</span>] = - (\[Alpha][x, y, z])^<span class="number">-1</span> \[<span class="keyword">Beta</span>][[<span class="number">1</span>]]; </span><br><span class="line">u[<span class="number">3</span>] = - (\[Alpha][x, y, z])^<span class="number">-1</span> \[<span class="keyword">Beta</span>][[<span class="number">2</span>]]; </span><br><span class="line">u[<span class="number">4</span>] = - (\[Alpha][x, y, z])^<span class="number">-1</span> \[<span class="keyword">Beta</span>][[<span class="number">3</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">(*metric and its inverse*)</span></span><br><span class="line">g[i_, j_] = <span class="number">0</span>; g[<span class="number">1</span>, <span class="number">1</span>] = -\[Alpha][x, y, z]^<span class="number">2</span>; </span><br><span class="line">g[<span class="number">1</span>, <span class="number">2</span>] = <span class="keyword">Sum</span>[ metric[[<span class="number">1</span>, k]] \[<span class="keyword">Beta</span>][[k]], &#123;k, 1, 3&#125;]; </span><br><span class="line">g[<span class="number">2</span>, <span class="number">1</span>] = g[<span class="number">1</span>, <span class="number">2</span>]; </span><br><span class="line">g[<span class="number">1</span>, <span class="number">3</span>] = <span class="keyword">Sum</span>[ metric[[<span class="number">2</span>, k]] \[<span class="keyword">Beta</span>][[k]], &#123;k, 1, 3&#125;]; </span><br><span class="line">g[<span class="number">3</span>, <span class="number">1</span>] = g[<span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line">g[<span class="number">1</span>, <span class="number">4</span>] = <span class="keyword">Sum</span>[ metric[[<span class="number">3</span>, k]] \[<span class="keyword">Beta</span>][[k]], &#123;k, 1, 3&#125;];</span><br><span class="line">g[<span class="number">4</span>, <span class="number">1</span>] = g[<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line">g[<span class="number">2</span>, <span class="number">2</span>] = metric[[<span class="number">1</span>, <span class="number">1</span>]]; g[<span class="number">2</span>, <span class="number">3</span>] = metric[[<span class="number">1</span>, <span class="number">2</span>]]; </span><br><span class="line">g[<span class="number">2</span>, <span class="number">4</span>] = metric[[<span class="number">1</span>, <span class="number">3</span>]];</span><br><span class="line">g[<span class="number">3</span>, <span class="number">2</span>] = metric[[<span class="number">2</span>, <span class="number">1</span>]]; g[<span class="number">3</span>, <span class="number">3</span>] = metric[[<span class="number">2</span>, <span class="number">2</span>]]; </span><br><span class="line">g[<span class="number">3</span>, <span class="number">4</span>] = metric[[<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line">g[<span class="number">4</span>, <span class="number">2</span>] = metric[[<span class="number">3</span>, <span class="number">1</span>]]; g[<span class="number">4</span>, <span class="number">3</span>] = metric[[<span class="number">3</span>, <span class="number">2</span>]]; </span><br><span class="line">g[<span class="number">4</span>, <span class="number">4</span>] = metric[[<span class="number">3</span>, <span class="number">3</span>]];</span><br><span class="line"></span><br><span class="line">inverseg[i_, j_] := <span class="number">0</span>; inverseg[<span class="number">1</span>, <span class="number">1</span>] = -\[Alpha][x, y, z]^<span class="number">-2</span>;</span><br><span class="line">inverseg[<span class="number">1</span>, </span><br><span class="line">  <span class="number">2</span>] = -\[Alpha][x, y, z]^<span class="number">-2</span> <span class="keyword">Sum</span>[ </span><br><span class="line">   metric[[<span class="number">1</span>, k]] \[<span class="keyword">Beta</span>][[k]], &#123;k, 1, 3&#125;]; </span><br><span class="line">inverseg[<span class="number">2</span>, <span class="number">1</span>] = inverseg[<span class="number">1</span>, <span class="number">2</span>]; </span><br><span class="line">inverseg[<span class="number">1</span>, </span><br><span class="line">  <span class="number">3</span>] = -\[Alpha][x, y, z]^<span class="number">-2</span> <span class="keyword">Sum</span>[ </span><br><span class="line">   metric[[<span class="number">2</span>, k]] \[<span class="keyword">Beta</span>][[k]], &#123;k, 1, 3&#125;]; </span><br><span class="line">inverseg[<span class="number">3</span>, <span class="number">1</span>] = inverseg[<span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line">inverseg[<span class="number">1</span>, </span><br><span class="line">   <span class="number">4</span>] = -\[Alpha][x, y, z]^<span class="number">-2</span> <span class="keyword">Sum</span>[ </span><br><span class="line">    metric[[<span class="number">3</span>, k]] \[<span class="keyword">Beta</span>][[k]], &#123;k, 1, 3&#125;];</span><br><span class="line">inverseg[<span class="number">4</span>, <span class="number">1</span>] = inverseg[<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line">inverseg[<span class="number">2</span>, <span class="number">2</span>] = inversemetric[[<span class="number">1</span>, <span class="number">1</span>]]; </span><br><span class="line">inverseg[<span class="number">2</span>, <span class="number">3</span>] = inversemetric[[<span class="number">1</span>, <span class="number">2</span>]]; </span><br><span class="line">inverseg[<span class="number">2</span>, <span class="number">4</span>] = inversemetric[[<span class="number">1</span>, <span class="number">3</span>]];</span><br><span class="line">inverseg[<span class="number">3</span>, <span class="number">2</span>] = inversemetric[[<span class="number">2</span>, <span class="number">1</span>]]; </span><br><span class="line">inverseg[<span class="number">3</span>, <span class="number">3</span>] = inversemetric[[<span class="number">2</span>, <span class="number">2</span>]]; </span><br><span class="line">inverseg[<span class="number">3</span>, <span class="number">4</span>] = inversemetric[[<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line">inverseg[<span class="number">4</span>, <span class="number">2</span>] = inversemetric[[<span class="number">3</span>, <span class="number">1</span>]]; </span><br><span class="line">inverseg[<span class="number">4</span>, <span class="number">3</span>] = inversemetric[[<span class="number">3</span>, <span class="number">2</span>]]; </span><br><span class="line">inverseg[<span class="number">4</span>, <span class="number">4</span>] = inversemetric[[<span class="number">3</span>, <span class="number">3</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">(*Christoffel symbol*)</span></span><br><span class="line">affine1 := affine1 = <span class="keyword">Table</span>[(<span class="number">1</span>/<span class="number">2</span>)*<span class="keyword">Sum</span>[(inverseg[i, s])*</span><br><span class="line">      (<span class="keyword">D</span>[g[s, j], coord1[[k]] ] +</span><br><span class="line">        <span class="keyword">D</span>[g[s, k], coord1[[j]] ] - <span class="keyword">D</span>[g[j, k], coord1[[s]] ]), &#123;s, 1, </span><br><span class="line">      n&#125;],</span><br><span class="line">   &#123;i, 1, n&#125;, &#123;j, 1, n&#125;, &#123;k, 1, n&#125;] </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">(* extrinsic curvature according to its definition and trace*)</span></span><br><span class="line">kkk[i_, j_] := -<span class="keyword">D</span>[u[i + <span class="number">1</span>], coord[j]] + </span><br><span class="line">   <span class="keyword">Sum</span>[affine1[[k, i + <span class="number">1</span>, j + <span class="number">1</span>]] u[k], &#123;k, 1, 4&#125;] - </span><br><span class="line">   u[i + <span class="number">1</span>] <span class="keyword">D</span>[<span class="keyword">Log</span>[\[Alpha][x, y, z]], coord[j]];</span><br><span class="line">kk = <span class="keyword">Sum</span>[inversemetric[[i, j]] kkk[i, j], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;];</span><br><span class="line"> </span><br><span class="line"> <span class="comment">(* alternatively extrinsic curvature solved in isotropic coordinates, but here we use the above one*)</span></span><br><span class="line"> k[i_, j_] := (<span class="number">3</span> m1)/(</span><br><span class="line">   <span class="number">2</span> r1^<span class="number">2</span>) ( </span><br><span class="line">    v1[i] nn1[j] + </span><br><span class="line">     v1[j] nn1[i] - (confmetric[i, j] - nn1[i] nn1[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v1[k] nn1[k], &#123;k, 1, 3&#125;]) + (<span class="number">3</span> m2)/(</span><br><span class="line">   <span class="number">2</span> r2^<span class="number">2</span>) ( </span><br><span class="line">    v2[i] nn2[j] + </span><br><span class="line">     v2[j] nn2[i] - (confmetric[i, j] - nn2[i] nn2[j]) <span class="keyword">Sum</span>[</span><br><span class="line">       v2[k] nn2[k], &#123;k, 1, 3&#125;])</span><br><span class="line">k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">(*conformal extrinsic curvature*)</span></span><br><span class="line">A[i_, j_] := (<span class="number">1</span> - <span class="number">3</span> m1/r1 - <span class="number">3</span> m2/r2) kkk[i, j];</span><br></pre></td></tr></table></figure></p>
+<p>Now we calculate the evolution equations in terms of the quantities above</p>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*harmonic gauge condition*)</span></span><br><span class="line">ggg[l_] := </span><br><span class="line"> <span class="keyword">Series</span>[<span class="keyword">Sum</span>[</span><br><span class="line">   <span class="keyword">D</span>[<span class="keyword">Sqrt</span>[-<span class="keyword">Det</span>[  <span class="keyword">Table</span>[ g[i, j] , &#123;i, 1, 4&#125;, &#123;j, 1, 4&#125;] ]] inverseg[k,</span><br><span class="line">       l], coord1[[k]]], &#123;k, 1, 4&#125;], &#123;c, Infinity, 3&#125;]</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*\partial_t\psi*)</span></span><br><span class="line"><span class="keyword">Dt</span>\[Psi] = </span><br><span class="line"> <span class="keyword">Series</span>[-(<span class="number">1</span>/<span class="number">6</span>) \[Alpha][x, y, z] \[Psi][x, y, z] kk + </span><br><span class="line">   <span class="keyword">Sum</span>[\[<span class="keyword">Beta</span>][[i]] <span class="keyword">D</span>[\[Psi][x, y, z], coord[[i]]], &#123;i, 1, 3&#125;] + </span><br><span class="line">   <span class="number">1</span>/<span class="number">6</span> <span class="keyword">Sum</span>[\[Psi][x, y, z] <span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[i]], coord[[i]]], &#123;i, 1, </span><br><span class="line">      3&#125;], &#123;c, Infinity, 4&#125;]</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*\partial_t\bar&#123;\gamma_&#123;ij&#125;&#125;*)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Dt</span>\[<span class="keyword">Gamma</span>][i_, j_] := </span><br><span class="line"> <span class="keyword">Series</span>[<span class="number">-2</span> \[Alpha][x, y, z] A[i, j] + </span><br><span class="line">   <span class="keyword">Sum</span>[confmetric[[i, k]] <span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[k]], coord[[j]]], &#123;k, 1, 3&#125;] + </span><br><span class="line">   <span class="keyword">Sum</span>[confmetric[[j, k]] <span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[k]], coord[[i]]], &#123;k, 1, 3&#125;] - </span><br><span class="line">   <span class="number">2</span>/<span class="number">3</span> confmetric[[i, j]] <span class="keyword">Sum</span>[</span><br><span class="line">     <span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[k]], coord[[k]]], &#123;k, 1, 3&#125;], &#123;c, Infinity, 4&#125;]</span><br><span class="line">listgamma := </span><br><span class="line"> <span class="keyword">Table</span>[<span class="keyword">If</span>[<span class="keyword">UnsameQ</span>[<span class="keyword">Dt</span>\[<span class="keyword">Gamma</span>][j, l], </span><br><span class="line">    <span class="number">0</span>], &#123;ToString[paritialtgamma[j, l]], Dt\[Gamma][j, l]&#125;] , &#123;j, 1, </span><br><span class="line">   3&#125;, &#123;l, 1, j&#125;]</span><br><span class="line"><span class="keyword">TableForm</span>[<span class="keyword">Partition</span>[<span class="keyword">DeleteCases</span>[<span class="keyword">Flatten</span>[listgamma], <span class="keyword">Null</span>], <span class="number">2</span>], </span><br><span class="line"> <span class="keyword">TableSpacing</span> -&gt; &#123;2, 2&#125;]</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*\partial_t K*)</span></span><br><span class="line"></span><br><span class="line">DtK = <span class="keyword">Series</span>[-<span class="keyword">Sum</span>[</span><br><span class="line">     inversemetric[[i, j]] <span class="keyword">D</span>[\[Alpha][x, y, z], coord[[i]], </span><br><span class="line">       coord[[j]]], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;] + </span><br><span class="line">   <span class="keyword">Sum</span>[inversemetric[[i, j]] affine[[k, i, j]] <span class="keyword">D</span>[\[Alpha][x, y, z], </span><br><span class="line">      coord[[k]]], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;, &#123;k, 1, 3&#125;] + \[Alpha][x, y, </span><br><span class="line">     z] (<span class="keyword">Sum</span>[A[i, j] A[i, j], &#123;i, 1, 3&#125;, &#123;j, 1, 3&#125;] + <span class="number">1</span>/<span class="number">3</span> kk^<span class="number">2</span>) + </span><br><span class="line">   <span class="keyword">Sum</span>[\[<span class="keyword">Beta</span>][[i]] <span class="keyword">D</span>[kk, coord[[i]]], &#123;i, 1, 3&#125;], &#123;c, Infinity, 3&#125;]</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(*\partial_t\bar&#123;A&#125;_&#123;ij&#125;*)</span></span><br><span class="line"></span><br><span class="line">nabla2alpha = </span><br><span class="line">  <span class="number">1</span>/(\[Alpha][x, y, z] \[Psi][x, y, z]^<span class="number">6</span>)</span><br><span class="line">    <span class="keyword">Sum</span>[<span class="keyword">D</span>[\[Alpha][x, y, z] \[Psi][x, y, </span><br><span class="line">       z]^<span class="number">6</span> inversemetric[[k, l]] <span class="keyword">D</span>[\[Alpha][x, y, z], coord[[k]]], </span><br><span class="line">     coord[[l]]], &#123;k, 1, 3&#125;, &#123;l, 1, 3&#125;];</span><br><span class="line"></span><br><span class="line">DtA[i_, j_] := </span><br><span class="line"> <span class="keyword">Series</span>[(<span class="number">1</span> - (G m1)/(<span class="number">2</span> c^<span class="number">2</span> r1) - (G m2)/(</span><br><span class="line">      <span class="number">2</span> c^<span class="number">2</span> r2))^<span class="number">4</span> (-(<span class="keyword">D</span>[<span class="keyword">D</span>[\[Alpha][x, y, z], coord[[i]]], </span><br><span class="line">          coord[[j]]] - </span><br><span class="line">         <span class="keyword">Sum</span>[affine[[k, i, j]] <span class="keyword">D</span>[\[Alpha][x, y, z], coord[[k]]], &#123;k, </span><br><span class="line">           1, 3&#125;] - <span class="number">1</span>/<span class="number">3</span> metric[[i, j]] nabla2alpha ) + \[Alpha][x, y, </span><br><span class="line">        z] (RR[[i, j]] - <span class="number">1</span>/<span class="number">3</span> metric[[i, j]] RRR)) + \[Alpha][x, y, </span><br><span class="line">     z] (kk A[i, j] - <span class="number">2</span> <span class="keyword">Sum</span>[A[i, k] A[j, k], &#123;k, 1, 3&#125;]) + </span><br><span class="line">   <span class="keyword">Sum</span>[\[<span class="keyword">Beta</span>][[k]] <span class="keyword">D</span>[A[i, j], coord[[k]]], &#123;k, 1, 3&#125;] + </span><br><span class="line">   <span class="keyword">Sum</span>[A[i, k] <span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[k]], coord[[j]]], &#123;k, 1, 3&#125;] + </span><br><span class="line">   <span class="keyword">Sum</span>[A[j, k] <span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[k]], coord[[i]]], &#123;k, 1, 3&#125;] - </span><br><span class="line">   <span class="number">2</span>/<span class="number">3</span> A[i, j] <span class="keyword">Sum</span>[<span class="keyword">D</span>[\[<span class="keyword">Beta</span>][[k]], coord[[k]]], &#123;k, 1, 3&#125;], &#123;c, </span><br><span class="line">   Infinity, 3&#125;]</span><br><span class="line">lista := <span class="keyword">Table</span>[</span><br><span class="line">  <span class="keyword">If</span>[<span class="keyword">UnsameQ</span>[DtA[j, l], <span class="number">0</span>], &#123;ToString[partialtA[j, l]], </span><br><span class="line">    DtA[j, l]&#125;] , &#123;j, 1, 3&#125;, &#123;l, 1, j&#125;]</span><br><span class="line">(<span class="keyword">Simplify</span>[</span><br><span class="line">   <span class="keyword">Assuming</span>[</span><br><span class="line">    <span class="keyword">Element</span>[rr1, <span class="keyword">Reals</span>] &amp;&amp; <span class="keyword">Element</span>[rr2, <span class="keyword">Reals</span>] &amp;&amp; rr1 &gt; <span class="number">0</span> &amp;&amp; rr2 &gt; <span class="number">0</span>, </span><br><span class="line">    <span class="keyword">TableForm</span>[<span class="keyword">Partition</span>[<span class="keyword">DeleteCases</span>[<span class="keyword">Flatten</span>[lista], <span class="keyword">Null</span>], <span class="number">2</span>], </span><br><span class="line">       <span class="keyword">TableSpacing</span> -&gt; &#123;2, 2&#125;] /. (x^<span class="number">2</span> + y^<span class="number">2</span> + z^<span class="number">2</span>) -&gt;  </span><br><span class="line">       rr1^<span class="number">2</span> /. (R^<span class="number">2</span> + rr1^<span class="number">2</span> - <span class="number">2</span> R y) -&gt; rr2^<span class="number">2</span>]]) // <span class="keyword">Expand</span></span><br></pre></td></tr></table></figure></p>
+<p>Finally we give the result that they vanishes up to 1PN.</p>
+<h1>Records on 6/11/2018</h1>
+<p>The coordinate transformation is  explicitly
+$$
+\begin{align}
+	t = &amp; \bar{t} + \frac{1}{c^2}f(\bar{t},\bar{x}^j)+\frac{1}{c^4}g(\bar{t},\bar{x}^j)+\mathcal{O}(c^{-6})\
+	x^i = &amp; \bar{x}^i +r^i + \frac{1}{c^2}h^i(\bar{t},\bar{x}^j)+\mathcal{O}(c^{-4})
+\end{align}
+$$
+in harmonic gauge, where
+$$
+\begin{align}
+	f = &amp; A(\bar{t})+v_j\bar{x}^j\
+	h^j = &amp; H^j(\bar{t})+H^j_k(\bar{t})\bar{x}^k +\frac{1}{2}H^j_{kn}(\bar{t})\bar{x}^k\bar{x}^n\
+	g = &amp; \frac{1}{6}\ddot{A}(\bar{t}) \delta_{jk}\bar{x}^j \bar{x}^k + \frac{1}{30}(\delta_{jk}\dot{a}<em>n +\delta</em>{kn}\dot{a}<em>j + \delta</em>{jn}\dot{a}_k)\bar{x}^j\bar{x}^k\bar{x}^n+\gamma(\bar{t},\bar{x}^j),.
+\end{align}
+$$
+Then the square of differentials are
+$$
+\begin{align}
+	-\alpha^2c^2dt^2 = &amp; -c^2\alpha^2\left{ 1+\frac{2}{c^2}\frac{\partial A}{\partial t} + \frac{1}{c^4}\left[ \left( \frac{\partial A}{\partial t} \right)^2 +2\frac{\partial \gamma}{ \partial t} \right] \right}dt^2 \nonumber \
+	&amp;-2\alpha^2 \left( \frac{\partial f}{\partial x^j} + \frac{1}{c^2}\frac{\partial g}{\partial x^j} + \frac{1}{c^2} \frac{\partial A}{\partial t} \frac{\partial f}{\partial x^j} \right)dtdx^j \nonumber\
+	&amp;- \frac{\alpha^2}{c^2}\frac{\partial f}{\partial x^j}\frac{\partial f}{\partial x^k}dx^jdx^k\nonumber\
+	= &amp; -c^2\psi^{-4}\left{ 1+\frac{2}{c^2}\frac{\partial A}{\partial t} + \frac{1}{c^4}\left[ \left( \frac{\partial A}{\partial t} \right)^2 +2\frac{\partial \gamma}{ \partial t} \right] \right}dt^2 \nonumber \
+	&amp;-2\psi^{-4} \left( \frac{\partial f}{\partial x^j} + \frac{1}{c^2}\frac{\partial g}{\partial x^j} + \frac{1}{c^2} \frac{\partial A}{\partial t} \frac{\partial f}{\partial x^j} \right)dtdx^j \nonumber\
+	&amp;- \frac{1}{c^2}\psi^{-4}\frac{\partial f}{\partial x^j}\frac{\partial f}{\partial x^k}dx^jdx^k
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+	\gamma_{ij}dx^idx^j = &amp;\psi^4\delta_{ij}\left[ dx^i + v^idt +\frac{1}{c^2}\frac{\partial h^i}{\partial t} dt + \frac{1}{c^2}\frac{\partial h^i}{\partial x^k}dx^k \right] \nonumber\
+	&amp; \times \left[ dx^j + v^idt +\frac{1}{c^2}\frac{\partial h^j}{\partial t} dt + \frac{1}{c^2}\frac{\partial h^j}{\partial x^l}dx^l \right]\nonumber\
+	=&amp; \psi^4 \delta_{ij}\left[ dx^idx^j +\frac{2}{c^2} \frac{\partial h^i}{\partial x^k}dx^jdx^k \right]\nonumber\
+	 &amp; +  \psi^4\delta_{ij}\left[ 2v^jdtdx^i + \frac{2}{c^2}\frac{\partial h^i}{\partial t} dtdx^j + \frac{2v^j}{c^2}\frac{\partial h^i}{\partial x^k} dx^kdt \right] \nonumber\
+	 &amp; + \psi^4 \delta_{ij}\left[ v^iv^j + \frac{2v^j}{c^2}\frac{\partial h^i}{\partial t} \right]dt^2
+\end{align}
+$$</p>
+<p>Summing them up and sortin  g in terms of $dt^2,~dx^i dt,~dx^i dx^j$,  the new metric reads as
+$$
+\begin{align}
+	ds^2 = &amp; -c^2\psi^{-4}\left{ 1+\frac{2}{c^2}\frac{\partial A}{\partial t} + \frac{1}{c^4}\left[ \left( \frac{\partial A}{\partial t} \right)^2 +2\frac{\partial \gamma}{ \partial t} \right] \right}dt^2 -2\psi^{-4} \left( \frac{\partial f}{\partial x^j} + \frac{1}{c^2}\frac{\partial g}{\partial x^j} + \frac{1}{c^2} \frac{\partial A}{\partial t} \frac{\partial f}{\partial x^j} \right)dtdx^j \nonumber\
+	&amp;- \frac{1}{c^2}\psi^{-4}\frac{\partial f}{\partial x^j}\frac{\partial f}{\partial x^k}dx^jdx^k + \psi^4 \delta_{ij}\left[ dx^idx^j +\frac{2}{c^2} \frac{\partial h^i}{\partial x^k}dx^jdx^k \right]\nonumber\
+	 &amp; +  \psi^4\delta_{ij}\left[ 2v^jdtdx^i + \frac{2}{c^2}\frac{\partial h^i}{\partial t} dtdx^j + \frac{2v^j}{c^2}\frac{\partial h^i}{\partial x^k} dx^kdt \right] + \psi^4 \delta_{ij}\left[ v^iv^j + \frac{2v^j}{c^2}\frac{\partial h^i}{\partial t} \right]dt^2\nonumber\
+	 = &amp; -c^2 \left{ \psi^{-4} + \frac{2}{c^2}\psi^{-4} \frac{\partial A}{\partial t} + \psi^4 \frac{ v^2}{c^2} +\frac{1}{c^4} \left[ \left( \frac{\partial A}{\partial t} \right)^2 + 2\frac{\partial \gamma}{\partial t} +2\psi^4 \delta_{ij}v^j \frac{\partial h^i}{\partial t} \right] \right}\nonumber\
+	 &amp;-2\left(\psi^{-4}\frac{\partial f}{\partial x^i} - \psi^4 \delta_{ij}v^j\right) dtdx^i -\frac{2}{c^2}\left( \psi^{-4} \frac{\partial g}{\partial x^i}+ \psi^{-4}\frac{\partial A}{\partial t}\frac{\partial  f}{\partial x^i} - \psi^4 \delta_{ij} \frac{\partial h^j}{\partial t}  \right)dtdx^i \nonumber\
+&amp;+\frac{2}{c^2}\psi^4\delta_{ij}v^i \frac{\partial h^i}{\partial x^k} dtdx^k\nonumber\
+&amp;  +\psi^4 \delta_{ij}dx^idx^j - \frac{1}{c^2}\left(\psi^{-4}\frac{\partial f}{\partial x^i}\frac{\partial f}{\partial x^j}dx^idx^j + 2\psi^4\delta_{ij}\frac{\partial h^i}{\partial x^k } dx^k dx^j  \right)
+\end{align}
+$$</p>
+<h1>Records on</h1>
+<h1>Records on 12/11/2018</h1>
+<p>To detect GW, I put forword one possibility which is a way to increase the amplitude of the wave. This wave can be GW or EM or neutrino wave.</p>
+<p>The method could refer the boosting signal in electronics.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/C++ and Parallel Computation/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -432,7 +1316,7 @@ $$
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
